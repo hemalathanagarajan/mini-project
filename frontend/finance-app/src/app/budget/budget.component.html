@@ -1,0 +1,103 @@
+<p>budget works!</p>
+
+
+<div class="content">
+    <div class="d-flex justify-content-center backcolor">
+        <form [formGroup]="formGroup" (ngSubmit)="storing()">
+            <div class="form-group">
+                <label for="home">Home rent</label>
+                <input id="home" class="form-control" formControlName="home" placeholder="home Required" required />
+                <div class="help-block text-danger" *ngIf="home.touched">
+                    <span *ngIf="home.errors?.required">
+                        Home rent amount is REQUIRED!!!
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="food">FOOD</label>
+                <input id="food" class="form-control" formControlName="food" required />
+                <div class="help-block text-danger" *ngIf="food.touched">
+                    <span *ngIf="home.errors?.required">
+                        Food value is REQUIRED!!!
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="cloth">Cloth</label>
+                <input id="cloth" class="form-control" formControlName="cloth" placeholder="cloth (required)"
+                    required />
+                <div class="help-block text-danger" *ngIf="cloth.touched">
+                    <span *ngIf="cloth.errors?.required"> cloth is REQUIRED!!! </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="eb-bill">EB-Bill</label>
+                <input type="eb-bill" id="eb-bill" class="form-control" formControlName="eb-bill" required />
+                <div class="help-block text-danger" *ngIf="eb-bill.touched">
+                    <span *ngIf="eb-bill.errors?.required"> Eb-bill is REQUIRED!!! </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="education">Education</label>
+                <input id="education" class="form-control" formControlName="eduction"
+                    placeholder="Enter your education amount#" />
+                <div class="help-block text-danger" *ngIf="education.touched">
+                    <span *ngIf="education.errors?.required">
+                        Education amount is REQUIRED!!!
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="EMI">EMI</label>
+                <input id="EMI" class="form-control" formControlName="eduction" placeholder="Enter your EMI amount#" />
+                <div class="help-block text-danger" *ngIf="EMI.touched">
+                    <span *ngIf="EMI.errors?.required">
+                        EMI Amount is REQUIRED!!!
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="entertainment">Entertainment</label>
+                <input id="entertainment" class="form-control" formControlName="eduction"
+                    placeholder="Enter your entertainment amount#" />
+
+                <div class="help-block text-danger" *ngIf="entertainment.touched">
+                    <span *ngIf="entertainment.errors?.required">
+                        Entertainment Field is REQUIRED!!!
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="transport">Auto-Transport</label>
+                <input id="transport" class="form-control" formControlName="eduction"
+                    placeholder="Enter your transport amount#" />
+
+                <div class="help-block text-danger" *ngIf="transport.touched">
+                    <span *ngIf="transport.errors?.required">
+                        Auto-Transport is REQUIRED!!!
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="health-checkup">Health-Checkup</label>
+                <input id="health-checkup" class="form-control" formControlName="eduction"
+                    placeholder="Enter your health-checkup amount#" />
+                <div class="help-block text-danger" *ngIf="health-checkup.touched">
+                    <span *ngIf="health-checkup.errors?.required">
+                        Health Check up value is REQUIRED!!!
+                    </span>
+                </div>
+            </div>
+
+            <hr />
+            <button class="btn btn-primary">Sign Up</button> <span> Or <button class="btn btn-secondary"
+                    routerLink="login">Login</button> </span>
+        </form>
+    </div>

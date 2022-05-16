@@ -1,0 +1,71 @@
+<div class="float-parent-element">
+    <div class="float-child-element">
+        <div class="left">
+            <img src="https://www.quicken.com/sites/default/files/woman-budgeting-with-computer.jpg">
+            <h1>Keep track of your expenses </h1>
+        </div>
+    </div>
+    <div class="float-child-element">
+        <div class="right">
+            <h2>
+                Top money management tip: getting started
+            </h2>
+
+            <h2>
+                Create a budget:<br>
+                * Money management software typically comes in a stand-alone version — to be installed on your
+                computer
+
+                or an online package that requires Internet access.* Either way, the software includes a budgeting
+                section that allows you to plan income and expenses on a monthly, weekly, and yearly basis.
+
+
+            </h2>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="mb-3">
+                        <label for="exampleInputFirstName1" class="form-label">First Name</label>
+                        <input type="text" class="form-control" formControlName="firstName" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputLastName" class="form-label">Last Name</label>
+                        <input type="text" formControlName="lastName" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Email ID</label>
+                        <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
+                        <input type="number" formControlName="mobile" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Salary</label>
+                        <input type="text" formControlName="salary" class="form-control" id="exampleInputPassword1">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add user </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add
+    User</button>
