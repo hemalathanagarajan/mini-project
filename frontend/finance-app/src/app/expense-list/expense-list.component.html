@@ -1,0 +1,215 @@
+<div class="background">
+
+    <h1>Expense List</h1>
+
+    <!-- <div class="drop-down">
+        <select formControlName="month" class="form-control">
+            <option disabled>Select Month</option>
+            <option>Choose Month of expense</option>
+            <option *ngFor="let month of monthList">{{month}}</option>
+        </select>
+    </div> -->
+    <div class="backcolor">
+        <form [formGroup]="formgroup" (ngSubmit)="submit(this.formgroup.value)">
+            <div class="formgroup">
+                <label>Select Month</label>
+                <select name="cars" id="cars" class="form-control" placeholder="select month" formControlName="month">
+                    <option value="jan">Jan</option>
+                    <option value="feb">Feb</option>
+                    <option value="mar">Mar</option>
+                    <option value="apr">Apr</option>
+                    <option value="may">May</option>
+                    <option value="jun">Jun</option>
+                    <option value="july">July</option>
+                    <option value="aug">Aug</option>
+                    <option value="sep">Sep</option>
+                    <option value="oct">Oct</option>
+                    <option value="nov">Nov</option>
+                    <option value="dec">Dec</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="home">Home rent</label>
+                <input id="home" class="form-control" formControlName="home" placeholder="home Required"
+                    [ngModel]="expense.home" required />
+                <div class="help-block text-danger" *ngIf="home.touched">
+                    <span *ngIf="home.errors?.required">
+                        Home rent amount is REQUIRED!!!
+                    </span>
+                    <span *ngIf="home.invalid && home.touched">
+                        home must not negative values!!!
+                    </span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="food">FOOD</label>
+                <input id="food" class="form-control" [ngModel]="expense.food" formControlName="food" required />
+                <div class="help-block text-danger" *ngIf="food.touched">
+                    <span *ngIf="food.errors?.required">
+                        Food value is REQUIRED!!!
+                    </span>
+                    <span *ngIf="food.invalid && food.touched">
+                        food must not negative values!!!
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="cloth">Cloth</label>
+                <input id="cloth" class="form-control" [ngModel]="expense.cloth" formControlName="cloth"
+                    placeholder="cloth (required)" required />
+                <div class="help-block text-danger" *ngIf="cloth.touched">
+                    <span *ngIf="cloth.errors?.required"> cloth is REQUIRED!!! </span>
+                    <span *ngIf="cloth.invalid && cloth.touched">
+                        cloth must not negative values!!!
+                    </span>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="eb_bill">EB-Bill</label>
+                <input type="text" id="eb_bill" class="form-control" [ngModel]="expense.eb_bill"
+                    formControlName="eb_bill" required />
+                <div class="help-block text-danger" *ngIf="eb_bill.touched">
+                    <span *ngIf="eb_bill.errors?.required"> Eb-bill is REQUIRED!!! </span>
+                    <span *ngIf="eb_bill.invalid && eb_bill.touched">
+                        eb_bill must not negative values!!!
+                    </span>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="education">Education</label>
+                <input id="education" class="form-control" formControlName="education" [ngModel]="expense.education"
+                    placeholder="Enter your education amount#" />
+                <div class="help-block text-danger" *ngIf="education.touched">
+                    <span *ngIf="education.errors?.required">
+                        Education amount is REQUIRED!!!
+                    </span>
+                    <span *ngIf="education.invalid && education.touched">
+                        education must not negative values!!!
+                    </span>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="EMI">EMI</label>
+                <input id="EMI" class="form-control" formControlName="EMI" [ngModel]="expense.EMI"
+                    placeholder="Enter your EMI amount#" />
+                <div class="help-block text-danger" *ngIf="EMI.touched">
+                    <span *ngIf="EMI.errors?.required">
+                        EMI Amount is REQUIRED!!!
+                    </span>
+                    <span *ngIf="EMI.invalid && EMI.touched">
+                        EMI must not negative values!!!
+                    </span>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="entertainment">Entertainment</label>
+                <input id="entertainment" class="form-control" [ngModel]="expense.entertainment"
+                    formControlName="entertainment" placeholder="Enter your entertainment amount#" />
+
+                <div class="help-block text-danger" *ngIf="entertainment.touched">
+                    <span *ngIf="entertainment.errors?.required">
+                        Entertainment Field is REQUIRED!!!
+                    </span>
+                    <span *ngIf="entertainment.invalid && entertainment.touched">
+                        entertainment must not negative values!!!
+                    </span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="transport">Auto-Transport</label>
+                <input id="transport" class="form-control" formControlName="transport" [ngModel]="expense.transport"
+                    placeholder="Enter your transport amount#" />
+
+                <div class="help-block text-danger" *ngIf="transport.touched">
+                    <span *ngIf="transport.errors?.required">
+                        Auto-Transport is REQUIRED!!!
+                    </span>
+                    <span *ngIf="transport.invalid && transport.touched">
+                        transport must not negative values!!!
+                    </span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="health">Health-Checkup</label>
+                <input id="health" class="form-control" formControlName="health" [ngModel]="expense.health"
+                    placeholder="Enter your health_checkup amount#" />
+                <div class="help-block text-danger" *ngIf="health.touched">
+                    <span *ngIf="health.errors?.required">
+                        Health Check up value is REQUIRED!!!
+                    </span>
+                    <span *ngIf="health.invalid && health.touched">
+                        health amount must not negative values!!!
+                    </span>
+
+                </div>
+            </div>
+
+
+            <input type="readonly" class="form-control" formControlName="expenseall">
+
+            <!-- <br>Your expense amount is :<b> {{result}}</b><br> -->
+            <br>
+            <hr />
+            <button class="btn btn-primary"
+                (click)="AddExpense(home.value,food.value,cloth.value,eb_bill.value,education.value,EMI.value,entertainment.value,transport.value,health.value)">
+                Expense total </button>
+            <a href="dashboard">Back To Dashboard </a>
+
+
+        </form>
+        <button class="btn btn-primary" (click)="Viewdata()">Get data</button>
+
+    </div>
+</div>
+<!-- <button class="btn btn-primary" (click)="ViewbyId()">Get ID</button> -->
+
+<!-- <table class="table table-dark"> -->
+<table class="table table">
+
+
+    <thead>
+        <tr>
+            <th scope="col">home</th>
+            <th scope="col">food</th>
+            <th scope="col">cloth</th>
+            <th scope="col">eb_bill</th>
+            <th scope="col">education</th>
+            <th scope="col">EMI</th>
+            <th scope="col">entertainment</th>
+            <th scope="col">transport</th>
+            <th scope="col">health</th>
+            <th scope="col">Total Expense Amount</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of alluserData">
+            <td>{{item.home}}</td>
+            <td>{{item.food}}</td>
+            <td>{{item.cloth}}</td>
+            <td>{{item.eb_bill}}</td>
+            <td>{{item.education}}</td>
+            <td>{{item.EMI}}</td>
+            <td>{{item.entertainment}}</td>
+            <td>{{item.transport}}</td>
+            <td>{{item.health}}</td>
+            <td>{{item.expenseall}}</td>
+        </tr>
+
+    </tbody>
+</table>

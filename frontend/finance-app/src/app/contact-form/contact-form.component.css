@@ -4,10 +4,26 @@ padding: 0;
 font-family: "montserrat",sans-serif;
 }
 
+.bg-image {
+    /* The image used */
+    background-image: url('../../images/support.JPG');
+    
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    
+    /* Full height */
+    height: 100%; 
+    
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 .contact-section{
-/* margin-top: 50px; */
 padding: 40px 0;
-background: url('../../assets/contact-img.jpg') no-repeat center;
+background: url('../../images/support.JPG') no-repeat center;
 background-size: cover;
 opacity: 0.9;
 
@@ -15,14 +31,15 @@ opacity: 0.9;
 form{
     margin-left:390px;
     width:520px;
+    background-color: transparent;
 }
 span{
-    color:white;
+    color:black;
     text-shadow:2px 2px grey;
     margin-left:80px;
 }
 h1{
-    color:white;
+    color:black;
     font-size:30px;
     margin-left:400px;
     text-shadow:2px 2px grey;
@@ -71,14 +88,14 @@ height: 120px;
 
 }
 ::placeholder{
-    color:white;
+    color:blue;
 }
 
 .contact-form-btn{
 /* float: center; */
 margin-left:10px;
 border: 0;
-background:#2980b9;
+background:black;
 color: #fff;
 padding: 12px 50px;
 border-radius: 20px;

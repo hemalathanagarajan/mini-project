@@ -1,0 +1,74 @@
+<p>blog works!</p>
+<div class="header">
+    <h2> Quicken Blog </h2>
+</div>
+
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+            <h2>Why You need to save Money</h2>
+            <h5>Find your age in the list below to see the average balance that your age have in their
+                401k retirement savings. If you want to know how you're doing on your retirement plan compared to your
+                peers, checking the average 401k retirement account balance is a good start.
+
+                , Mar 7, 2022</h5>
+            <div class="fakeimg">
+                <img src="../../images/blog1.jpg">
+            </div>
+            <p>The Average 401k Balance by Age — Are You Saving Enough?</p>
+            <a href="https://www.idfcfirstbank.com/finfirst-blogs/savings-account/importance-of-having-savings">Click
+                for more info </a>
+
+        </div>
+        <div class="card">
+            <h2>See Your Spendings</h2>
+            <h5>Creating a budget helps you to save money, Sep 2, 2022</h5>
+            <div class="fakeimg">
+                <img src="../../images/blog2.gif">
+            </div>
+            <p><a href="https://www.sbilife.co.in/en/individual-life-insurance/savings-plans">click to see full
+                    Detail</a>
+            </p>
+        </div>
+    </div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>About Me</h2>
+            <div class="fakeimg" style="height:100px;">
+            </div>
+            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        </div>
+        <div class="card">
+            <h3>Popular Post</h3>
+            <div class="fakeimg">
+                <img src="../../images/chart.jpg">
+            </div><br>
+            <div class="fakeimg">
+                <img src="../../images/budget-plan.jpg">
+            </div><br>
+            <!-- <div class="fakeimg">Image</div> -->
+        </div>
+        <div class="card">
+            <h3>Follow Me</h3>
+            <p>Some text..</p>
+        </div>
+    </div>
+</div>
+
+<form [formGroup]="formgroup" (ngSubmit)="location(this.formgroup.value)">
+
+    <div class="form-group">
+        <label for="location">Locations </label>
+        <input id="location" class="form-control" formControlName="location" placeholder="location Required"
+            [ngModel]="budget.location" required />
+        <div class="help-block text-danger" *ngIf="location.touched">
+            <span *ngIf="location.errors?.required">
+                location is REQUIRED!!!
+            </span>
+            <span *ngIf="location.invalid && location.touched">
+                location must not negative values!!!
+            </span>
+
+        </div>
+        <button class="btn btn-primary">Submit</button>
+        <!-- <app-lookup></app-lookup> -->

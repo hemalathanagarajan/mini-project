@@ -1,46 +1,36 @@
-/* .new-user , img{
-    width:70%;
-}
-.new-user{
-    display:flex;
-    flex-direction: row;
-}
-.new-user > h1{
-    font-size:23px;
 
-    padding-left:100px;
-    color:rgb(97, 96, 96);
-
-} */
 body{
     overflow:hidden;
 }
-.float-parent-element { 
+/* .float-parent-element { 
     width: 50%; 
 } 
 .float-child-element { 
     float: left; 
-    width: 50%; 
-} 
+    width: 50%;
+}  */
 .left { 
     margin-left: 30%;
-    margin-top:10%; 
+    /* margin-top:20px;  */
     height: 900px; 
 } 
 .left, h1{
     padding-left:30px;
 }
-.left, img{
+/* .left, img{
     width:130%;
     margin-top:50px;
+} */
+img{
+    width:50%;
+    height:50%;
+    /* filter: drop-shadow(5px 5px 5px #666666); */
+    border:2px solid grey;
 }
-.right{ 
-    margin-left: 100%; 
-    height: 500px; 
-    margin-top:28%; 
-    width:170%;
+
+button{
+    margin-left:20px;
+    /* margin-top:600px; */
 }
-.right>h2{
-    margin-left:70px;
-    margin-top:30px;
-}
+
+/*------------------trail---------*/

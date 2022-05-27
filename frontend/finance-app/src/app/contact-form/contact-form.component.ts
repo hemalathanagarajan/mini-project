@@ -39,15 +39,23 @@ userRecord: any ={
     return this.formGroup.get('message')!;
   }
   storing(){
-    // console.log(formdata);
-    // this.store.pushData(formdata);
-    this.api.add("finance_db",this.formGroup.value).subscribe(res=>{
+
+    const contact = {
+      "Name":this.userRecord.Name,
+      "email":this.userRecord.email,
+      "phone":this.userRecord.phone,
+      "message":this.userRecord.message,
+      type:"contact"
+    }
+
+    this.api.add("finance_db",contact).subscribe(res=>{
       console.log(res);
-      alert("Your data was posted successfully!");
+      alert("Your request was received successfully!");
       this.userRecord.reset();
     },rej=>{
-      alert("opps! Can not post data"+rej);
+      alert("opps! Can not post request"+rej);
     });
+
     this.api.get("finance_db").subscribe(res=>{
       console.log(res);
       alert("Your data was posted successfully!");

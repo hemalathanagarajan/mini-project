@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {apiService} from '../login.service';
 import {FormBuilder,FormGroup,Validators,FormControl} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +9,36 @@ import {FormBuilder,FormGroup,Validators,FormControl} from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formgroup!: FormGroup;
+  @Input() idvalue: any;
+  formgroup !: FormGroup;
+  object:any =[];
+  alldata:any;
+  localvar:any;
 loginrecord: any = {
   email: '',
   password: '',
 };
+obj1: any = {
+        name:'',
+        username:'',
+        email:'',
+        password:'',
+        mobile:'',
+       _id:'',
+       _rev:'',
+        
+      };
+  
+  
 
-  constructor(private fb:FormBuilder,private api:apiService ) { }
+  constructor(private fb:FormBuilder,private api:apiService,private router:Router ) { }
 
   
   ngOnInit() {
     this.formgroup =  this.fb.group({
-        email: [this.loginrecord.email],
-        password: [this.loginrecord.password],
+        
+        email: ['',Validators.email],
+      password: ['', [ Validators.minLength(8)]],
     });
 }
 get email() { 
@@ -31,19 +49,81 @@ get email() {
 get password() {
   return this.formgroup.get('password')!;
 }
-
-login(){
-  console.log(this.formgroup.value);
+//--------------angular to couch connection code
+// login(){
+//   console.log(this.formgroup.value);
   
-  this.api.login(this.formgroup.value).subscribe(res =>{
-  // this.authService.login(this.loginForm.value);
-  // this.router.navigateByUrl('/admin');
-  console.log(res);
-  alert("You logged in successfully!");
-  this.loginrecord.reset();
-},rej=>{
-  alert("opps! Can not able to login"+rej);
-});
+//   this.api.get(this.formgroup.value).subscribe(res =>{
+//   // this.authService.login(this.loginForm.value);
+//   // this.router.navigateByUrl('/admin');
+//   console.log(res);
+//   alert("You logged in successfully!");
+//   this.loginrecord.reset();
+// },rej=>{
+//   alert("opps! Can not able to login"+rej);
+// });
+// }
+// }
+//=----------------------------------------
+
+
+  //------------------login code for node  to couch (working code)---
+
+login(Formvalue:any)
+  {
+    console.log(Formvalue.email);
+    // console.log();
+    this.api.test_get(Formvalue.email).subscribe((data)=>{
+      console.log("data returned from server",data); // original code
+
+      //---just code
+      console.log("data returned from server",data["docs"][0].email);
+      console.log("data returned from server",data["docs"][0].password);
+      let datas =  {
+
+
+        name: data["docs"][0].name,
+        username: data["docs"][0].username,
+        email: data["docs"][0].email,
+        password: data["docs"][0].password,
+        // mobile: data["docs"][0].mobile,
+        id:data["docs"][0]._id,
+        // rev:data["docs"][0]._rev,
+        // type:data["docs"]
+       }
+localStorage.setItem('obj1', JSON.stringify(datas));
+
+
+      // console.log("data returned from server",data);
+      // console.log(data.password);
+
+
+       if(data.docs[0].email == Formvalue.email){
+      alert("data verified");
+
+        // if(data.docs[0] == Formvalue){
+      this.router.navigate(['/dashboard']);
+      }
+      else{
+        alert("cant login");
+      }
+
+
+      
+})
+let  formvalue = JSON.parse(localStorage.getItem('obj1') || '{}');
+console.log("obj1 object :", formvalue);
+console.log("object email:", formvalue.email);
+console.log("object id:", formvalue.id);
+
 }
 
 }
+ 
+
+
+
+
+
+
+//-------------------------------

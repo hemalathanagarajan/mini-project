@@ -9,18 +9,18 @@ import {FormBuilder,FormGroup} from '@angular/forms';
 })
 export class NewUserComponent implements OnInit {
 
-  formValue !: FormGroup;
+  // formValue !: FormGroup;
 
   constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.formValue = this.formbuilder.group({
-      firstName  : [''],
-      lastName : [''],
-      email : [''],
-      mobile : [''],
-      salary : ['']
-    })
+    // this.formValue = this.formbuilder.group({
+    //   firstName  : [''],
+    //   lastName : [''],
+    //   email : [''],
+    //   mobile : [''],
+    //   salary : ['']
+    // })
   
   }
 

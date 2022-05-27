@@ -1,0 +1,24 @@
+.drop-down{
+    margin-left:20px;
+    margin-top:80px;
+    width:300px;
+}
+.background{
+    /* background-image:linear-gradient(to right top, #00498d, #004189, #013984, #08307f, #102779, #34277b, #4b267b, #5e257b, #833381, #a34487, #c1598d, #db7093); */
+background-color: #004189;
+}
+h1 {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+form {
+    background-color: white;
+    padding: 100px 150px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+}
+.form-group input {
+    width: 400px;
+}

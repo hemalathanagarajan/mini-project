@@ -1,10 +1,85 @@
-/* *{
-    background-size: cover;;
-}
-.backcolor{
-    background-image: linear-gradient(to left top, #bd7cc2, #a196e7, #76b0fe, #3dc8ff, #00dcff, #00d1ed, #00c7db, #00bcca, #2f94ac, #3e6e86, #3c4b5b, #2c2d30);
-} */
 
-.content{
-    margin-top: 70px;
-}
+  
+  main article {
+      display: flex;
+     flex-direction: row;
+     width: 100%;
+     }
+    
+     main article section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+     }
+     
+    main article section h1 {
+      width: 50%;
+      color:hsl(212, 27%, 19%);
+      font-size: 2rem;
+      font-family: "Fraunces", serif;
+      font-weight: 900;
+      text-align: left;
+     }
+     
+    main article section p {
+      width: 50%;
+      text-align: left;
+      color: hsl(232, 10%, 55%);
+      font-family: "Barlow", sans-serif;
+      font-size: 1.2rem;
+      line-height: 1.5;
+     }
+     
+   main article section a {
+      margin-right: 20%;
+      padding: 0.5em;
+      font-family: "Fraunces", serif;
+      font-weight: 900;
+      text-decoration: none;
+      text-align: left;
+      font-size: 20px;
+      /* color: hsl(212, 27%, 19%);
+       */
+      color:#212196;
+     }
+
+     
+    /* main article section a hr {
+      margin-top: -0.4em;
+      border: none;
+      border-bottom: 5px solid hsl(7, 99%, 70%);
+     }
+     main article section a:hover > hr {
+      border-bottom: 10px solid hsla(51, 100%, 49%, 0.767) ;
+     } */
+     
+     main article .img-article {
+      width: 50%;
+      padding: 0;
+     }
+     
+     main article .img-article img {
+         /* margin-top:45px; */
+      width: 100%;
+      height: 100%;
+     
+    /* filter: drop-shadow(5px 5px 5px #666666);  */
+
+     }
+      h3 a {
+        color:green;
+     }
+     button{
+         margin-left:50px;
+         margin-top:20px;
+
+     }
+     #show{
+      margin-left: 20px;
+      margin-top:10px;
+    }
+ 
+    
+  

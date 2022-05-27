@@ -1,0 +1,24 @@
+<p>lookup works!</p>
+
+
+<!-- <form [formGroup]="formgroup" (ngSubmit)="submit(this.formgroup.value)">
+    <div class="formgroup">
+
+    </div> -->
+<form [formGroup]="formgroup" (ngSubmit)="submit(this.formgroup.value)">
+    <div class="formgroup">
+        <label>Select Location</label>
+        <select name="cars" id="cars" class="form-control" placeholder="select month" formControlName="month">
+            <option value="chennai">Chennai</option>
+            <option value="madurai"> Madurai</option>
+            <option value="theni">Theni</option>
+            <option value="coimbatore">Coimbatore</option>
+            <option value="thirunelveli">Thirunelveli</option>
+            <option value="tenkasi">Tenkasi</option>
+            <option value="ooty">OOTY</option>
+            <option value="erode">Erode</option>
+            <option value="kanyakumari">Kanyakumari</option>
+
+        </select>
+    </div>
+    <button class="btn btn-primary">Submit</button>

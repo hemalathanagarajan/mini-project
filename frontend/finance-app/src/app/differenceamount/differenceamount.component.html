@@ -1,0 +1,96 @@
+<form [formGroup]="formgroup">
+
+    <div class="formgroup">
+        <label>Select Month</label>
+        <select name="cars" id="cars" class="form-control" placeholder="select month" formControlName="month">
+            <option value="jan">Jan</option>
+            <option value="feb">Feb</option>
+            <option value="mar">Mar</option>
+            <option value="apr">Apr</option>
+            <option value="may">May</option>
+            <option value="jun">Jun</option>
+            <option value="july">July</option>
+            <option value="aug">Aug</option>
+            <option value="sep">Sep</option>
+            <option value="oct">Oct</option>
+            <option value="nov">Nov</option>
+            <option value="dec">Dec</option>
+        </select>
+    </div>
+    <button type="button" (click)="getBudget(this.formgroup.value)">View Budget list </button>
+    <button type="button" (click)="getExpense(this.formgroup.value)">View Expense list </button>
+</form>
+
+<table class="table table">
+
+
+    <thead>
+        <tr>
+            <th scope="col">home</th>
+            <th scope="col">food</th>
+            <th scope="col">cloth</th>
+            <th scope="col">eb_bill</th>
+            <th scope="col">education</th>
+            <th scope="col">EMI</th>
+            <th scope="col">entertainment</th>
+            <th scope="col">transport</th>
+            <th scope="col">health</th>
+            <th scope="col">Total Budget Amount</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of alluserBudgetData">
+            <td>{{item.home}}</td>
+            <td>{{item.food}}</td>
+            <td>{{item.cloth}}</td>
+            <td>{{item.eb_bill}}</td>
+            <td>{{item.education}}</td>
+            <td>{{item.EMI}}</td>
+            <td>{{item.entertainment}}</td>
+            <td>{{item.transport}}</td>
+            <td>{{item.health}}</td>
+            <td>{{item.budgetall}}</td>
+        </tr>
+
+    </tbody>
+</table>
+<table class="table table">
+
+
+    <thead>
+        <tr>
+            <th scope="col">home</th>
+            <th scope="col">food</th>
+            <th scope="col">cloth</th>
+            <th scope="col">eb_bill</th>
+            <th scope="col">education</th>
+            <th scope="col">EMI</th>
+            <th scope="col">entertainment</th>
+            <th scope="col">transport</th>
+            <th scope="col">health</th>
+            <th scope="col">Total Expense Amount</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of alluserExpenseData">
+            <td>{{item.home}}</td>
+            <td>{{item.food}}</td>
+            <td>{{item.cloth}}</td>
+            <td>{{item.eb_bill}}</td>
+            <td>{{item.education}}</td>
+            <td>{{item.EMI}}</td>
+            <td>{{item.entertainment}}</td>
+            <td>{{item.transport}}</td>
+            <td>{{item.health}}</td>
+            <td>{{item.expenseall}}</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<div>
+    <button type="button" (click)="calculateDifference()"> Calculate Difference</button>
+</div>
+<!-- <p>{{Difference}}</p> -->
