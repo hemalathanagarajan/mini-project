@@ -25,12 +25,7 @@ array:any;
   };
 
   //-----
-  store(data: any) {
-    console.log(data);
-    this.temp = data;
-    this.pusharray.push(data);
-    console.log(this.pusharray)
-  }
+
   //------------
   add(db:String,doc: object): Observable<{}> {
 
@@ -54,12 +49,7 @@ array:any;
    return this.http.get(url,this.httpOptions);
 
   }
-  getDocsByID(db: string,id: string): Observable<{}> {
   
-
-    const url = this.endpoint + db + '/'+id;
-    return this.http.get(url, this.httpOptions)
-  }
   storedata(formvalue:any)
   {
     console.log(formvalue);
@@ -78,19 +68,29 @@ array:any;
   // }
 
 
-  //---------angular-to -couch connection get(login-not working)
-  login_test(datas:any) {
-    const url=this.endpoint+'finance_db/_find';
-    let data ={ selector: {
-      email : datas.email,
-      password:datas.password
-    }},
+  //-------- full 2 working view codes-------------
+  
+  // fetchDetailsofBudget( type:string, id:any){
+  //   const url=this.endpoint+'finance_db/' + '_design/'  + 'view1/' + '_view/' + 'new-view' + '?include_docs=true';
+  //   const budgetview ={
+  //     "keys":[type + id]
+  //   }
+    
+  //   return this.http.post(url,budgetview,this.httpOptions);
 
-  fields:["id","name","email"]
-  return this.http.post(url,data,this.httpOptions)
 
-  } 
-  //--------
+  // }
+
+  // fetchDetailsofExpense( type:string, id:any){
+  //   const url=this.endpoint+'finance_db/' + '_design/' +'expense-view/' + '_view/' + 'new-view' + '?include_docs=true';
+  //   const expenseview ={
+  //     "keys":[type + id]
+  //   }
+    
+  //   return this.http.post(url,expenseview,this.httpOptions);
+
+
+  // }
   fetchDetails(datas:any){
     const url=this.endpoint+'finance_db/_find';
     console.log(datas);
@@ -104,6 +104,17 @@ array:any;
 
     return this.http.post(url,datas,this.httpOptions);
 
+
+  }
+  
+
+  fetchlist( type:string, id:any) {
+    const url=this.endpoint+'finance_db/' + '_design/' +'view1/' + '_view/' + 'new-view' + '?include_docs=true';
+    const list ={
+      "keys":[type + id]
+    }
+    
+    return this.http.post(url,list,this.httpOptions);
 
   }
   //-------

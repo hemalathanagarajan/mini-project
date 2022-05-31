@@ -3,6 +3,8 @@ import {apiService} from '../login.service';
 import {FormBuilder,FormGroup,Validators,FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 
+  import { NotificationService } from '../notification.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -31,7 +33,7 @@ obj1: any = {
   
   
 
-  constructor(private fb:FormBuilder,private api:apiService,private router:Router ) { }
+  constructor(private fb:FormBuilder,private api:apiService,private router:Router,private alert: NotificationService ) { }
 
   
   ngOnInit() {
@@ -75,10 +77,12 @@ login(Formvalue:any)
     // console.log();
     this.api.test_get(Formvalue.email).subscribe((data)=>{
       console.log("data returned from server",data); // original code
+      this.alert.showSuccess("success","Data posted success Fully")
+
 
       //---just code
-      console.log("data returned from server",data["docs"][0].email);
-      console.log("data returned from server",data["docs"][0].password);
+      // console.log("data returned from server",data["docs"][0].email);
+      // console.log("data returned from server",data["docs"][0].password);
       let datas =  {
 
 
@@ -92,6 +96,7 @@ login(Formvalue:any)
         // type:data["docs"]
        }
 localStorage.setItem('obj1', JSON.stringify(datas));
+this.router.navigate(['/dashboard']);
 
 
       // console.log("data returned from server",data);
@@ -99,13 +104,14 @@ localStorage.setItem('obj1', JSON.stringify(datas));
 
 
        if(data.docs[0].email == Formvalue.email){
-      alert("data verified");
+      // alert("  logged in Successfully");
 
         // if(data.docs[0] == Formvalue){
-      this.router.navigate(['/dashboard']);
       }
       else{
         alert("cant login");
+      this.alert.showError("data cant post","error");
+
       }
 
 

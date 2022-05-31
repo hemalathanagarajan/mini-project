@@ -8,7 +8,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {RouterModule,Routes} from '@angular/router';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewUserComponent } from './new-user/new-user.component';
@@ -20,23 +20,27 @@ import { LookupComponent } from './lookup/lookup.component';
 import { DifferenceamountComponent } from './differenceamount/differenceamount.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogComponent } from './blog/blog.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NotificationService } from './notification.service';
+import { HttpCallInterceptorService } from './http-call-interceptor.service';
+import { ReviewComponent } from './review/review.component';
+// import { HttpCallInterceptorService } from './http-call-interceptor.service'; 
 // import flatpickr from 'flatpickr';
-import { ProductsComponent } from './products/products.component';
 
 const routes:Routes=[
-  {path: '',component:HomeComponent},
+  // {path: '',component:HomeComponent},
 
-  {path: 'register',component:RegisterUserComponent},
-  {path: 'new-user',component:NewUserComponent},
-  {path: 'contact',component:ContactFormComponent},
-  {path: 'login',component:LoginComponent},
-  {path: 'about',component:AboutComponent},
-  {path:'budget',component:BudgetComponent},
-  {path:'expense',component:ExpenseListComponent},
-  {path:'dashboard',component:DashboardComponent},
-  {path:'difference',component:DifferenceamountComponent},
-  {path:'blog',component:BlogComponent},
-  {path:'products',component:ProductsComponent},
+  // {path: 'register',component:RegisterUserComponent},
+  // {path: 'new-user',component:NewUserComponent},
+  // {path: 'contact',component:ContactFormComponent},
+  // {path: 'login',component:LoginComponent},
+  // {path: 'about',component:AboutComponent},
+  // {path:'budget',component:BudgetComponent},
+  // {path:'expense',component:ExpenseListComponent},
+  // {path:'dashboard',component:DashboardComponent},
+  // {path:'difference',component:DifferenceamountComponent},
+  // {path:'blog',component:BlogComponent},
+  // {path:'products',component:ProductsComponent},
 ];
 @NgModule({
   declarations: [
@@ -55,7 +59,7 @@ const routes:Routes=[
     DifferenceamountComponent,
     FooterComponent,
     BlogComponent,
-    ProductsComponent
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,9 +69,16 @@ const routes:Routes=[
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
+
+
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ {provide: HTTP_INTERCEPTORS,
+        useClass: HttpCallInterceptorService,
+        multi: true
+    
+    } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

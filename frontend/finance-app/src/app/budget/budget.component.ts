@@ -2,6 +2,7 @@ import { Component, OnInit ,EventEmitter} from '@angular/core';
 import {FormGroup,FormBuilder,Validators, FormControl} from '@angular/forms';
 import {apiService} from '../login.service';
 import  {rangeValidator}  from './validator';
+import {NotificationService} from '../notification.service';
 
 @Component({
   selector: 'app-budget',
@@ -24,13 +25,14 @@ budget: any = {
         transport: '',
         health: '',
         month:'',
+        location:'',
       
 };
  
 
 
 
-  constructor(private fb: FormBuilder,private api:apiService) { 
+  constructor(private fb: FormBuilder,private api:apiService, private alert:NotificationService) { 
     this.formgroup = this.fb.group({
         home: ['',[Validators.required,rangeValidator(0,Infinity)]],
         food: ['',[Validators.required,rangeValidator(0,Infinity)]],
@@ -44,6 +46,7 @@ budget: any = {
         health: ['',[Validators.required,rangeValidator(0,Infinity)]],
         budgetall: [''],
         month:[''],
+        location:['']
       });
   }
   ngOnInit(): void {
@@ -81,6 +84,9 @@ get health(){
 get month(){
   return this.formgroup.get('month')!;
 }
+get location(){
+  return this.formgroup.get('location')!;
+}
 
 
 //------
@@ -115,15 +121,37 @@ get month(){
       "month":Formvalue.month,
       type:"budget",
       user:userData.id,
+      
+      
 
     }
       this.api.add("finance_db",budget).subscribe(res=>{
         console.log(res);
-        alert("Your budget was created successfully!");
+      this.alert.showSuccess("success","Data posted success Fully")
+        
+        // alert("Your budget was created successfully!");
         this.formgroup.reset();
-      },rej=>{
-        alert("opps! Can not post data"+rej);
+      },
+      rej=>{
+      this.alert.showError("data cant post","error");
+        
+        // alert("opps! Can not post data"+rej);
       });
+
+
+
+
+
+
+
+      // this.api.add("finance_db",budget).then((budget)=>{
+      //   console.log(budget);
+      //   alert("Your budget was created successfully!");
+      //   this.formgroup.reset();
+      // }).catch((()=>{
+      //   console.log("");
+      // }))
+      
 
       // this.api.get("finance_db").subscribe(res=>{
       //       console.log(res);
@@ -160,21 +188,9 @@ this.result =parseInt(homeAmount) + parseInt(foodAmount)+parseInt(clothAmount)+p
 this.formgroup.controls['budgetall'].setValue(this.result);
 
 }
-location = {
-  "chennai":Math.random,
-  "mdu":Math.random,
-  "coimbatore":Math.random,
-  "tiruchirappalli":Math.random,
-  "salem":Math.random,
-  "tirunelveli":Math.random,
-  "tiruppur":Math.random,
-  "vellore":Math.random,
-  "Erode":Math.random,
-  "namakkal":Math.random,
-  "dindigul":Math.random,
-  "Pollachi":Math.random,
-  "Ambur":Math.random,
 
+valueChanged(event:Event) {
+console.log(event);
 }
 
 }

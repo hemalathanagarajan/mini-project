@@ -93,8 +93,8 @@
   background: #fff;
   display: flex;
   align-items: center;
-  position: fixed;
-  width: calc(100% - 240px);
+  /* position: fixed; */
+  width:100%;
   left: 240px;
   z-index: 100;
   padding: 0 20px;
@@ -176,7 +176,7 @@ nav .profile-details i{
 }
 .home-section .home-content{
   position: relative;
-  padding-top: 104px;
+  padding-top: 10px;
 }
 .home-content .overview-boxes{
   display: flex;
@@ -263,10 +263,10 @@ nav .profile-details i{
 
 /* left box */
 .home-content .sales-boxes .recent-sales{
-  width: 65%;
+  width: 95%;
   background: #fff;
   padding: 20px 30px;
-  margin: 0 20px;
+  margin-left:20px;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }

@@ -17,8 +17,10 @@
             <option value="dec">Dec</option>
         </select>
     </div>
-    <button type="button" (click)="getBudget(this.formgroup.value)">View Budget list </button>
-    <button type="button" (click)="getExpense(this.formgroup.value)">View Expense list </button>
+    <button type="button" (click)="getvalues(this.formgroup.value)">Submit</button>
+
+    <!-- <button type="button" (click)="getBudget(this.formgroup.value)">View Budget list </button>
+    <button type="button" (click)="getExpense(this.formgroup.value)">View Expense list </button> -->
 </form>
 
 <table class="table table">
@@ -91,6 +93,8 @@
 </table>
 
 <div>
-    <button type="button" (click)="calculateDifference()"> Calculate Difference</button>
+    <!-- <button type="button" (click)="calculateDifference()"> Calculate Difference</button> -->
 </div>
-<!-- <p>{{Difference}}</p> -->
+<p>
+    Difference amount is {{difference}} for the month
+</p>

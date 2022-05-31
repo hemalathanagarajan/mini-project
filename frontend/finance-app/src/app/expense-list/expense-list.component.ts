@@ -108,11 +108,7 @@ get month(){
       type:"expense",
       user:userData.id,
     }
-    // const  userData = JSON.parse(localStorage.getItem('obj1') || '{}');
-    // console.log(userData);
-    // console.log(userData.id);
-    // const Id=userData.id;
-    // console.log(Id);
+   
        this.api.add("finance_db",expense).subscribe(res=>{
         console.log(res);
         
@@ -132,12 +128,6 @@ get month(){
             this.alluser=this.alluser.rows
             this.alluserData=this.alluser.map((el:any)=>el.doc)
             console.log(this.alluserData)
-        // this.alluser = res;
-        //    this.alluser = this.alluser.rows;
-        //    this.alluserData = this.alluser.map((el: any) => el.doc);
-        //    console.log(this.alluserData[0]);
-        //    this.api.array(this.alluserData);
-        //    this.expense.store(this.alluserData);
         
 
             alert("Your data was posted successfully!");
@@ -147,26 +137,12 @@ get month(){
           });
         }
 
-        // ViewbyId() {
-        //   this.api.getDocsByID("finance_db",this.idValue).subscribe(res=>{
-        //     console.log(res);
-        //     alert("your docs by id was success");
-        //   },rej=>{
-        //     alert("oops!"+rej);
-        //   });
-        // }
-
-
-
-        // this.api.updateData(this.formgroup.value, "fresher-sample", 'af06fead1ad5393fa13ada637526c0fb',this.idform.rev.value).subscribe((datas) => {
-        //     console.log(datas);
-        //   });
-
+        
 
    
 
 
-//-----
+
 
 AddExpense(home:string,food:string,cloth:string,eb_bill:string,education:string,EMI:string,entertainment:string,transport:string,health:string){
 this.result =parseInt(home) + parseInt(food)+parseInt(cloth)+parseInt(eb_bill)+parseInt(education)+parseInt(EMI)+parseInt(entertainment)+parseInt(transport)+parseInt(health);

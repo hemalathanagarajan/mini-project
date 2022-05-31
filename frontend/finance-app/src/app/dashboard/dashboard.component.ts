@@ -10,13 +10,13 @@ export class DashboardComponent implements OnInit {
   
 @Input() idvalue: any;
 alluser: any;
-  alluserData: any;
+  userBudget: any;
   store: any = []
   obj: any;
   Id: any;
   userData:any;
-  alluserExpense:any;
-  alluserExpenseData:any;
+  userExpense:any;
+  userExpenseData:any=[];
 
 // public userId = localStorage.getItem('obj1.id');
 public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
@@ -26,62 +26,83 @@ public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
     this.fetchExpenseDetails();
     this.fetchBudgetDetails();
    }
+////--------------working view code-------------
+  //  fetchExpenseDetails(){
+    
+  //     this.api.fetchDetailsofExpense("expense",this.userId.id).subscribe(res =>{
+  //       console.log(res);
+  //       this.alluserExpense = res;
+  //        this.alluserExpense=this.alluserExpense.docs
+  //        this.alluserExpenseData=this.alluserExpense
+  //        console.log(this.alluserExpenseData);
+
+          
+  //     },rej=>{
+  //       alert("opps! No records on expense"+rej);
+  //     });
+  //  }
+
 
    fetchExpenseDetails(){
-    let data={
-      selector:{
-        "type": "expense",
-         "user": this.userId.id,
-      }}
-      this.api.fetchDetails(data).subscribe(res =>{
+
+      this.api.fetchlist("expense",this.userId.id).subscribe(res =>{
         console.log(res);
-        this.alluserExpense = res;
-         this.alluserExpense=this.alluserExpense.docs
-         this.alluserExpenseData=this.alluserExpense
-          //  .map((el:any)=>el.doc);
-         console.log(this.alluserExpenseData);
-
-          //  for(const array in this.alluserData){
-          //    console.log(this.alluserData[array]);
-          //  }
-
-
-          //  alert("Your expense list was got successfully!");
+        this.userExpense = res;
+         this.userExpense=this.userExpense.rows
+         this.userExpenseData = this.userExpense;
+         this.userExpenseData = this.userExpense.map((el: any)=>el.doc);
+        //  this.userExpenseData=this.userExpenseData[0].doc;
+        //  this.alluserExpenseData=this.alluserExpense
+         console.log(this.userExpenseData);
         
-        // alert("You data got  successfully!"+ data);
+          
       },rej=>{
         alert("opps! No records on expense"+rej);
       });
    }
-
    fetchBudgetDetails(){
-    let data={
-      selector:{
-        "type": "budget",
-         "user": this.userId.id,
-      }}
-      this.api.fetchDetails(data).subscribe(res =>{
+    
+      this.api.fetchlist("budget",this.userId.id).subscribe(res =>{
         console.log(res);
         this.alluser = res;
-           this.alluser=this.alluser.docs
-           this.alluserData=this.alluser
-           console.log(this.alluserData);
+           this.alluser=this.alluser.rows
+         this.userBudget = this.alluser.map((el: any)=>el.doc);
 
-          
-        // this.alluserExpense = res;
-        //  this.alluserExpense=this.alluserExpense.docs
-        //  this.alluserExpenseData=this.alluserExpense
-        // //  .map((el:any)=>el.doc[0]);
-
-        // --uncomment this
-        //  alert("Your budget list was got successfully!"+data);
+        //  this.userBudget = this.alluser;
          
 
-        // alert("You data got  successfully!"+ data);
+          //  this.userBudget=this.alluser
+           console.log(this.userBudget[0].doc);
+         
+          
+         
+
       },rej=>{
         alert("opps! No records on budget "+rej);
       });
    }
+
+//----------------worked code------------
+  //  fetchBudgetDetails(){
+  //   // let data={
+  //   //   selector:{
+  //   //     "type": "budget",
+  //   //      "user": this.userId.id,
+  //   //   }}
+  //     this.api.fetchDetailsofBudget(data).subscribe(res =>{
+  //       console.log(res);
+  //       this.alluser = res;
+  //          this.alluser=this.alluser.docs
+  //          this.alluserData=this.alluser
+  //          console.log(this.alluserData);
+
+          
+         
+
+  //     },rej=>{
+  //       alert("opps! No records on budget "+rej);
+  //     });
+  //  }
 
 
   ngOnInit(): void {

@@ -4,7 +4,7 @@
             <div class="login-text">
                 <h2>Welcome Back</h2>
                 <p>Create your account.<br>It's totally free.</p>
-                <a href="" class="btn">Sign Up</a>
+                <a href="register" class="btn">Sign Up</a>
             </div>
         </div>
 
@@ -15,7 +15,7 @@
                     <div class="form-group">
 
 
-                        <label>Username or email address<span>*</span></label>
+                        <label>Email address<span>*</span></label>
                         <input type="text" class="form-control" formControlName="email" required>
                         <div class="help-block text-danger" *ngIf="email.touched">
                             <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>

@@ -6,8 +6,8 @@
         <section>
             <h1>Sign Up</h1>
 
-            <form [formGroup]="checkoutform" (ngSubmit)="storing(this.checkoutform.value)">
-                <div class="form-group" [class.has-error]="Name.invalid && Name.touched">
+            <form [formGroup]="checkoutform">
+                <div class="form-group">
                     <label for="Name"> Name</label>
                     <input id="Name" type="text" class="form-control" formControlName="Name" placeholder=" Enter Name"
                         required />
@@ -26,11 +26,9 @@
                     <label for="username">User Name</label>
 
                     <input id="username" type="text" class="form-control" formControlName="username"
-                        [class.has-error]="username.invalid && username.touched" placeholder=" Enter username"
-                        required />
+                        placeholder=" Enter username" required />
 
-                    <div class="help-block text-danger" *ngIf="username.touched && username.invalid"
-                        class="invalid-feedback">
+                    <div class="help-block text-danger" *ngIf="username.touched && username.invalid">
                         <span *ngIf="username.errors?.required">
                             username is REQUIRED!!!
                         </span>
@@ -44,9 +42,8 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" class="form-control" formControlName="email" placeholder="Email (required)"
-                        [class.has-error]="email.invalid && email.touched" required />
-                    <div class="help-block text-danger" *ngIf="email.touched && email.invalid && Name.invalid"
-                        class="invalid-feedback">
+                        required />
+                    <div class="help-block text-danger" *ngIf="email.touched && email.invalid ">
                         <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>
                         <span *ngIf="email.errors?.email"> Email is not valid !!! </span>
                     </div>
@@ -54,13 +51,11 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input [type]="inputType" id="password" class="form-control" formControlName="password"
-                        placeholder="Enter Password" [class.has-error]="password.invalid && password.touched"
-                        required />
+                        placeholder="Enter Password" required />
                     <input (change)="showPassword($event)" type="checkbox" id="show">Show password
 
 
-                    <div class="help-block text-danger" *ngIf="password.touched && password.invalid"
-                        class="invalid-feedback">
+                    <div class="help-block text-danger" *ngIf="password.touched && password.invalid">
                         <span *ngIf="password.errors?.required">
                             password is REQUIRED!!!
                         </span>
@@ -72,12 +67,10 @@
 
                 <div class="form-group">
                     <label for="mobile">Mobile Number</label>
-                    <input id="mobile" class="form-control" formControlName="mobile"
-                        placeholder="Enter your phone number" [class.has-error]="mobile.invalid && mobile.touched"
-                        required />
+                    <input type="number" id="mobile" class="form-control" formControlName="mobile"
+                        placeholder="Enter your phone number" required />
 
-                    <div class="help-block text-danger" *ngIf="mobile.touched && mobile.invalid"
-                        class="invalid-feedback">
+                    <div class="help-block text-danger" *ngIf="mobile.touched && mobile.invalid">
                         <span *ngIf="mobile.errors?.required">
                             mobile is REQUIRED!!!
                         </span>
@@ -87,95 +80,91 @@
                     </div>
                 </div>
 
-                <!-- <div class="form-group">
-                    <label for="door">Door No</label>
-                    <input id="door" class="form-control" formControlName="door" placeholder="Enter your Door number"
-                        [class.has-error]="door.invalid && door.touched" required />
-
-                    <div class="help-block text-danger" *ngIf="door.touched && door.invalid" class="invalid-feedback">
-                        <span *ngIf="door.errors?.required">
-                            door is REQUIRED!!!
-                        </span>
-                        <span *ngIf="door.errors?.minlength">
-                            door must be less than 5 Chars!!!
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input id="address" class="form-control" formControlName="address"
-                        placeholder="Enter your Door number" [class.has-error]="address.invalid && address.touched"
-                        required />
-
-                    <div class="help-block text-danger" *ngIf="address.touched && address.invalid"
-                        class="invalid-feedback">
-                        <span *ngIf="address.errors?.required">
-                            address is REQUIRED!!!
-                        </span>
-                        <span *ngIf="address.errors?.minlength">
-                            address must be less than 5 Chars!!!
-                        </span>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="state">State</label>
-                    <input id="state" class="form-control" formControlName="state" placeholder="Enter your Door number"
-                        [class.has-error]="state.invalid && state.touched" required />
-
-                    <div class="help-block text-danger" *ngIf="state.touched && state.invalid" class="invalid-feedback">
-                        <span *ngIf="state.errors?.required">
-                            state is REQUIRED!!!
-                        </span>
-                        <span *ngIf="state.errors?.minlength">
-                            state must be less than 5 Chars!!!
-                        </span>
-                    </div>
-                </div>
-
-
-                <div class="formgroup">
-                    <label>Select City</label>
-                    <select name="cars" id="cars" class="form-control" placeholder="select City" formControlName="city">
-                        <option value="chennai">Chennai</option>
-                        <option value="madurai"> Madurai</option>
-                        <option value="theni">Theni</option>
-                        <option value="coimbatore">Coimbatore</option>
-                        <option value="thirunelveli">Thirunelveli</option>
-                        <option value="tenkasi">Tenkasi</option>
-                        <option value="ooty">OOTY</option>
-                        <option value="erode">Erode</option>
-                        <option value="kanyakumari">Kanyakumari</option>
-
-                    </select>
-                </div>
-                 <div class="form-group"> 
-                    <label for="city">City</label>
-                    <input id="city" class="form-control" formControlName="city" placeholder="Enter your Door number"
-                        [class.has-error]="city.invalid && city.touched" required />
-
-                    <div class="help-block text-danger" *ngIf="city.touched && city.invalid" class="invalid-feedback">
-                        <span *ngIf="city.errors?.required">
-                            city is REQUIRED!!!
-                        </span>
-                        <span *ngIf="city.errors?.minlength">
-                            city must be less than 5 Chars!!!
-                        </span>
-                    </div>
-                </div> -->
 
 
 
-
-                <button class="btn btn-primary">Sign Up</button>
+                <button class="btn btn-primary" type="submit" (click)="signup(this.checkoutform.value)">Sign Up</button>
                 <button class="btn btn-primary" (click)="onReset()"> Reset</button>
                 <div class="login">
                     <h2>Already Having an account? <a href="login">Login</a></h2>
                 </div>
-                <!-- <a href="dashboard">Get into Dashboard View</a> -->
 
 
             </form>
+
+
+            <button (click)="showToasterSuccess()">
+                Success Toaster
+            </button>
+            <button (click)="showToasterError()">
+                error Toaster
+            </button>
+
+
         </section>
     </article>
 </main>
+
+<!-- <div class="content">
+        <h1 class="title">SIGN-UP</h1>
+        <div class="d-flex justify-content-center backcolor" id="input">
+              <form [formGroup]="formGroup" (ngSubmit)="storing(this.formGroup.value)">
+                    <div class="form-group">
+                          <label for="firstName">First Name</label>
+                          <input id="firstName" class="form-control" formControlName="firstName"
+                    placeholder="FirstName Required"             required />
+                          <div class="help-block text-danger" *ngIf="firstName.touched">
+                                <span *ngIf="firstName.errors?.required">
+                                      First Name is REQUIRED!!!
+                                    </span>
+                              </div>
+                        </div>
+
+                    <div class="form-group">
+                          <label for="lname">Last Name</label>
+                          <input id="lname" class="form-control" formControlName="lastName"
+                    placeholder="LastName Required" required />
+
+                        </div>
+
+                    <div class="form-group">
+                          <label for="email">Email</label>
+                          <input id="email" class="form-control" formControlName="email" placeholder="Email (required)"
+                    required />
+                          <div class="help-block text-danger" *ngIf="email.touched">
+                                <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>
+                              </div>
+                        </div>
+                   
+            <!-- "regForm.controls.mobileNumber.errors && regForm.controls.mobileNumber.touched" -->
+<!--         <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" id="password" class="form-control" formControlName="password"
+                    placeholder="password required" required />
+                          <div class="help-block text-danger" *ngIf="password.touched">
+                                <span *ngIf="password.errors?.required"> password is REQUIRED!!! </span>
+                              </div>
+                        </div>
+
+                    <div class="form-group">
+                          <label for="mobile">Mobile Number</label>
+                          <input id="mobile" class="form-control" formControlName="mobile"
+                    placeholder="MobileNumber required" placeholder="Enter your phoneno" />
+                          <div class="help-block text-danger" *ngIf="mobile.touched">
+                              <span *ngIf="formGroup.controls.mobile.errors && formGroup.controls.mobile.touched">
+                        mobileNumber is REQUIRED!!! </span>
+                              </div>
+                        </div><br>
+
+                   
+            <hr />
+                    <button class="btn btn-primary" type="submit">Sign Up</button> <span> Or <button
+                    class="btn btn-secondary"             routerLink="/Login">Login</button> </span>
+                     
+                        <button (click)="showToasterSuccess()">
+                              Success Toaster
+                          </button>
+                 
+        </form>
+            </div>
+        </div> --> -->

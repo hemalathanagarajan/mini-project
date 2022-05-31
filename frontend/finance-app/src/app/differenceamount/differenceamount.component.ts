@@ -27,6 +27,7 @@ formgroup!: FormGroup;
   budgetall!: number;
 expenseValue!:number;
 budgetValue!:number;
+difference:Number|undefined
 
 fetchValue={
   "expenseValue":"",
@@ -50,16 +51,17 @@ fetchValue={
   get month(){
     return this.formgroup.get('month')!;
   }
-           
-  getBudget(Formvalue:any){
+  //-----------
+
+  getvalues(Formvalue:any){
   
-    let data={
+    let budgetdata={
       selector:{
         "type": "budget",
          "user": this.userId.id,
          "month":Formvalue.month
       }}
-      this.api.fetchDetails(data).subscribe(res =>{
+      this.api.fetchDetails(budgetdata).subscribe(res =>{
         console.log(res);
         this.alluser = res;
            this.alluser=this.alluser.docs
@@ -70,31 +72,24 @@ fetchValue={
            console.log(this.alluserBudgetData);
 
            if(this.alluserBudgetData.month == Formvalue.month){
-            alert("Your budget data was got successfully!"+data);
+            alert("Your budget data was got successfully!");
 
           }
-          //  let budgetValue = this.alluserBudgetData[0].budgetall;
-          //  let budgetValue1 = this.alluserBudgetData[1].budgetall;
-          //  console.log(budgetValue);
-          //  console.log(budgetValue1);
-          //    alert("Your  budget data was got successfully!");
-         
-
+          
       },rej=>{
         alert("opps! Can not able "+rej);
       });
-   }
-
-     getExpense(Formvalue:any) {
-      let data={
+      let expensedata={
         selector:{
           "type": "expense",
            "user": this.userId.id,
+         "month":Formvalue.month
+
         }}
         
-        this.api.fetchDetails(data).subscribe(res =>{
+        this.api.fetchDetails(expensedata).subscribe(res =>{
           console.log(res);
-       
+          
           this.alluserExpense = res;
            this.alluserExpense=this.alluserExpense.docs
            this.alluserExpenseData=this.alluserExpense
@@ -104,29 +99,86 @@ fetchValue={
            console.log(this.alluserExpenseData);
 
            console.log(this.alluserExpenseData[0].expenseall);
-
            if(this.alluserExpenseData.month == Formvalue.month){
-            alert("Your expense data was got successfully!"+data);
+            alert("Your expense data was got successfully!");
 
           }
-            //  .map((el:any)=>el.doc);
-  
-            //  for(const array in this.alluserData){
-            //    console.log(this.alluserData[array]);
-            //  }
-          
-          // alert("You data got  successfully!"+ data);
         },rej=>{
           alert("opps! you dont have expense on that month "+rej);
         });
-     }
-     calculateDifference() {
-let difference =   parseInt(this.fetchValue.expenseValue )- parseInt(this.fetchValue.budgetValue);
+     
 
-console.log( "difference"+difference);
-alert("your difference amonut is "+difference);
+    
+     this.difference =   parseInt(this.fetchValue.expenseValue )- parseInt(this.fetchValue.budgetValue);
+     
+     console.log( "difference"+this.difference);
+    }
 
-     }
+ 
+           
+  // getBudget(Formvalue:any){
+  
+  //   let data={
+  //     selector:{
+  //       "type": "budget",
+  //        "user": this.userId.id,
+  //        "month":Formvalue.month
+  //     }}
+  //     this.api.fetchDetails(data).subscribe(res =>{
+  //       console.log(res);
+  //       this.alluser = res;
+  //          this.alluser=this.alluser.docs
+  //          this.alluserBudgetData=this.alluser
+
+  //          this.fetchValue.budgetValue=this.alluserBudgetData[0].budgetall;
+
+  //          console.log(this.alluserBudgetData);
+
+  //          if(this.alluserBudgetData.month == Formvalue.month){
+  //           alert("Your budget data was got successfully!"+data);
+
+  //         }
+          
+  //     },rej=>{
+  //       alert("opps! Can not able "+rej);
+  //     });
+  //  }
+
+  //    getExpense(Formvalue:any) {
+  //     let data={
+  //       selector:{
+  //         "type": "expense",
+  //          "user": this.userId.id,
+  //        "month":Formvalue.month
+
+  //       }}
+        
+  //       this.api.fetchDetails(data).subscribe(res =>{
+  //         console.log(res);
+          
+  //         this.alluserExpense = res;
+  //          this.alluserExpense=this.alluserExpense.docs
+  //          this.alluserExpenseData=this.alluserExpense
+
+  //          this.fetchValue.expenseValue=this.alluserExpenseData[0].expenseall;
+
+  //          console.log(this.alluserExpenseData);
+
+  //          console.log(this.alluserExpenseData[0].expenseall);
+  //          if(this.alluserExpenseData.month == Formvalue.month){
+  //           alert("Your expense data was got successfully!"+data);
+
+  //         }
+  //       },rej=>{
+  //         alert("opps! you dont have expense on that month "+rej);
+  //       });
+  //    }
+  //    calculateDifference() {
+  //    this.difference =   parseInt(this.fetchValue.expenseValue )- parseInt(this.fetchValue.budgetValue);
+     
+  //    console.log( "difference"+this.difference);
+
+  //    }
  
   }
 
