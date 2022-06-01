@@ -32,11 +32,12 @@ body{
     margin-bottom: 30px;
     font-size: 30px;
     font-weight: 900;
+    color: midnightblue;
 }
 
 .text{
     font-size: 18px;
-    color: #545454;
+    color: #302a66;
     line-height: 30px;
     text-align: justify;
     margin-bottom: 40px;
@@ -47,6 +48,7 @@ body{
     justify-content: space-between;
     font-weight: 700;
     font-size: 13px;
+    color: #302a66;
 }
 
 @media screen and (max-width:1200px){

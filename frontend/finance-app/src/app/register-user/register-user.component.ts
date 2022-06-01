@@ -20,9 +20,9 @@ export class RegisterUserComponent implements OnInit {
   constructor(private fb: FormBuilder,private api:apiService,private alert:NotificationService) {
     this.checkoutform = this.fb.group({
       Name: ['',[Validators.required,Validators.minLength(4)]],
-      username: ['',[Validators.required,Validators.minLength(8)]],
+      username: ['',[Validators.required]],
       email: ['',[Validators.email,Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required]],
      mobile: ['',[Validators.maxLength(10), Validators.required]],
       
           });
@@ -59,32 +59,20 @@ export class RegisterUserComponent implements OnInit {
 
   signup(Formvalue:any)
   { 
-    // const user = {
-    //   "firstName":Formvalue.firstName,
-    //   "type":"user"
-    // }
+    
     
     console.log("from form",Formvalue);
     this.api.storedata(Formvalue).subscribe((res)=>{
-      if(Formvalue.valid){
-      this.alert.showSuccess("success","Data posted success Fully")
-      }
+      
       console.log("data returned from server",res);
-      // alert("you have signed up successfully");
-      // console.log("id",data.id);
+      this.alert.showSuccess("success","Data posted success Fully")
+
     },rej =>{
+      console.log(rej)
       this.alert.showError("data cant post","error");
     })
 
-    if(Formvalue.invalid){
-      this.alert.showError("data cant post","error");
-      
-    }
-    
-  // if(this.checkoutform.invalid){
-  //   return;
-  // }
-  console.log(JSON.stringify(this.checkoutform.value));
+
   }
     onReset():void {
       // this.submitted=false;
@@ -92,21 +80,13 @@ export class RegisterUserComponent implements OnInit {
 
 
   }
-//   showToasterSuccess(){
-//     this.notifyService.showSuccess("Data shown successfully !!", "tutsmake.com")
-// }
+
  
 showToasterError(){
     this.alert.showError("Something is wrong", "tutsmake.com")
 }
  
-// showToasterInfo(){
-//     this.notifyService.showInfo("This is info", "tutsmake.com")
-// }
- 
-// showToasterWarning(){
-//     this.notifyService.showWarning("This is warning", "tutsmake.com")
-// }
+
 showToasterSuccess(){
   this.alert.showSuccess("success","Data posted success Fully")
 

@@ -35,7 +35,7 @@
 
 
             <li>
-                <a href="new-user">
+                <a href="blog">
                     <i class='bx bx-coin-stack'></i>
                     <span class="links_name">Blog</span>
                 </a>
@@ -47,12 +47,6 @@
                 </a>
             </li>
 
-            <li>
-                <a href="#">
-                    <i class='bx bx-message'></i>
-                    <span class="links_name">FAQ on Budgeting</span>
-                </a>
-            </li>
             <li class="log_out">
                 <a href="#">
                     <i class='bx bx-log-out'></i>
@@ -65,18 +59,18 @@
         <nav>
             <div class="sidebar-button">
                 <i class='bx bx-menu sidebarBtn'></i>
-                <!-- <span class="dashboard">Dashboard</span> -->
                 <span class="dashboard"> Welcome {{userId.name}}</span>
             </div>
 
             <div class="profile-details">
                 <span class="admin_name">{{userId.email}}</span>
             </div>
-            <div class="profile-details">
-                <a href="">LOG OUT</a>
+            <!-- <div class="profile-details">
+                <a href="#" (click)=LocalStorage.clear>LOG OUT</a>
 
 
-            </div>
+            </div> -->
+            <button type="submit" (click)="clear()">LOG OUT</button>
         </nav>
 
         <div class="home-content">
@@ -84,39 +78,35 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Budget </div>
-                        <a href="budget">Click to More Info</a>
+                        <a href="budget">Click to Get Into Budget</a>
 
 
                         <div class="indicator">
                             <i class='bx bx-up-arrow-alt'></i>
-                            <span class="text">Up from yesterday</span>
+                            <span class="text">More info</span>
                         </div>
                     </div>
-                    <i class='bx bx-cart-alt cart'></i>
                 </div>
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Expense form</div>
-                        <a href="expense">Click to More Info</a>
+                        <a href="expense">Click to Get into Expense</a>
 
                         <div class="indicator">
-                            <i class='bx bx-up-arrow-alt'></i>
-                            <span class="text">Up from yesterday</span>
+                            <span class="text">More info</span>
                         </div>
                     </div>
-                    <i class='bx bxs-cart-add cart two'></i>
                 </div>
                 <div class="box">
                     <div class="right-side">
-                        <div class="box-topic">estimated difference</div>
-                        <a href="difference">Click To See</a>
+                        <div class="box-topic">Estimated Difference</div>
+                        <a href="difference">Click To See Difference </a>
 
                         <div class="indicator">
                             <i class='bx bx-up-arrow-alt'></i>
-                            <span class="text">Up from yesterday</span>
+                            <span class="text">More info</span>
                         </div>
                     </div>
-                    <i class='bx bx-cart cart three'></i>
                 </div>
 
             </div>
@@ -130,40 +120,36 @@
                         </ul>
                     </div>
 
-                    <!-- <button type="submit" (click)="fetchBudgetDetails()">Budget View</button>
-                    <button type="submit" (click)="fetchExpenseDetails()">Expense View</button> -->
+
                     <table class="table table">
 
 
                         <thead>
                             <tr>
-                                <th scope="col">EMI</th>
-                                <th scope="col">budgetall</th>
-                                <th scope="col">cloth</th>
-                                <th scope="col">eb_bill</th>
-                                <th scope="col">education</th>
-                                <th scope="col">entertainment</th>
-                                <th scope="col">food</th>
-                                <th scope="col">health</th>
-                                <th scope="col">home</th>
-                                <th scope="col">month</th>
-                                <th scope="col">transport</th>
-
+                                <th>Home</th>
+                                <th>Food</th>
+                                <th>Cloth</th>
+                                <th>EB_bill</th>
+                                <th>Education</th>
+                                <th>EMI</th>
+                                <th>Entertainment</th>
+                                <th>Transport</th>
+                                <th>Health</th>
+                                <th>Budget </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let budget of userBudget">
-                                <td>{{budget.EMI}}</td>
-                                <td>{{budget.budgetall}}</td>
+                                <td>{{budget.home}}</td>
+                                <td>{{budget.food}}</td>
                                 <td>{{budget.cloth}}</td>
                                 <td>{{budget.eb_bill}}</td>
                                 <td>{{budget.education}}</td>
+                                <td>{{budget.EMI}}</td>
                                 <td>{{budget.entertainment}}</td>
-                                <td>{{budget.food}}</td>
-                                <td>{{budget.health}}</td>
-                                <td>{{budget.home}}</td>
-                                <td>{{budget.month}}</td>
                                 <td>{{budget.transport}}</td>
+                                <td>{{budget.health}}</td>
+                                <td>{{budget.budgetall}}</td>
                             </tr>
 
                         </tbody>
@@ -175,74 +161,37 @@
 
                         <thead>
                             <tr>
-                                <th scope="col">cloth</th>
-                                <th scope="col">EMI</th>
-
-                                <th scope="col">eb_bill</th>
-                                <th scope="col">education</th>
-                                <th scope="col">entertainment</th>
-                                <th scope="col">expenseall</th>
-                                <th scope="col">food</th>
-                                <th scope="col">health</th>
-                                <th scope="col">home</th>
-                                <th scope="col">month</th>
-                                <th scope="col">transport</th>
+                                <th>Home</th>
+                                <th>Food</th>
+                                <th>Cloth</th>
+                                <th>EB_bill</th>
+                                <th>Education</th>
+                                <th>EMI</th>
+                                <th>Entertainment</th>
+                                <th>Transport</th>
+                                <th>Health</th>
+                                <th>Expense </th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let expense of userExpenseData">
-                                <td>{{expense.cloth}}</td>
-                                <td>{{expense.EMI}}</td>
+                                <td>{{expense.home}}</td>
+                                <td>{{expense.food}}</td>
 
+                                <td>{{expense.cloth}}</td>
                                 <td>{{expense.eb_bill}}</td>
                                 <td>{{expense.education}}</td>
+                                <td>{{expense.EMI}}</td>
                                 <td>{{expense.entertainment}}</td>
-                                <td>{{expense.expenseall}}</td>
-                                <td>{{expense.food}}</td>
-                                <td>{{expense.health}}</td>
-                                <td>{{expense.home}}</td>
-                                <td>{{expense.month}}</td>
                                 <td>{{expense.transport}}</td>
+                                <td>{{expense.health}}</td>
+                                <td>{{expense.expenseall}}</td>
                             </tr>
 
                         </tbody>
                     </table>
-                    <!-- <div class="button">
-                        <a href="#">See All</a>
-                    </div> -->
 
-                    <!-- <div class="top-sales box">
-                    <div class="title">Top Reasons to choose QUICK PLAN</div>
-                    <ul class="top-sales-details">
-                        <li>
-                            <a href="#">
-                                <img src="../../images/pie.jpg" alt="">
-                                <span class="product">Track all your spending in a single dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="../../images/rupee.jpg" alt="">
-                                <span class="product">Create and manage spending categories that work for you</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="../../images/futureplan.jpg" alt="">
-                                <span class="product">Today’s smart money management is tomorrow’s healthy financial
-                                    future</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="../../images/safe.jpg" alt="">
-                                <span class="product"> Safe and Secure </span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
-            </div> -->
-                </div>
-                <!-- </section> -->
-                <!-- </body> -->
+
+                <img src="../../images/budgetgif.gif" width="20%">

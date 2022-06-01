@@ -1,12 +1,9 @@
 <div class="container">
-
-    <h1>Expense List</h1>
-
-    <div class="backcolor">
+    <div class="content">
         <form [formGroup]="formgroup" (ngSubmit)="submit(this.formgroup.value)">
-            <div class="formgroup">
+            <div class="form-group">
                 <label>Select Month</label>
-                <select name="cars" id="cars" class="form-control" placeholder="select month" formControlName="month">
+                <select name="cars" id="month" class="form-control" placeholder="select month" formControlName="month">
                     <option value="jan">Jan</option>
                     <option value="feb">Feb</option>
                     <option value="mar">Mar</option>
@@ -165,44 +162,5 @@
 
 
         </form>
-        <!-- <button class="btn btn-primary" (click)="Viewdata()">View data</button> -->
-
     </div>
-
-    <!-- <button class="btn btn-primary" (click)="ViewbyId()">Get ID</button> -->
-
-    <!-- <table class="table table-dark"> -->
-    <table class="table table">
-
-
-        <thead>
-            <tr>
-                <th scope="col">home</th>
-                <th scope="col">food</th>
-                <th scope="col">cloth</th>
-                <th scope="col">eb_bill</th>
-                <th scope="col">education</th>
-                <th scope="col">EMI</th>
-                <th scope="col">entertainment</th>
-                <th scope="col">transport</th>
-                <th scope="col">health</th>
-                <th scope="col">Total Expense Amount</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of alluserData">
-                <td>{{item.home}}</td>
-                <td>{{item.food}}</td>
-                <td>{{item.cloth}}</td>
-                <td>{{item.eb_bill}}</td>
-                <td>{{item.education}}</td>
-                <td>{{item.EMI}}</td>
-                <td>{{item.entertainment}}</td>
-                <td>{{item.transport}}</td>
-                <td>{{item.health}}</td>
-                <td>{{item.expenseall}}</td>
-            </tr>
-
-        </tbody>
-    </table>
+</div>

@@ -1,17 +1,7 @@
-.drop-down{
-    margin-left:20px;
-    margin-top:80px;
-    width:300px;
-}
-.container {
-    width:100px;
-}
-form {
-    background-color: white;
-    padding: 100px 150px;
-    margin-bottom: 100px;
-    border-radius: 10px;
-}
-.form-group input {
-    width: 400px;
+ 
+.container{
+    border:2px solid gray;
+    margin-left: 500px;
+    max-width: 100px;
+    margin-top:20px;
 }

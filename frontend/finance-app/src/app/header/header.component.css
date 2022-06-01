@@ -16,7 +16,7 @@
         color:white;
 
         background: transparent;
-        /* background: white ; */
+        /* background-color: black ; */
     background-image: linear-gradient(to right top, #102779, #0a2e7d, #053482, #013b85, #004189, #1c438b, #2b448d, #37468f, #4e438e, #623e8c, #733987, #833381);
         
         
@@ -27,15 +27,23 @@
         
 
       }
+      nav h1 {
+        color: white;
+        font-size: 35px;
+        font-weight: 500;
+        margin-top: 10px;
+      }
       .menu {
         display: inline-block;
         
       }
       .menu>li {
         float: left;
-        
+        display: flex;
+      flex-direction: row;
         color: white;
-        width: 253px;
+        padding: 0px 70px;
+        /* width: 253px; */
         height: 40px;
         line-height: 60px;
         cursor: pointer;
@@ -77,9 +85,3 @@
       .menu>li:hover .sub-menu {
         transform: scale(1);
       }
-
-
-
-
-
-      

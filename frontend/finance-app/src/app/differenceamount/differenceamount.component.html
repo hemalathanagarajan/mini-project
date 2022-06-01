@@ -1,100 +1,120 @@
+<h1>Welcome!!!! Kindly Select the month to estimate the difference Amount</h1>
+
 <form [formGroup]="formgroup">
-
-    <div class="formgroup">
-        <label>Select Month</label>
-        <select name="cars" id="cars" class="form-control" placeholder="select month" formControlName="month">
-            <option value="jan">Jan</option>
-            <option value="feb">Feb</option>
-            <option value="mar">Mar</option>
-            <option value="apr">Apr</option>
-            <option value="may">May</option>
-            <option value="jun">Jun</option>
-            <option value="july">July</option>
-            <option value="aug">Aug</option>
-            <option value="sep">Sep</option>
-            <option value="oct">Oct</option>
-            <option value="nov">Nov</option>
-            <option value="dec">Dec</option>
-        </select>
+    <div class="content">
+        <div class="formgroup">
+            <label>Select Month</label>
+            <select name="month" id="month" class="form-control" placeholder="select month" formControlName="month">
+                <option value="jan">Jan</option>
+                <option value="feb">Feb</option>
+                <option value="mar">Mar</option>
+                <option value="apr">Apr</option>
+                <option value="may">May</option>
+                <option value="jun">Jun</option>
+                <option value="july">July</option>
+                <option value="aug">Aug</option>
+                <option value="sep">Sep</option>
+                <option value="oct">Oct</option>
+                <option value="nov">Nov</option>
+                <option value="dec">Dec</option>
+            </select>
+        </div>
     </div>
-    <button type="button" (click)="getvalues(this.formgroup.value)">Submit</button>
+    <button type="button" (click)="fetchBudgetExpence(this.formgroup.value)">Submit</button>
 
-    <!-- <button type="button" (click)="getBudget(this.formgroup.value)">View Budget list </button>
-    <button type="button" (click)="getExpense(this.formgroup.value)">View Expense list </button> -->
+
 </form>
-
-<table class="table table">
-
-
-    <thead>
-        <tr>
-            <th scope="col">home</th>
-            <th scope="col">food</th>
-            <th scope="col">cloth</th>
-            <th scope="col">eb_bill</th>
-            <th scope="col">education</th>
-            <th scope="col">EMI</th>
-            <th scope="col">entertainment</th>
-            <th scope="col">transport</th>
-            <th scope="col">health</th>
-            <th scope="col">Total Budget Amount</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of alluserBudgetData">
-            <td>{{item.home}}</td>
-            <td>{{item.food}}</td>
-            <td>{{item.cloth}}</td>
-            <td>{{item.eb_bill}}</td>
-            <td>{{item.education}}</td>
-            <td>{{item.EMI}}</td>
-            <td>{{item.entertainment}}</td>
-            <td>{{item.transport}}</td>
-            <td>{{item.health}}</td>
-            <td>{{item.budgetall}}</td>
-        </tr>
-
-    </tbody>
-</table>
-<table class="table table">
+<!---->
+<div class="row">
+    <div class="column">
+        <table>
+            <caption>Budget Table</caption>
+            <tr>
+                <th>Home</th>
+                <th>Food</th>
+                <th>Cloth</th>
+                <th>EB_bill</th>
+                <th>Education</th>
+                <th>EMI</th>
+                <th>Entertainment</th>
+                <th>Transport</th>
+                <th>Health</th>
+                <th>Total Budget Amount</th>
 
 
-    <thead>
-        <tr>
-            <th scope="col">home</th>
-            <th scope="col">food</th>
-            <th scope="col">cloth</th>
-            <th scope="col">eb_bill</th>
-            <th scope="col">education</th>
-            <th scope="col">EMI</th>
-            <th scope="col">entertainment</th>
-            <th scope="col">transport</th>
-            <th scope="col">health</th>
-            <th scope="col">Total Expense Amount</th>
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of alluserExpenseData">
-            <td>{{item.home}}</td>
-            <td>{{item.food}}</td>
-            <td>{{item.cloth}}</td>
-            <td>{{item.eb_bill}}</td>
-            <td>{{item.education}}</td>
-            <td>{{item.EMI}}</td>
-            <td>{{item.entertainment}}</td>
-            <td>{{item.transport}}</td>
-            <td>{{item.health}}</td>
-            <td>{{item.expenseall}}</td>
-        </tr>
+            </tr>
 
-    </tbody>
-</table>
+            <tr *ngIf=" budgetDetails.length > 0">
+                <td>{{budgetDetails[0].home}}</td>
+                <td>{{budgetDetails[0].food}}</td>
+                <td>{{budgetDetails[0].cloth}}</td>
+                <td>{{budgetDetails[0].eb_bill}}</td>
+                <td>{{budgetDetails[0].education}}</td>
+                <td>{{budgetDetails[0].EMI}}</td>
+                <td>{{budgetDetails[0].entertainment}}</td>
+                <td>{{budgetDetails[0].transport}}</td>
+                <td>{{budgetDetails[0].health}}</td>
+                <td>{{budgetDetails[0].budgetall}}</td>
+            </tr>
 
-<div>
-    <!-- <button type="button" (click)="calculateDifference()"> Calculate Difference</button> -->
-</div>
-<p>
-    Difference amount is {{difference}} for the month
-</p>
+
+        </table>
+    </div>
+
+    <div class="column">
+        <table>
+            <caption>Expene Table</caption>
+            <tr>
+                <th>Home</th>
+                <th>Food</th>
+                <th>Cloth</th>
+                <th>EB_bill</th>
+                <th>Education</th>
+                <th>EMI</th>
+                <th>Entertainment</th>
+                <th>Transport</th>
+                <th>Health</th>
+                <th>Total Budget Amount</th>
+            </tr>
+            <tr *ngIf="expenceDetails.length > 0">
+                <td>{{expenceDetails[0].home}}</td>
+
+                <td>{{expenceDetails[0].food}}</td>
+                <td>{{expenceDetails[0].cloth}}</td>
+                <td>{{expenceDetails[0].eb_bill}}</td>
+                <td>{{expenceDetails[0].education}}</td>
+                <td>{{expenceDetails[0].EMI}}</td>
+                <td>{{expenceDetails[0].entertainment}}</td>
+                <td>{{expenceDetails[0].transport}}</td>
+                <td>{{expenceDetails[0].health}}</td>
+                <td>{{expenceDetails[0].expenseall}}</td>
+            </tr>
+
+        </table>
+    </div>
+    <h5 *ngIf="expenceDetails.length > 0 && budgetDetails.length > 0">
+        Difference amount for Home is <span>{{calculateDifference(expenceDetails[0].home,budgetDetails[0].home)}}</span>
+        <br>
+        Difference amount for Food <span>{{calculateDifference(expenceDetails[0].food,budgetDetails[0].food)}}</span>
+        <br>
+        Difference amount Cloth <span>{{calculateDifference(expenceDetails[0].cloth,budgetDetails[0].cloth)}}</span>
+        <br>
+        Difference amount EB_BILL
+        <span>{{calculateDifference(expenceDetails[0].eb_bill,budgetDetails[0].eb_bill)}}</span>
+
+        <br>
+        Difference amount Education
+        <span>{{calculateDifference(expenceDetails[0].education,budgetDetails[0].education)}}</span>
+        <br>
+        Difference amount EMI <span>{{calculateDifference(expenceDetails[0].EMI,budgetDetails[0].EMI)}} </span><br>
+        Difference amount Entertainment<span>
+            {{calculateDifference(expenceDetails[0].entertainment,budgetDetails[0].entertainment)}}</span>
+        <br>
+        Difference amount Transport
+        <span>{{calculateDifference(expenceDetails[0].transport,budgetDetails[0].transport)}}</span> <br>
+        Difference amount Health <span>{{calculateDifference(expenceDetails[0].health,budgetDetails[0].health)}}</span>
+        <br>
+        Difference amount between TotalBUDGET and TotalExpense<span>
+            {{calculateDifference(expenceDetails[0].expenseall,budgetDetails[0].budgetall)}} </span><br>
+    </h5>

@@ -16,7 +16,6 @@ import { BudgetComponent } from './budget/budget.component';
 import { AboutComponent } from './about/about.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LookupComponent } from './lookup/lookup.component';
 import { DifferenceamountComponent } from './differenceamount/differenceamount.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogComponent } from './blog/blog.component';
@@ -24,6 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from './notification.service';
 import { HttpCallInterceptorService } from './http-call-interceptor.service';
 import { ReviewComponent } from './review/review.component';
+import { NgxLoadingModule } from 'ngx-loading';
 // import { HttpCallInterceptorService } from './http-call-interceptor.service'; 
 // import flatpickr from 'flatpickr';
 
@@ -55,7 +55,6 @@ const routes:Routes=[
     AboutComponent,
     ExpenseListComponent,
     DashboardComponent,
-    LookupComponent,
     DifferenceamountComponent,
     FooterComponent,
     BlogComponent,
@@ -69,6 +68,7 @@ const routes:Routes=[
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxLoadingModule.forRoot({}),
     ToastrModule.forRoot(),
 
 

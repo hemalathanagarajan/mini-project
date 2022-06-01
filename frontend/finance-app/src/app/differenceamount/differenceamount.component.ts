@@ -10,6 +10,9 @@ import {apiService} from '../login.service';
 export class DifferenceamountComponent implements OnInit {
   public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
 
+  public budgetDetails: any= [];
+  public expenceDetails: any= [];
+
 formgroup!: FormGroup;
 
   expenseall !:number;
@@ -27,13 +30,41 @@ formgroup!: FormGroup;
   budgetall!: number;
 expenseValue!:number;
 budgetValue!:number;
-difference:Number|undefined
+difference:number|undefined
 
-fetchValue={
-  "expenseValue":"",
-  "budgetValue":"",
-}
-// public alluserExpenseData = this.alluserExpense.docs;
+differencearr : any = []
+trail:any = [];
+budget : any;
+expense  :any;
+
+// fetchBudgetValue={
+//   "budgetValue": 0,
+//   "homebudget":0,
+//   "foodbudget":0,
+//   "clothbudget":0,
+//   "eb_billbudget":0,
+//   "educationbudget":0,
+//   "EMIbudget":0,
+//   "entertainmentbudget":0,
+//   "transportbudget":0,
+//   "healthbudget":0,
+//   // "expensefood":"",
+// }
+// fetchExpenseValue={
+//   "expenseValue": 0,
+//   "homeexpense":0,
+//   "foodexpense":0,
+//   "clothexpense":0,
+//   "eb_billexpense":0,
+//   "educationexpense":0,
+//   "EMIexpense":0,
+//   "entertainmentexpense":0,
+//   "transportexpense":0,
+//   "healthexpense":0,
+  
+// }
+  userBudget: any;
+  trailbudget: any;
 
   constructor(private api:apiService,private fb:FormBuilder) {
     this.formgroup = this.fb.group({
@@ -51,69 +82,6 @@ fetchValue={
   get month(){
     return this.formgroup.get('month')!;
   }
-  //-----------
-
-  getvalues(Formvalue:any){
-  
-    let budgetdata={
-      selector:{
-        "type": "budget",
-         "user": this.userId.id,
-         "month":Formvalue.month
-      }}
-      this.api.fetchDetails(budgetdata).subscribe(res =>{
-        console.log(res);
-        this.alluser = res;
-           this.alluser=this.alluser.docs
-           this.alluserBudgetData=this.alluser
-
-           this.fetchValue.budgetValue=this.alluserBudgetData[0].budgetall;
-
-           console.log(this.alluserBudgetData);
-
-           if(this.alluserBudgetData.month == Formvalue.month){
-            alert("Your budget data was got successfully!");
-
-          }
-          
-      },rej=>{
-        alert("opps! Can not able "+rej);
-      });
-      let expensedata={
-        selector:{
-          "type": "expense",
-           "user": this.userId.id,
-         "month":Formvalue.month
-
-        }}
-        
-        this.api.fetchDetails(expensedata).subscribe(res =>{
-          console.log(res);
-          
-          this.alluserExpense = res;
-           this.alluserExpense=this.alluserExpense.docs
-           this.alluserExpenseData=this.alluserExpense
-
-           this.fetchValue.expenseValue=this.alluserExpenseData[0].expenseall;
-
-           console.log(this.alluserExpenseData);
-
-           console.log(this.alluserExpenseData[0].expenseall);
-           if(this.alluserExpenseData.month == Formvalue.month){
-            alert("Your expense data was got successfully!");
-
-          }
-        },rej=>{
-          alert("opps! you dont have expense on that month "+rej);
-        });
-     
-
-    
-     this.difference =   parseInt(this.fetchValue.expenseValue )- parseInt(this.fetchValue.budgetValue);
-     
-     console.log( "difference"+this.difference);
-    }
-
  
            
   // getBudget(Formvalue:any){
@@ -130,9 +98,18 @@ fetchValue={
   //          this.alluser=this.alluser.docs
   //          this.alluserBudgetData=this.alluser
 
-  //          this.fetchValue.budgetValue=this.alluserBudgetData[0].budgetall;
+  //         //  console.log("testbudget" ,this.alluserBudgetData);
 
-  //          console.log(this.alluserBudgetData);
+  //         //  this.fetchBudgetValue.budgetValue=this.alluserBudgetData;
+            
+  //         //  console.log("BUDGET",this.alluserBudgetData);
+
+  //         //  this.userBudget = this.alluserBudgetData[0].home;
+           
+          
+  //          console.log(this.userBudget)
+  //          this.budget = this.alluserBudgetData;
+  //          console.log(this.budget);
 
   //          if(this.alluserBudgetData.month == Formvalue.month){
   //           alert("Your budget data was got successfully!"+data);
@@ -159,10 +136,15 @@ fetchValue={
   //         this.alluserExpense = res;
   //          this.alluserExpense=this.alluserExpense.docs
   //          this.alluserExpenseData=this.alluserExpense
+  //          console.log("test",this.alluserExpenseData);
 
-  //          this.fetchValue.expenseValue=this.alluserExpenseData[0].expenseall;
+  //          this.fetchExpenseValue.expenseValue=this.alluserExpenseData;
+          
+  //         //  console.log("expense total array",this.expenseValue);
 
-  //          console.log(this.alluserExpenseData);
+  //          console.log("EXPENSE",this.alluserExpenseData);
+  //          this.expense = this.alluserExpenseData;
+  //          console.log(this.expense);
 
   //          console.log(this.alluserExpenseData[0].expenseall);
   //          if(this.alluserExpenseData.month == Formvalue.month){
@@ -173,12 +155,68 @@ fetchValue={
   //         alert("opps! you dont have expense on that month "+rej);
   //       });
   //    }
-  //    calculateDifference() {
-  //    this.difference =   parseInt(this.fetchValue.expenseValue )- parseInt(this.fetchValue.budgetValue);
+     calculateDifference(a:any,b:any) {
+    //   for (let i = 0; i <= this.alluserBudgetData.length; i++) {
+    //  this.differencearr[i] =  parseInt(this.alluserExpenseData[i])- parseInt(this.alluserBudgetData[i]);
      
-  //    console.log( "difference"+this.difference);
+    // //  console.log( "difference" +this.difference);
+    // //  this.differencearr[i] = this.difference;
+    // //  this.difference = 0;
+    //   }
+    console.log(a,b)
+      console.log(Math.abs(a-b));
+    return Math.abs(a-b);
+     }
 
-  //    }
+
+     getBudget1(Formvalue:any){
+  
+      let data={
+        selector:{
+          "type": "budget",
+           "user": this.userId.id,
+           "month":Formvalue.month
+        }}
+        return new Promise(resolve => {
+          this.api.fetchDetails(data).subscribe(res =>{
+            console.log(res);
+            this.alluser = res;
+               this.alluser=this.alluser.docs
+               resolve(this.alluser) 
+          },rej=>{
+            alert("opps! Can not able "+rej);
+          });
+        });
+     }
+
+     getExpense1(Formvalue:any) {
+      let data={
+        selector:{
+          "type": "expense",
+          "user": this.userId.id,
+          "month":Formvalue.month
+        }}
+        return new Promise(resolve => {this.api.fetchDetails(data).subscribe(res =>{
+           console.log(res);
+           this.alluserExpense = res;
+           this.alluserExpense=this.alluserExpense.docs
+           resolve(this.alluserExpense) 
+        }
+        ,rej=>{
+          alert("opps! you dont have expense on that month "+rej);
+        });
+      });
+    }
+
+
+     async fetchBudgetExpence(Formvalue:any){
+       await this.getBudget1(Formvalue).then(res=>{
+        this.budgetDetails = res;
+       })
+       await this.getExpense1(Formvalue).then(res=>{
+        this.expenceDetails = res;
+       })
+     }
  
   }
 

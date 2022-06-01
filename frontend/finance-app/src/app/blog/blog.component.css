@@ -4,16 +4,14 @@ body {
     background: #f1f1f1;
   }
   
-  /* Header/Blog Title */
-  .header {
+  .header h2{
     padding: 30px;
     font-size: 40px;
     text-align: center;
     background: white;
   }
   
-  /* Create two unequal columns that floats next to each other */
-  /* Left column */
+
   .leftcolumn {
     float: left;
     width: 75%;
@@ -26,7 +24,6 @@ body {
     padding-left: 20px;
   }
   
-  /* Fake image */
   .fakeimg {
     /* background-color: #aaa; */
     
@@ -38,10 +35,19 @@ body {
   .card {
     background-color: white;
     padding: 20px;
-    margin-top: 20px;
+    margin: 20px 0px;
+    width: 900px;
+    margin-left: 250px;
+  }
+  .card h2,
+  h1 {
+    color: midnightblue;
+  }
+  .card h5,
+  p {
+    color: #102779;
   }
   
-  /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
@@ -52,22 +58,24 @@ body {
   .footer {
     padding: 20px;
     text-align: center;
-    background: #ddd;
+    background: rgb(221, 221, 221);
     margin-top: 20px;
   }
   table {
     border-collapse: collapse;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(221, 221, 221);
   }
   
   th, td {
     text-align: left;
     padding: 16px;
   }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
   
   
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {
       width: 100%;

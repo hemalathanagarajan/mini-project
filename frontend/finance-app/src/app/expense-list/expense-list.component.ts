@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {apiService} from '../login.service';
 import  {rangeValidator}  from './validator';
+import {NotificationService} from '../notification.service';
+
 
 @Component({
   selector: 'app-expense-list',
@@ -35,7 +37,7 @@ expense: any = {
         month:'',
       
 };
-  constructor(private fb: FormBuilder,private api:apiService) { 
+  constructor(private fb: FormBuilder,private api:apiService,private alert:NotificationService) { 
     this.formgroup = this.fb.group({
         home: ['',[Validators.required,rangeValidator(0,Infinity)]],
         food: ['',[Validators.required,rangeValidator(0,Infinity)]],
@@ -111,40 +113,15 @@ get month(){
    
        this.api.add("finance_db",expense).subscribe(res=>{
         console.log(res);
+      this.alert.showSuccess("success","Expense Created Successfully")
         
-        alert("Your expense was posted successfully!");
         this.formgroup.reset();
       },rej=>{
-        alert("opps! Can not post data"+rej);
+      this.alert.showError("expense cant create","error");
+
       });
     }
-    
-
-      Viewdata() {
-      
-       this.api.get("finance_db").subscribe(res=>{
-            console.log(res);
-            this.alluser = res;
-            this.alluser=this.alluser.rows
-            this.alluserData=this.alluser.map((el:any)=>el.doc)
-            console.log(this.alluserData)
-        
-
-            alert("Your data was posted successfully!");
-            this.formgroup.reset();
-          },rej=>{
-            alert("opps! Can not post data"+rej);
-          });
-        }
-
-        
-
-   
-
-
-
-
-AddExpense(home:string,food:string,cloth:string,eb_bill:string,education:string,EMI:string,entertainment:string,transport:string,health:string){
+  AddExpense(home:string,food:string,cloth:string,eb_bill:string,education:string,EMI:string,entertainment:string,transport:string,health:string){
 this.result =parseInt(home) + parseInt(food)+parseInt(cloth)+parseInt(eb_bill)+parseInt(education)+parseInt(EMI)+parseInt(entertainment)+parseInt(transport)+parseInt(health);
 this.formgroup.controls['expenseall'].setValue(this.result);
 

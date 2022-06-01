@@ -20,6 +20,8 @@ alluser: any;
 
 // public userId = localStorage.getItem('obj1.id');
 public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
+  router: any;
+
   
   constructor(private api:apiService) {
     
@@ -82,45 +84,15 @@ public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
       });
    }
 
-//----------------worked code------------
-  //  fetchBudgetDetails(){
-  //   // let data={
-  //   //   selector:{
-  //   //     "type": "budget",
-  //   //      "user": this.userId.id,
-  //   //   }}
-  //     this.api.fetchDetailsofBudget(data).subscribe(res =>{
-  //       console.log(res);
-  //       this.alluser = res;
-  //          this.alluser=this.alluser.docs
-  //          this.alluserData=this.alluser
-  //          console.log(this.alluserData);
-
-          
-         
-
-  //     },rej=>{
-  //       alert("opps! No records on budget "+rej);
-  //     });
-  //  }
-
 
   ngOnInit(): void {
   }
-  // Viewdata() {
-      
-  //   this.api.get("finance_db").subscribe(res=>{
-  //        console.log(res);
-  //        this.alluser = res;
-  //        this.alluser=this.alluser.rows
-  //        this.alluserData=this.alluser.map((el:any)=>el.doc)
-  //        console.log(this.alluserData);
-  //        alert("Your data was got successfully!");
-  //           // this.formgroup.reset();
-  //         },rej=>{
-  //           alert("opps! Can not post data"+rej);
-  //         });
-  //       }
   
+  clear(){
+this.router.navigate(['']);
+localStorage.clear(); 
+
+    
+  }
 
 }

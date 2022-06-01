@@ -1,7 +1,7 @@
 <main>
     <article>
         <div class="img-article">
-            <img src="../../images/get started.JPG" alt="" id="egg">
+            <img src="../../images/get started.JPG" alt="logo">
         </div>
         <section>
             <h1>Sign Up</h1>
@@ -32,9 +32,7 @@
                         <span *ngIf="username.errors?.required">
                             username is REQUIRED!!!
                         </span>
-                        <span *ngIf="username.errors?.minlength">
-                            username must be more than 4 Chars!!!
-                        </span>
+
                     </div>
 
                 </div>
@@ -93,78 +91,7 @@
             </form>
 
 
-            <button (click)="showToasterSuccess()">
-                Success Toaster
-            </button>
-            <button (click)="showToasterError()">
-                error Toaster
-            </button>
-
 
         </section>
     </article>
 </main>
-
-<!-- <div class="content">
-        <h1 class="title">SIGN-UP</h1>
-        <div class="d-flex justify-content-center backcolor" id="input">
-              <form [formGroup]="formGroup" (ngSubmit)="storing(this.formGroup.value)">
-                    <div class="form-group">
-                          <label for="firstName">First Name</label>
-                          <input id="firstName" class="form-control" formControlName="firstName"
-                    placeholder="FirstName Required"             required />
-                          <div class="help-block text-danger" *ngIf="firstName.touched">
-                                <span *ngIf="firstName.errors?.required">
-                                      First Name is REQUIRED!!!
-                                    </span>
-                              </div>
-                        </div>
-
-                    <div class="form-group">
-                          <label for="lname">Last Name</label>
-                          <input id="lname" class="form-control" formControlName="lastName"
-                    placeholder="LastName Required" required />
-
-                        </div>
-
-                    <div class="form-group">
-                          <label for="email">Email</label>
-                          <input id="email" class="form-control" formControlName="email" placeholder="Email (required)"
-                    required />
-                          <div class="help-block text-danger" *ngIf="email.touched">
-                                <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>
-                              </div>
-                        </div>
-                   
-            <!-- "regForm.controls.mobileNumber.errors && regForm.controls.mobileNumber.touched" -->
-<!--         <div class="form-group">
-                          <label for="password">Password</label>
-                          <input type="password" id="password" class="form-control" formControlName="password"
-                    placeholder="password required" required />
-                          <div class="help-block text-danger" *ngIf="password.touched">
-                                <span *ngIf="password.errors?.required"> password is REQUIRED!!! </span>
-                              </div>
-                        </div>
-
-                    <div class="form-group">
-                          <label for="mobile">Mobile Number</label>
-                          <input id="mobile" class="form-control" formControlName="mobile"
-                    placeholder="MobileNumber required" placeholder="Enter your phoneno" />
-                          <div class="help-block text-danger" *ngIf="mobile.touched">
-                              <span *ngIf="formGroup.controls.mobile.errors && formGroup.controls.mobile.touched">
-                        mobileNumber is REQUIRED!!! </span>
-                              </div>
-                        </div><br>
-
-                   
-            <hr />
-                    <button class="btn btn-primary" type="submit">Sign Up</button> <span> Or <button
-                    class="btn btn-secondary"             routerLink="/Login">Login</button> </span>
-                     
-                        <button (click)="showToasterSuccess()">
-                              Success Toaster
-                          </button>
-                 
-        </form>
-            </div>
-        </div> --> -->

@@ -1,13 +1,12 @@
 <div class="background">
+    <div class="container">
 
-    <h1>Budget List</h1>
-
-
-    <div class="backcolor">
         <form [formGroup]="formgroup" (ngSubmit)="submit(this.formgroup.value)">
             <div class="formgroup">
                 <label>Select Month</label>
-                <select name="month" class="form-control" placeholder="select month" formControlName="month">
+                <select name="month" id="month" class="form-control" [ngModel]="budget.month" placeholder="select month"
+                    formControlName="month">
+                    <option value="">Choose</option>
                     <option value="jan">jan</option>
                     <option value="feb">Feb</option>
                     <option value="mar">Mar</option>
@@ -22,13 +21,22 @@
                     <option value="dec">Dec</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="selection">
                 <label>Location</label>
-                <select name="location" id="location" class="form-control" placeholder="select Location"
+                <select name="location" id="location" class="form-control" [ngModel]="budget.location"
                     formControlName="location" (change)="valueChanged($event)">
-                    <option value="mdu">Mdu</option>
+                    <option value="select">select</option>
+
+                    <option value="madurai">Mdu</option>
                     <option value="chennai">Chennai</option>
-                    <option value="mum">Mumbai</option>
+                    <option value="vellore">Vellore</option>
+                    <option value="theni">Theni</option>
+                    <option value="coimbatore">Coimbatore</option>
+                    <option value="erode">Erode</option>
+                    <option value="Virudhunagar">Virudhunagar</option>
+                    <option value="kalakuruchi">kalakuruchi</option>
+                    <option value="ooty">ooty</option>
+                    <option value="Salem">Salem</option>
 
                 </select>
 
@@ -169,15 +177,17 @@
             </div>
 
 
-            <input type="readonly" class="form-control" formControlName="budgetall">
+            <input type="readonly" id="readonly" class="form-control" formControlName="budgetall">
 
             <br>
             <hr />
             <button class="btn btn-primary"
                 (click)="AddBudget(home.value,food.value,cloth.value,eb_bill.value,education.value,EMI.value,entertainment.value,transport.value,health.value)">
                 Budget total </button>
-            <a href="dashboard">Back To Dashboard </a>
-        </form>
 
+            <a href="dashboard">Back To Dashboard </a>
+            <button class="btn btn-primary" (click)="onReset()" type="button"> Reset</button>
+
+        </form>
     </div>
 </div>

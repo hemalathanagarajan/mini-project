@@ -13,6 +13,9 @@ export class BudgetComponent implements OnInit {
 formgroup!: FormGroup;
 result!:number;
 budgetall !:number;
+value : any;
+place:any;
+fields:any;
 budget: any = {
     
         home: '',
@@ -28,6 +31,8 @@ budget: any = {
         location:'',
       
 };
+  temp: any;
+  temp1: any;
  
 
 
@@ -87,26 +92,17 @@ get month(){
 get location(){
   return this.formgroup.get('location')!;
 }
+onReset():void {
+  this.formgroup.reset();
 
 
-//------
-// viewDetail(datas:any) {
-//   console.log(this.formgroup.value);
-  
-//   this.api.fetchDetails(this.formgroup.value).subscribe(res =>{
-//   console.log(res);
-//   alert("You logged in successfully!");
-// },rej=>{
-//   alert("opps! Can not able to login"+rej);
-// });
-// }
-//------------
-  //---angular-couch connection 
+}
+
+
   submit(Formvalue:any){
     const  userData = JSON.parse(localStorage.getItem('obj1') || '{}');
     console.log(userData);
-      // console.log(formdata);
-      // this.store.pushData(formdata);
+      
        const budget = {
       "home":Formvalue.home,
       "food":Formvalue.food,
@@ -121,76 +117,42 @@ get location(){
       "month":Formvalue.month,
       type:"budget",
       user:userData.id,
-      
+      "location" : this.temp1,
       
 
     }
       this.api.add("finance_db",budget).subscribe(res=>{
         console.log(res);
-      this.alert.showSuccess("success","Data posted success Fully")
+      this.alert.showSuccess("success","Budget Created Successfully")
         
-        // alert("Your budget was created successfully!");
-        this.formgroup.reset();
+
       },
       rej=>{
       this.alert.showError("data cant post","error");
         
-        // alert("opps! Can not post data"+rej);
       });
-
-
-
-
-
-
-
-      // this.api.add("finance_db",budget).then((budget)=>{
-      //   console.log(budget);
-      //   alert("Your budget was created successfully!");
-      //   this.formgroup.reset();
-      // }).catch((()=>{
-      //   console.log("");
-      // }))
-      
-
-      // this.api.get("finance_db").subscribe(res=>{
-      //       console.log(res);
-      //       alert("Your data was posted successfully!");
-      //       this.formgroup.reset();
-      //     },rej=>{
-      //       alert("opps! Can not post data"+rej);
-      //     });
-
-
-
-
-      //   // this.api.updateData(this.formgroup.value, "fresher-sample", 'af06fead1ad5393fa13ada637526c0fb',this.idform.rev.value).subscribe((datas) => {
-        //     console.log(datas);
-        //   });
 }
-
-// login_test(datas:any) {
-//   const url=this.endpoint+'finance_db/_find';
-//   let data ={ selector: {
-//     email : datas.email,
-//     password:datas.password
-//   }},
-
-// fields:["id","name","email"]
-// return this.http.post(url,data,this.httpOptions)
-
-// } 
 
 
 
 AddBudget(homeAmount:string,foodAmount:string,clothAmount:string,eb_billAmount:string,educationAmount:string,EMIAmount:string,entertainmentAmount:string,transportAmount:string,healthAmount:string){
 this.result =parseInt(homeAmount) + parseInt(foodAmount)+parseInt(clothAmount)+parseInt(eb_billAmount)+parseInt(educationAmount)+parseInt(EMIAmount)+parseInt(entertainmentAmount)+parseInt(transportAmount)+parseInt(healthAmount);
 this.formgroup.controls['budgetall'].setValue(this.result);
-
 }
 
-valueChanged(event:Event) {
-console.log(event);
+valueChanged(event:any) {
+
+console.log(event.target.value);
+this.place = event.target.value
+this.api.getLocation(this.place,this.fields).subscribe((data => {
+  console.log(data);
+  this.temp=data;
+  this.temp1=this.temp.docs[0]._id;
+  console.log(this.temp1);
+
+})
+);
+return this.temp1;
 }
 
 }
