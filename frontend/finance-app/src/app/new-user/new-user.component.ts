@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 
 
 @Component({
@@ -9,18 +9,11 @@ import {FormBuilder,FormGroup} from '@angular/forms';
 })
 export class NewUserComponent implements OnInit {
 
-  // formValue !: FormGroup;
 
   constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    // this.formValue = this.formbuilder.group({
-    //   firstName  : [''],
-    //   lastName : [''],
-    //   email : [''],
-    //   mobile : [''],
-    //   salary : ['']
-    // })
+    console.log("view");
   
   }
 

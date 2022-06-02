@@ -88,9 +88,7 @@
   justify-content: space-between;
   height: 80px;
   background: #fff;
-  display: flex;
   align-items: center;
-  /* position: fixed; */
   width:100%;
   left: 240px;
   z-index: 100;
@@ -263,7 +261,6 @@ nav .profile-details i{
 .sales-boxes .sales-details li a{
   font-size: 18px;
   color: #333;
-  font-size: 400;
   text-decoration: none;
 }
 .sales-boxes .box .button{

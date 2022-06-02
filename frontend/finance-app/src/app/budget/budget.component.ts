@@ -55,7 +55,9 @@ budget: any = {
       });
   }
   
-
+  get home() {
+    return this.formgroup.get('home')!;
+  }
 
 get food() {
   return this.formgroup.get('food')!;

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {apiService} from '../login.service';
-import {FormBuilder,FormGroup,Validators,FormControl} from '@angular/forms';
+import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -74,7 +74,6 @@ let datas =  {
    }
 localStorage.setItem('obj1', JSON.stringify(datas));
 })
-let  formvalue = JSON.parse(localStorage.getItem('obj1') || '{}');
 
 }
 }
@@ -85,7 +84,5 @@ let  formvalue = JSON.parse(localStorage.getItem('obj1') || '{}');
 
 
 
-function elseif(arg0: boolean) {
-  throw new Error('Function not implemented.');
-}
+
 

@@ -24,7 +24,7 @@ array:any;
   };
 
   
-  add(db:String,doc: object): Observable<{}> {
+  add(db:string,doc: object): Observable<{}> {
 
     console.log(doc);
     const url=this.endpoint+db;

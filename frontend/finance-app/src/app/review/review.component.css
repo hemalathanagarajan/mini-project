@@ -22,13 +22,11 @@ body
 {
 background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/binding_dark.png");
 }
-/*************header*******/
 
 .main-header {
     top: 0;
     left: 0;
     z-index: 20;
-    /* -webkit-transform: translate3d(0,0,0); */
     height: 70px;
     width: 100%;
     bottom: inherit;
@@ -98,7 +96,6 @@ img {
 }
 
 
-/***social***/
 .header-social {
 position: absolute;
     z-index: 20;
@@ -180,7 +177,6 @@ ol, ul {
     background: rgba(255,255,255,0.1);
 }
 
-/***end*****/
 
 .card{    border: none;
     border-radius: 30px;
@@ -264,7 +260,6 @@ background-color: #14edaa;
     -ms-transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
-    /* box-shadow: 10px 10px 36px rgb(0,0,0,0.5), -13px -13px 23px rgba(255,255,255, 0.03), inset 14px 14px 70px rgb(0,0,0,0.2), inset -15px -15px 30px rgba(255,255,255, 0.04); */
     box-shadow: 0px 2px 26px rgb(0,0,0,0.5), 0px 7px 13px rgba(255,255,255, 0.03);
     margin-top: 30px;
 }
@@ -274,7 +269,6 @@ background-color: #14edaa;
   background-color: #1c1f2f;
     border-radius: 50px;
     min-width: 140px;
-    /* box-shadow: 10px 10px 36px rgb(0,0,0,0.5), -13px -13px 23px rgba(255,255,255, 0.03), inset 14px 14px 70px rgb(0,0,0,0.2), inset -15px -15px 30px rgba(255,255,255, 0.04); */
     box-shadow: 3px 9px 16px rgb(0,0,0,0.4), -3px -3px 10px rgba(255,255,255, 0.06), inset 14px 14px 26px rgb(0,0,0,0.3), inset -3px -3px 15px rgba(255,255,255, 0.05);
     border-width: 1px 0px 0px 1px;
     border-style: solid;
@@ -292,7 +286,6 @@ background-color: #14edaa;
     -ms-transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
-    /* box-shadow: 10px 10px 36px rgb(0,0,0,0.5), -13px -13px 23px rgba(255,255,255, 0.03), inset 14px 14px 70px rgb(0,0,0,0.2), inset -15px -15px 30px rgba(255,255,255, 0.04); */
     box-shadow: 10px 10px 36px rgb(0,0,0,0.5), -13px -13px 23px rgba(255,255,255, 0.03);
     border-width: 1px 0px 0 1px;
       margin-top: 15px;
@@ -308,7 +301,6 @@ background-color: #14edaa;
     background: rgb(17, 20, 31);
     border-radius: 4px;
   transition: all 0.3s ease-in-out 0s;
-    /* box-shadow: 10px 10px 36px rgb(0,0,0,0.5), -13px -13px 23px rgba(255,255,255, 0.03), inset 14px 14px 70px rgb(0,0,0,0.2), inset -15px -15px 30px rgba(255,255,255, 0.04); */
     box-shadow: 10px 10px 36px rgb(0,0,0,0.5), -13px -13px 23px rgba(255,255,255, 0.03);
 }
 
@@ -381,7 +373,6 @@ background-color: #14edaa;
 }
 
 
-/***********pricing table**********/
 .title-h1 {
   margin-top:0.5em;
        margin-bottom: 1.4em;

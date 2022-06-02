@@ -20,7 +20,6 @@ import { DifferenceamountComponent } from './differenceamount/differenceamount.c
 import { FooterComponent } from './footer/footer.component';
 import { BlogComponent } from './blog/blog.component';
 import { ToastrModule } from 'ngx-toastr';
-import { NotificationService } from './notification.service';
 import { HttpCallInterceptorService } from './http-call-interceptor.service';
 import { ReviewComponent } from './review/review.component';
 import { NgxLoadingModule } from 'ngx-loading';
