@@ -70,7 +70,7 @@ app.post('/postdata',function (req,res) {
 
     app.post('/budget',function (req)
     {
-        var home = req.body.home;
+        let home = req.body.home;
         console.log(home);
         const budgetnew= {data:{
                         type:"budget",
