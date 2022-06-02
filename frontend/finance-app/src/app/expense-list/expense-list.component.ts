@@ -57,6 +57,7 @@ expense: any = {
       });
   }
   ngOnInit(): void {
+    console.log("view");
   
   
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component,Input} from '@angular/core';
 import {apiService} from '../login.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent  {
   
 @Input() idvalue: any;
 alluser: any;
@@ -64,8 +64,7 @@ public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
    }
 
 
-  ngOnInit(): void {
-  }
+ 
   
   clear(){
 localStorage.clear(); 

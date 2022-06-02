@@ -1,5 +1,5 @@
-import { Component, OnInit ,EventEmitter} from '@angular/core';
-import {FormGroup,FormBuilder,Validators, FormControl} from '@angular/forms';
+import { Component } from '@angular/core';
+import {FormGroup,FormBuilder,Validators} from '@angular/forms';
 import {apiService} from '../login.service';
 import  {rangeValidator}  from './validator';
 import {NotificationService} from '../notification.service';
@@ -9,7 +9,7 @@ import {NotificationService} from '../notification.service';
   templateUrl: './budget.component.html',
   styleUrls: ['./budget.component.css']
 })
-export class BudgetComponent implements OnInit {
+export class BudgetComponent {
 formgroup!: FormGroup;
 result!:number;
 budgetall !:number;
@@ -54,14 +54,9 @@ budget: any = {
         location:['']
       });
   }
-  ngOnInit(): void {
   
-  
-}
 
-get home() {
-  return this.formgroup.get('home')!;
-}
+
 get food() {
   return this.formgroup.get('food')!;
 }
@@ -128,7 +123,7 @@ onReset():void {
 
       },
       rej=>{
-      this.alert.showError("data cant post","error");
+      this.alert.showError("data cant post","error"+rej);
         
       });
 }

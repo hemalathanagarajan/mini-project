@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {apiService} from '../login.service';
-import {FormGroup,FormBuilder,NgForm, Validators} from '@angular/forms';
+import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 import { NotificationService } from '../notification.service';
 
 
@@ -9,7 +9,7 @@ import { NotificationService } from '../notification.service';
   templateUrl: './register-user.component.html',
   styleUrls: ['./register-user.component.css']
 })
-export class RegisterUserComponent implements OnInit {
+export class RegisterUserComponent  {
   public inputType:string = 'password';
   checkoutform: FormGroup;
   userrecord!:{};
@@ -27,8 +27,7 @@ export class RegisterUserComponent implements OnInit {
           });
    }
 
-  ngOnInit(): void {
-  }
+ 
   get Name() {
     return this.checkoutform.get('Name')!;
   }

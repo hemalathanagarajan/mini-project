@@ -52,6 +52,7 @@ expense  :any;
    }
 
   ngOnInit(): void {
+    console.log("view");
   }
 
   get month(){
@@ -86,7 +87,7 @@ expense  :any;
              }
             resolve(this.alluser1) 
           },rej=>{
-            this.toastr.error("cant process","fail");
+            this.toastr.error("cant process","fail" + rej)
           });
         });
      }
@@ -104,11 +105,10 @@ expense  :any;
            if(this.alluserExpense.length > 0){
             this.alluserExpense1=this.alluserExpense;
            }
-          //  this.alluserExpense1=this.alluserExpense.docs
            resolve(this.alluserExpense1) 
         }
         ,rej=>{
-          this.toastr.error("opps! you dont have expense on that month ","fail");
+          this.toastr.error("opps! you dont have expense on that month ","fail" + rej);
         });
       });
     }

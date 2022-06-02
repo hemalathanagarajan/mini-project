@@ -1,32 +1,26 @@
-<head>
-    <meta charset="UTF-8">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <i class='bx bxl-c-plus-plus'></i>
+            <em class='bx bxl-c-plus-plus'></em>
             <span class="logo_name">QUICK PLAN</span>
         </div>
         <ul class="nav-links">
             <li>
                 <a href="#" class="active">
-                    <i class='bx bx-grid-alt'></i>
+                    <em class='bx bx-grid-alt'></em>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li>
                 <a href="budget">
-                    <i class='bx bx-box'></i>
+                    <em class='bx bx-box'></em>
                     <span class="links_name">Budget Creation</span>
 
                 </a>
             </li>
             <li>
                 <a href="expense">
-                    <i class='bx bx-coin-stack'></i>
+                    <em class='bx bx-coin-stack'></em>
                     <span class="links_name">Expense </span>
                 </a>
             </li>
@@ -34,20 +28,20 @@
 
             <li>
                 <a href="blog">
-                    <i class='bx bx-coin-stack'></i>
+                    <em class='bx bx-coin-stack'></em>
                     <span class="links_name">Blog</span>
                 </a>
             </li>
             <li>
                 <a href="reviews">
-                    <i class='bx bx-grid-alt'></i>
+                    <em class='bx bx-grid-alt'></em>
                     <span class="links_name">Reviews</span>
                 </a>
             </li>
 
             <li class="log_out">
                 <button (click)="clear()">
-                    <i class='bx bx-log-out'></i>
+                    <em class='bx bx-log-out'></em>
                     <span class="links_name">Log out</span>
 
                 </button>
@@ -58,7 +52,7 @@
     <section class="home-section">
         <nav>
             <div class="sidebar-button">
-                <i class='bx bx-menu sidebarBtn'></i>
+                <em class='bx bx-menu sidebarBtn'></em>
                 <span class="dashboard"> Welcome {{userId.name}}</span>
             </div>
 
@@ -81,7 +75,7 @@
 
 
                         <div class="indicator">
-                            <i class='bx bx-up-arrow-alt'></i>
+                            <em class='bx bx-up-arrow-alt'></em>
                             <span class="text">More info</span>
                         </div>
                     </div>
@@ -93,7 +87,7 @@
 
 
                         <div class="indicator">
-                            <i class='bx bx-up-arrow-alt'></i>
+                            <em class='bx bx-up-arrow-alt'></em>
 
                             <span class="text">More info</span>
                         </div>
@@ -105,7 +99,7 @@
                         <a href="difference">Click To See Difference </a>
 
                         <div class="indicator">
-                            <i class='bx bx-up-arrow-alt'></i>
+                            <em class='bx bx-up-arrow-alt'></em>
                             <span class="text">More info</span>
                         </div>
                     </div>
@@ -124,7 +118,7 @@
 
 
                     <table class="table table">
-
+                        <caption>Budget List</caption>
 
                         <thead>
                             <tr>
@@ -163,7 +157,7 @@
 
                     <table class="table table">
 
-
+                        <caption> Expense Table</caption>
                         <thead>
                             <tr>
                                 <th>Home</th>
@@ -198,6 +192,6 @@
 
                         </tbody>
                     </table>
-                    <img src="../../images/new.gif" width="60%">
+                    <img src="../../images/new.gif" width="60%" alt="gif">
 
                 </div>
