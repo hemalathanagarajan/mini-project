@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
 app.get('/getdata/:id',(req,res)=>{
     console.log("email:",req.params.id);
-    var object = {
+    const object = {
         selector:{
             "email":req.params.id,
         }
@@ -47,7 +47,7 @@ app.get('/getdata/:id',(req,res)=>{
 
 app.post('/postdata',function (req,res) {
 
-    var objectnew= {
+    const objectnew= {
         name:req.body.Name,
         username:req.body.username,
         email:req.body.email,
@@ -72,7 +72,7 @@ app.post('/postdata',function (req,res) {
     {
         var home = req.body.home;
         console.log(home);
-        var budgetnew= {data:{
+        const budgetnew= {data:{
                         type:"budget",
                         Home:req.body.home,
                         Food:req.body.food,
