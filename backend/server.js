@@ -13,7 +13,7 @@ app.use(cors({
       origin:'http://localhost:4200'}
 
       ));
-app.use(function(req, res, next) {
+app.use(function(_req, res, next) {
     res.header("Access-Control-Allow-Origin', '*'");
     res.header("Access-Control-Allow-Headers","Origin, X-Requested-with,Content-type,Accept");
     next();
@@ -35,7 +35,6 @@ app.get('/getdata/:id',(req,res)=>{
     }
     dbconnection.finance.find(object).then((data)=>{
         console.log("data fetch from db",data);
-        // res.json(data);
         res.send(data);
     },).catch((err=>{
         console.log("erro",err);
@@ -43,8 +42,7 @@ app.get('/getdata/:id',(req,res)=>{
             message: err
         })
     }));
-    //--------
-//
+
 })
 
 app.post('/postdata',function (req,res) {
@@ -62,15 +60,15 @@ app.post('/postdata',function (req,res) {
     dbconnection.finance.insert(objectnew).then((data)=>{
         console.log("data signed successfully ",data);
         res.send(data)
-    },).catch((err=>{
-        console.log("erro",err);
+    },).catch((function (err) {
+        console.log("erro", err);
         res.status(400).send({
             message: err
-        })
+        });
     }));
 });
 
-    app.post('/budget',function (req,res)
+    app.post('/budget',function (req)
     {
         var home = req.body.home;
         console.log(home);
