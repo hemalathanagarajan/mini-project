@@ -10,12 +10,18 @@ import {NotificationService} from '../notification.service';
   styleUrls: ['./budget.component.css']
 })
 export class BudgetComponent {
-formgroup!: FormGroup;
+formgroup: FormGroup;
 result!:number;
 budgetall !:number;
 value : any;
 place:any;
 fields:any;
+homeAmount:string | undefined;
+foodAmount:string | undefined;clothAmount:string | undefined;eb_billAmount:string | undefined;
+educationAmount:string | undefined;
+EMIAmount:string | undefined;entertainmentAmount:string | undefined;
+transportAmount:string | undefined;
+healthAmount:string | undefined;
 budget: any = {
     
         home: '',
@@ -129,13 +135,22 @@ onReset():void {
         
       });
 }
+userbudgetValue = {
+ 
+ "details" : this.budget
 
-
-
-AddBudget(homeAmount:string,foodAmount:string,clothAmount:string,eb_billAmount:string,educationAmount:string,EMIAmount:string,entertainmentAmount:string,transportAmount:string,healthAmount:string){
-this.result =parseInt(homeAmount) + parseInt(foodAmount)+parseInt(clothAmount)+parseInt(eb_billAmount)+parseInt(educationAmount)+parseInt(EMIAmount)+parseInt(entertainmentAmount)+parseInt(transportAmount)+parseInt(healthAmount);
-this.formgroup.controls['budgetall'].setValue(this.result);
 }
+
+AddBudget(userbudgetValue:any){
+console.log(userbudgetValue);
+
+ 
+  this.result = userbudgetValue.home + userbudgetValue.food +userbudgetValue.cloth + userbudgetValue.eb_bill +userbudgetValue.entertainment+ userbudgetValue.education+userbudgetValue.EMI+userbudgetValue.transport+userbudgetValue.health;
+
+this.formgroup.controls['budgetall'].setValue(this.result);
+
+}
+
 
 valueChanged(event:any) {
 
