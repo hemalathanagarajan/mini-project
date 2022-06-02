@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {apiService} from '../login.service';
+import {ApiService} from '../login.service';
 import  {rangeValidator}  from './validator';
 import {NotificationService} from '../notification.service';
 
@@ -37,7 +37,7 @@ expense: any = {
         month:'',
       
 };
-  constructor(private fb: FormBuilder,private api:apiService,private alert:NotificationService) { 
+  constructor(private fb: FormBuilder,private api:ApiService,private alert:NotificationService) { 
     this.formgroup = this.fb.group({
         home: ['',[Validators.required,rangeValidator(0,Infinity)]],
         food: ['',[Validators.required,rangeValidator(0,Infinity)]],
@@ -91,7 +91,6 @@ get health(){
 get month(){
   return this.formgroup.get('month')!;
 }
-  //---angular-couch connection 
   submit(Formvalue:any){
     const  userData = JSON.parse(localStorage.getItem('obj1') || '{}');
     console.log(userData);
@@ -122,8 +121,16 @@ get month(){
 
       });
     }
-  AddExpense(home:string,food:string,cloth:string,eb_bill:string,education:string,EMI:string,entertainment:string,transport:string,health:string){
-this.result =parseInt(home) + parseInt(food)+parseInt(cloth)+parseInt(eb_bill)+parseInt(education)+parseInt(EMI)+parseInt(entertainment)+parseInt(transport)+parseInt(health);
+    userExpenseValue = {
+ 
+      "details" : this.expense
+     
+     }
+     
+     AddExpense(userbudgetValue:any){
+     console.log(userbudgetValue);
+  this.result = userbudgetValue.home + userbudgetValue.food +userbudgetValue.cloth + userbudgetValue.eb_bill +userbudgetValue.entertainment+ userbudgetValue.education+userbudgetValue.EMI+userbudgetValue.transport+userbudgetValue.health;
+     
 this.formgroup.controls['expenseall'].setValue(this.result);
 
 }

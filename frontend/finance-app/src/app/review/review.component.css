@@ -85,10 +85,7 @@ img {
     transform: scale(1.0);
 }
 
-.folio-btn-dot:before
-{
-  background: #00BCD4;
-}
+
 
 .folio-btn:hover .folio-btn-dot:first-child:before, .folio-btn:hover .folio-btn-dot:nth-child(3):before, .folio-btn:hover .folio-btn-dot:nth-child(4):before, .folio-btn:hover .folio-btn-dot:nth-child(8):before {
     transform: scale(1.8);
@@ -424,12 +421,7 @@ background-color: #14edaa;
     font-weight: 300;
 }
 
-.pricing-row-title
-{
-  background-color: #303241;
-  padding: 26px 10px;
-      text-align: center;
-}
+
 
 .pricing_row_title {
     color: #00bcd4;
@@ -454,15 +446,6 @@ figure {
   display: block;
 }
 
-figure {
-display: block;
-    padding-block-start: 0.4em;
-    padding-block-end: 0.4em;
-    padding-inline-start: 40px;
-    padding-inline-end: 40px;
-    background-color: rgba(51, 51, 51, 0.4117647058823529);
-    text-align: left;
-}
 
 .pricing-row:before {
     vertical-align: middle;

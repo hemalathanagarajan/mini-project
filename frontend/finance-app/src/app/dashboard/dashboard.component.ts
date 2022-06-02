@@ -1,5 +1,5 @@
 import { Component,Input} from '@angular/core';
-import {apiService} from '../login.service';
+import {ApiService} from '../login.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,7 +22,7 @@ alluser: any;
 public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
 
   
-  constructor(private api:apiService,private router:Router) {
+  constructor(private api:ApiService,private router:Router) {
     
     this.fetchExpenseDetails();
     this.fetchBudgetDetails();

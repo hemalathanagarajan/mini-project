@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormGroup,FormBuilder,Validators} from '@angular/forms';
-import {apiService} from '../login.service';
+import {ApiService} from '../login.service';
 import  {rangeValidator}  from './validator';
 import {NotificationService} from '../notification.service';
 
@@ -43,7 +43,7 @@ budget: any = {
 
 
 
-  constructor(private fb: FormBuilder,private api:apiService, private alert:NotificationService) { 
+  constructor(private fb: FormBuilder,private api:ApiService, private alert:NotificationService) { 
     this.formgroup = this.fb.group({
         home: ['',[Validators.required,rangeValidator(0,Infinity)]],
         food: ['',[Validators.required,rangeValidator(0,Infinity)]],

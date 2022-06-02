@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder} from '@angular/forms';
-import { apiService } from '../login.service';
+import { ApiService } from '../login.service';
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
@@ -16,7 +16,7 @@ userRecord: any ={
   message:'',
 
 };
-  constructor(private fb: FormBuilder, private api:apiService) { }
+  constructor(private fb: FormBuilder, private api:ApiService) { }
   
   ngOnInit(): void {
     this.formGroup = this.fb.group({

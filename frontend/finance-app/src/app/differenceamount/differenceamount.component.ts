@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import {apiService} from '../login.service';
+import {ApiService} from '../login.service';
 import { ToastrService } from 'ngx-toastr'; 
  
 @Component({
@@ -42,7 +42,7 @@ expense  :any;
   alluser1: any = [];
   alluserExpense1: any=[];
 
-  constructor(private api:apiService,private fb:FormBuilder,private toastr:ToastrService) {
+  constructor(private api:ApiService,private fb:FormBuilder,private toastr:ToastrService) {
     this.formgroup = this.fb.group({
       month: [''],
       differencevalue:['']

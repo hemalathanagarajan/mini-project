@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {apiService} from '../login.service';
+import {ApiService} from '../login.service';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -30,7 +30,7 @@ obj1: any = {
        _rev:'',
         
       };
-  constructor(private fb:FormBuilder,private api:apiService,private router:Router,private toastr:ToastrService) { }
+  constructor(private fb:FormBuilder,private api:ApiService,private router:Router,private toastr:ToastrService) { }
 
   
   ngOnInit() {

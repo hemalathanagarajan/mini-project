@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {apiService} from '../login.service';
+import {ApiService} from '../login.service';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 import { NotificationService } from '../notification.service';
 
@@ -16,7 +16,7 @@ export class RegisterUserComponent  {
   object:[]| undefined;
   notifyService: any;
   
-  constructor(private fb: FormBuilder,private api:apiService,private alert:NotificationService) {
+  constructor(private fb: FormBuilder,private api:ApiService,private alert:NotificationService) {
     this.checkoutform = this.fb.group({
       Name: ['',[Validators.required,Validators.minLength(4)]],
       username: ['',[Validators.required]],
@@ -44,7 +44,12 @@ export class RegisterUserComponent  {
     return this.checkoutform.get('password')!;
   }
   public showPassword(event:any):void{
-    event.target.checked ? this.inputType = "text" : this.inputType = "password";
+    if(event.target.checked){
+      this.inputType = "text"
+    }
+    else {
+      this.inputType = "password"
+    }
   }
   
   
