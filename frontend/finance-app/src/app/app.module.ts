@@ -24,23 +24,11 @@ import { NotificationService } from './notification.service';
 import { HttpCallInterceptorService } from './http-call-interceptor.service';
 import { ReviewComponent } from './review/review.component';
 import { NgxLoadingModule } from 'ngx-loading';
-// import { HttpCallInterceptorService } from './http-call-interceptor.service'; 
-// import flatpickr from 'flatpickr';
+import { BudgetingTipsComponent } from './budgeting-tips/budgeting-tips.component';
+
 
 const routes:Routes=[
-  // {path: '',component:HomeComponent},
-
-  // {path: 'register',component:RegisterUserComponent},
-  // {path: 'new-user',component:NewUserComponent},
-  // {path: 'contact',component:ContactFormComponent},
-  // {path: 'login',component:LoginComponent},
-  // {path: 'about',component:AboutComponent},
-  // {path:'budget',component:BudgetComponent},
-  // {path:'expense',component:ExpenseListComponent},
-  // {path:'dashboard',component:DashboardComponent},
-  // {path:'difference',component:DifferenceamountComponent},
-  // {path:'blog',component:BlogComponent},
-  // {path:'products',component:ProductsComponent},
+  
 ];
 @NgModule({
   declarations: [
@@ -59,6 +47,7 @@ const routes:Routes=[
     FooterComponent,
     BlogComponent,
     ReviewComponent,
+    BudgetingTipsComponent,
   ],
   imports: [
     BrowserModule,

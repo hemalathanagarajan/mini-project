@@ -1,5 +1,3 @@
-<h3>{{idvalue}}</h3>
-
 <head>
     <meta charset="UTF-8">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -48,13 +46,16 @@
             </li>
 
             <li class="log_out">
-                <a href="#">
+                <button (click)="clear()">
                     <i class='bx bx-log-out'></i>
                     <span class="links_name">Log out</span>
-                </a>
+
+                </button>
             </li>
         </ul>
-    </div>
+
+    </div> <button (click)="clear()"> logout
+    </button>
     <section class="home-section">
         <nav>
             <div class="sidebar-button">
@@ -65,12 +66,11 @@
             <div class="profile-details">
                 <span class="admin_name">{{userId.email}}</span>
             </div>
-            <!-- <div class="profile-details">
-                <a href="#" (click)=LocalStorage.clear>LOG OUT</a>
+            <div class="profile-details">
+                <button (click)="clear()">LOG OUT</button>
 
 
-            </div> -->
-            <button type="submit" (click)="clear()">LOG OUT</button>
+            </div>
         </nav>
 
         <div class="home-content">
@@ -78,7 +78,7 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Budget </div>
-                        <a href="budget">Click to Get Into Budget</a>
+                        <a href="new-user">Click to Get Into Budget</a>
 
 
                         <div class="indicator">
@@ -92,7 +92,10 @@
                         <div class="box-topic">Expense form</div>
                         <a href="expense">Click to Get into Expense</a>
 
+
                         <div class="indicator">
+                            <i class='bx bx-up-arrow-alt'></i>
+
                             <span class="text">More info</span>
                         </div>
                     </div>
@@ -113,7 +116,7 @@
 
             <div class="sales-boxes">
                 <div class="recent-sales box">
-                    <div class="title">Budget List</div>
+                    <div class="title">Budgets List</div>
                     <div class="sales-details">
                         <ul class="details">
 
@@ -136,6 +139,7 @@
                                 <th>Transport</th>
                                 <th>Health</th>
                                 <th>Budget </th>
+                                <th>Month </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -150,6 +154,8 @@
                                 <td>{{budget.transport}}</td>
                                 <td>{{budget.health}}</td>
                                 <td>{{budget.budgetall}}</td>
+                                <td>{{budget.month}}</td>
+
                             </tr>
 
                         </tbody>
@@ -171,6 +177,7 @@
                                 <th>Transport</th>
                                 <th>Health</th>
                                 <th>Expense </th>
+                                <th>Month </th>
 
                             </tr>
                         </thead>
@@ -187,11 +194,11 @@
                                 <td>{{expense.transport}}</td>
                                 <td>{{expense.health}}</td>
                                 <td>{{expense.expenseall}}</td>
+                                <td>{{expense.month}}</td>
                             </tr>
 
                         </tbody>
                     </table>
+                    <img src="../../images/new.gif" width="60%">
 
                 </div>
-
-                <img src="../../images/budgetgif.gif" width="20%">

@@ -10,9 +10,7 @@ export class BlogComponent implements OnInit {
   formgroup!:FormGroup;
 
   constructor(private fb:FormBuilder) { 
-  //   this.formgroup = this.fb.group({
-  //     location: ['',[Validators.required]],
-  // });
+
 }
 
   ngOnInit(): void {

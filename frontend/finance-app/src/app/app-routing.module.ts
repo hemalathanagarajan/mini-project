@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 import { BudgetComponent } from './budget/budget.component';
+import { BudgetingTipsComponent } from './budgeting-tips/budgeting-tips.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DifferenceamountComponent } from './differenceamount/differenceamount.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'difference',component:DifferenceamountComponent},
   {path:'blog',component:BlogComponent},
   {path:'reviews',component:ReviewComponent},
+  {path:'budget-savings',component:BudgetingTipsComponent},
 
 ];
 

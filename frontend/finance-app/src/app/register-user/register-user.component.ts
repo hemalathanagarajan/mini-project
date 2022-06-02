@@ -12,7 +12,6 @@ import { NotificationService } from '../notification.service';
 export class RegisterUserComponent implements OnInit {
   public inputType:string = 'password';
   checkoutform: FormGroup;
-  // submitted=false;
   userrecord!:{};
   object:[]| undefined;
   notifyService: any;
@@ -45,10 +44,6 @@ export class RegisterUserComponent implements OnInit {
   get password(){
     return this.checkoutform.get('password')!;
   }
-  
- 
- 
- 
   public showPassword(event:any):void{
     event.target.checked ? this.inputType = "text" : this.inputType = "password";
   }
@@ -75,7 +70,6 @@ export class RegisterUserComponent implements OnInit {
 
   }
     onReset():void {
-      // this.submitted=false;
       this.checkoutform.reset();
 
 

@@ -1,22 +1,12 @@
-<!-- <div class="bg-image"> -->
-
 <div class="contact-section">
 
 
     <h1> <span>Help Center</span></h1>
 
     <h1>We will contact you as soon as possible</h1>
-    <!-- <div class="row">
-        <div class="col-md-4">
-            <p>Fan? Drop a note.</p>
-            <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
-            <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
-            <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
-        </div> -->
     <div class="container">
 
         <form class="contact-form" [formGroup]="formGroup" (ngSubmit)="storing()">
-            <!-- <div class="form-group"> -->
             <input type="text" class="form-control" formControlName="Name" id="contact-form-text"
                 placeholder="Your name">
             <div class="help-block text-danger" *ngIf="Name.touched">
@@ -24,17 +14,13 @@
                     Name is REQUIRED!!!
                 </span>
             </div>
-            <!-- </div> -->
-            <!-- <div class="form-group"> -->
             <input type="email" class="form-control" formControlName="email" id="contact-form-text"
                 placeholder="Your email">
 
             <div class="help-block text-danger" *ngIf="email.touched">
                 <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>
             </div>
-            <!-- </div> -->
-            <!-- <div class="form-group"> -->
-            <input type="text" class="form-control" formControlName="phone" id="contact-form-text"
+            <input type="number" class="form-control" formControlName="phone" id="contact-form-text"
                 placeholder="Your phone">
             <textarea class="form-control" formControlName="message" id="contact-form-text"
                 placeholder="Your message"></textarea>
@@ -43,16 +29,6 @@
                 <span *ngIf="message.errors?.required"> Message is REQUIRED!!! </span>
             </div>
 
-            <!-- </div> -->
             <input type="submit" class="contact-form-btn" value="Send">
         </form>
     </div>
-    <!-- <div class="bg-image"></div> -->
-
-    <!-- <div class="bg-text">
-  <h2>Blurred Background</h2>
-  <h1 style="font-size:50px">I am John Doe</h1>
-  <p>And I'm a Photographer</p>
-</div> -->
-
-    <!-- </div> -->

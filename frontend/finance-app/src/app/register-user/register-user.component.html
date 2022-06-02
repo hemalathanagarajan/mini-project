@@ -3,7 +3,7 @@
         <div class="img-article">
             <img src="../../images/get started.JPG" alt="logo">
         </div>
-        <section>
+        <section class="sign-up">
             <h1>Sign Up</h1>
 
             <form [formGroup]="checkoutform">
@@ -50,7 +50,7 @@
                     <label for="password">Password</label>
                     <input [type]="inputType" id="password" class="form-control" formControlName="password"
                         placeholder="Enter Password" required />
-                    <input (change)="showPassword($event)" type="checkbox" id="show">Show password
+                    <input (change)="showPassword($event)" type="checkbox" id="show">Show Password
 
 
                     <div class="help-block text-danger" *ngIf="password.touched && password.invalid">
@@ -81,7 +81,7 @@
 
 
 
-                <button class="btn btn-primary" type="submit" (click)="signup(this.checkoutform.value)">Sign Up</button>
+                <button class="btn btn-success" type="submit" (click)="signup(this.checkoutform.value)">Sign Up</button>
                 <button class="btn btn-primary" (click)="onReset()"> Reset</button>
                 <div class="login">
                     <h2>Already Having an account? <a href="login">Login</a></h2>

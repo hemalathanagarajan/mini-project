@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {apiService} from '../login.service';
+import { ToastrService } from 'ngx-toastr'; 
  
 @Component({
   selector: 'app-differenceamount',
@@ -17,7 +18,6 @@ formgroup!: FormGroup;
 
   expenseall !:number;
   alluserExpense: any;
-// alluserExpense: any;
   alluserExpenseData: any;
   store: any = [];
   obj: any;
@@ -37,36 +37,12 @@ trail:any = [];
 budget : any;
 expense  :any;
 
-// fetchBudgetValue={
-//   "budgetValue": 0,
-//   "homebudget":0,
-//   "foodbudget":0,
-//   "clothbudget":0,
-//   "eb_billbudget":0,
-//   "educationbudget":0,
-//   "EMIbudget":0,
-//   "entertainmentbudget":0,
-//   "transportbudget":0,
-//   "healthbudget":0,
-//   // "expensefood":"",
-// }
-// fetchExpenseValue={
-//   "expenseValue": 0,
-//   "homeexpense":0,
-//   "foodexpense":0,
-//   "clothexpense":0,
-//   "eb_billexpense":0,
-//   "educationexpense":0,
-//   "EMIexpense":0,
-//   "entertainmentexpense":0,
-//   "transportexpense":0,
-//   "healthexpense":0,
-  
-// }
   userBudget: any;
   trailbudget: any;
+  alluser1: any = [];
+  alluserExpense1: any=[];
 
-  constructor(private api:apiService,private fb:FormBuilder) {
+  constructor(private api:apiService,private fb:FormBuilder,private toastr:ToastrService) {
     this.formgroup = this.fb.group({
       month: [''],
       differencevalue:['']
@@ -77,92 +53,15 @@ expense  :any;
 
   ngOnInit(): void {
   }
-  // this.getBudget();
-  // this.getExpense();
+
   get month(){
     return this.formgroup.get('month')!;
   }
  
            
-  // getBudget(Formvalue:any){
   
-  //   let data={
-  //     selector:{
-  //       "type": "budget",
-  //        "user": this.userId.id,
-  //        "month":Formvalue.month
-  //     }}
-  //     this.api.fetchDetails(data).subscribe(res =>{
-  //       console.log(res);
-  //       this.alluser = res;
-  //          this.alluser=this.alluser.docs
-  //          this.alluserBudgetData=this.alluser
-
-  //         //  console.log("testbudget" ,this.alluserBudgetData);
-
-  //         //  this.fetchBudgetValue.budgetValue=this.alluserBudgetData;
-            
-  //         //  console.log("BUDGET",this.alluserBudgetData);
-
-  //         //  this.userBudget = this.alluserBudgetData[0].home;
-           
-          
-  //          console.log(this.userBudget)
-  //          this.budget = this.alluserBudgetData;
-  //          console.log(this.budget);
-
-  //          if(this.alluserBudgetData.month == Formvalue.month){
-  //           alert("Your budget data was got successfully!"+data);
-
-  //         }
-          
-  //     },rej=>{
-  //       alert("opps! Can not able "+rej);
-  //     });
-  //  }
-
-  //    getExpense(Formvalue:any) {
-  //     let data={
-  //       selector:{
-  //         "type": "expense",
-  //          "user": this.userId.id,
-  //        "month":Formvalue.month
-
-  //       }}
-        
-  //       this.api.fetchDetails(data).subscribe(res =>{
-  //         console.log(res);
-          
-  //         this.alluserExpense = res;
-  //          this.alluserExpense=this.alluserExpense.docs
-  //          this.alluserExpenseData=this.alluserExpense
-  //          console.log("test",this.alluserExpenseData);
-
-  //          this.fetchExpenseValue.expenseValue=this.alluserExpenseData;
-          
-  //         //  console.log("expense total array",this.expenseValue);
-
-  //          console.log("EXPENSE",this.alluserExpenseData);
-  //          this.expense = this.alluserExpenseData;
-  //          console.log(this.expense);
-
-  //          console.log(this.alluserExpenseData[0].expenseall);
-  //          if(this.alluserExpenseData.month == Formvalue.month){
-  //           alert("Your expense data was got successfully!"+data);
-
-  //         }
-  //       },rej=>{
-  //         alert("opps! you dont have expense on that month "+rej);
-  //       });
-  //    }
      calculateDifference(a:any,b:any) {
-    //   for (let i = 0; i <= this.alluserBudgetData.length; i++) {
-    //  this.differencearr[i] =  parseInt(this.alluserExpenseData[i])- parseInt(this.alluserBudgetData[i]);
-     
-    // //  console.log( "difference" +this.difference);
-    // //  this.differencearr[i] = this.difference;
-    // //  this.difference = 0;
-    //   }
+    
     console.log(a,b)
       console.log(Math.abs(a-b));
     return Math.abs(a-b);
@@ -178,13 +77,16 @@ expense  :any;
            "month":Formvalue.month
         }}
         return new Promise(resolve => {
-          this.api.fetchDetails(data).subscribe(res =>{
+          this.api.fetchDetails(data).subscribe((res:any) =>{
             console.log(res);
-            this.alluser = res;
-               this.alluser=this.alluser.docs
-               resolve(this.alluser) 
+            this.alluser = res['docs'];
+
+            if(this.alluser && this.alluser.length > 0){
+              this.alluser1=this.alluser
+             }
+            resolve(this.alluser1) 
           },rej=>{
-            alert("opps! Can not able "+rej);
+            this.toastr.error("cant process","fail");
           });
         });
      }
@@ -196,14 +98,17 @@ expense  :any;
           "user": this.userId.id,
           "month":Formvalue.month
         }}
-        return new Promise(resolve => {this.api.fetchDetails(data).subscribe(res =>{
+        return new Promise(resolve => {this.api.fetchDetails(data).subscribe((res:any) =>{
            console.log(res);
-           this.alluserExpense = res;
-           this.alluserExpense=this.alluserExpense.docs
-           resolve(this.alluserExpense) 
+           this.alluserExpense = res['docs'];
+           if(this.alluserExpense.length > 0){
+            this.alluserExpense1=this.alluserExpense;
+           }
+          //  this.alluserExpense1=this.alluserExpense.docs
+           resolve(this.alluserExpense1) 
         }
         ,rej=>{
-          alert("opps! you dont have expense on that month "+rej);
+          this.toastr.error("opps! you dont have expense on that month ","fail");
         });
       });
     }

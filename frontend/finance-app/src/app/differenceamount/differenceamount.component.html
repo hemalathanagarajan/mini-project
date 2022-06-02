@@ -1,4 +1,12 @@
-<h1>Welcome!!!! Kindly Select the month to estimate the difference Amount</h1>
+<div class="heading">
+    <h1>Welcome!!!! Kindly Select the month to estimate the difference Amount</h1>
+</div>
+<div class="new">
+    <video autoplay muted loop>
+        <source src="../../videos/istockphoto-1127427283-640_adpp_is.mp4" type="video/mp4">
+
+    </video>
+</div>
 
 <form [formGroup]="formgroup">
     <div class="content">
@@ -40,6 +48,7 @@
                 <th>Transport</th>
                 <th>Health</th>
                 <th>Total Budget Amount</th>
+                <th>Month</th>
 
 
 
@@ -56,6 +65,10 @@
                 <td>{{budgetDetails[0].transport}}</td>
                 <td>{{budgetDetails[0].health}}</td>
                 <td>{{budgetDetails[0].budgetall}}</td>
+                <td>{{budgetDetails[0].month}}</td>
+            </tr>
+            <tr *ngIf="budgetDetails.length == 0 ">
+                No records found
             </tr>
 
 
@@ -75,7 +88,9 @@
                 <th>Entertainment</th>
                 <th>Transport</th>
                 <th>Health</th>
-                <th>Total Budget Amount</th>
+                <th>Total Expense Amount</th>
+                <th>Month</th>
+
             </tr>
             <tr *ngIf="expenceDetails.length > 0">
                 <td>{{expenceDetails[0].home}}</td>
@@ -89,7 +104,12 @@
                 <td>{{expenceDetails[0].transport}}</td>
                 <td>{{expenceDetails[0].health}}</td>
                 <td>{{expenceDetails[0].expenseall}}</td>
+                <td>{{expenceDetails[0].month}}</td>
             </tr>
+            <tr *ngIf="expenceDetails.length == 0">
+                No records found
+            </tr>
+
 
         </table>
     </div>
@@ -118,3 +138,5 @@
         Difference amount between TotalBUDGET and TotalExpense<span>
             {{calculateDifference(expenceDetails[0].expenseall,budgetDetails[0].budgetall)}} </span><br>
     </h5>
+
+    <a href="budget-savings">Tips To Save Your MONEY!! -> Click </a>

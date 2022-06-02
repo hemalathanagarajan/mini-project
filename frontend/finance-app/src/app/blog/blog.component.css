@@ -17,7 +17,6 @@ body {
     width: 75%;
   }
   
-  /* Right column */
   .rightcolumn {
     float: left;
     width: 25%;
@@ -31,7 +30,6 @@ body {
     padding: 20px;
   }
   
-  /* Add a card effect for articles */
   .card {
     background-color: white;
     padding: 20px;
@@ -54,7 +52,6 @@ body {
     clear: both;
   }
   
-  /* Footer */
   .footer {
     padding: 20px;
     text-align: center;
@@ -74,7 +71,13 @@ body {
   tr:nth-child(even) {
     background-color: #f2f2f2;
   }
-  
+  .home{
+    background-image: linear-gradient(to right top, #102779, #0a2e7d, #053482, #013b85, #004189, #1c438b, #2b448d, #37468f, #4e438e, #623e8c, #733987, #833381);
+    color:whitesmoke;
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 50%;
+  }
   
   @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {
