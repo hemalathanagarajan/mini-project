@@ -112,15 +112,6 @@ position: absolute;
   background: #00BCD4;
 }
 
-.header-social:before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: -3px;
-    width: 36px;
-    margin-left: -18px;
-    height: 6px;
-}
 
 .header-social li {
     display: block;
@@ -465,24 +456,7 @@ figure {
 }
 
 
-body
-{
-  color: #5f727f;
-}
 
-.pricing-column
-{
-  float: none;
-    display: inline-block;
-    text-align: left;
-    vertical-align: top;
-    margin-bottom: 42px;
-  -webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -ms-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-}
 
 .pricing-column-wrapper {
     min-width: 271px;
@@ -507,12 +481,6 @@ body
 }
 
 
-.pricing-price-wrapper
-{
-  border-top-right-radius: 50%;
-    border-top-left-radius: 50%;
-    padding-top: 45px;
-}
 
 .pricing-column-wrapper + .pricing-column-wrapper .pricing-price {
     background-color: #a637ec;
