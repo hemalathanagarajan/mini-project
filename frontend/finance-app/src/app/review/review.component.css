@@ -467,7 +467,7 @@ display: block;
 .pricing-row:before {
     vertical-align: middle;
    content: "\f058";
-    font-family: "Font Awesome 5 Free";
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #00bfa5;
     text-align: center;
     padding-right: 10px;
@@ -593,7 +593,6 @@ body
     border-style: solid;
     background: transparent;
     height: 40px;
-    line-height: 40px;
     padding: 0 17px;
     font-size: 14px;
     margin: 25px;
