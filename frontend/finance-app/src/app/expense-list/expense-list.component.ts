@@ -118,7 +118,7 @@ get month(){
         
         this.formgroup.reset();
       },rej=>{
-      this.alert.showError("expense cant create","error");
+      this.alert.showError("expense cant create","error" + rej);
 
       });
     }
