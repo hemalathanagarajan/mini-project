@@ -15,13 +15,13 @@ export class HeaderComponent implements OnInit {
     this.userData = localStorage.getItem('obj1')
         
   }
-  check(nav:any){
-    this.userData = localStorage.getItem('obj1')
-if(this.userData && nav === "Dashboard"){
-  this.router.navigate([nav])
-}
-if(  nav !== "Dashboard"){
-  this.router.navigate([nav])
-}
-  }
+//   check(nav:any){
+//     this.userData = localStorage.getItem('obj1')
+// if(this.userData && nav === "Dashboard"){
+//   this.router.navigate([nav])
+// }
+// if(  nav !== "Dashboard"){
+//   this.router.navigate([nav])
+// }
+//   }
 }
