@@ -1,9 +1,14 @@
-<div class="container">
+<body>
+    <button class="btn btn-primary" routerLink="/dashboard">Dashboard</button>
+
+    <h2>Expense Form Make Your List </h2>
     <form [formGroup]="formgroup" (ngSubmit)="submit(this.formgroup.value)">
-        <div class="form-group">
+        <div class="formgroup">
             <label>Select Month</label>
-            <select name="cars" id="month" class="form-control" placeholder="select month" formControlName="month">
-                <option value="jan">Jan</option>
+            <select name="month" id="month" class="form-control" [ngModel]="expense.month" placeholder="select month"
+                formControlName="month">
+                <option value="">Choose</option>
+                <option value="jan">jan</option>
                 <option value="feb">Feb</option>
                 <option value="mar">Mar</option>
                 <option value="apr">Apr</option>
@@ -18,10 +23,32 @@
             </select>
         </div>
 
+        <!-- <div class="formgroup">
+            <label>Select Month</label>
+            <select name="month" id="month" class="form-control" [ngModel]="expense.month" placeholder="select month"
+                formControlName="month">
+                <option value="">Choose</option>
+                <option value="jan">jan</option>
+                <option value="feb">Feb</option>
+                <option value="mar">Mar</option>
+                <option value="apr">Apr</option>
+                <option value="may">May</option>
+                <option value="jun">Jun</option>
+                <option value="july">July</option>
+                <option value="aug">Aug</option>
+                <option value="sep">Sep</option>
+                <option value="oct">Oct</option>
+                <option value="nov">Nov</option>
+                <option value="dec">Dec</option>
+            </select>
+        </div> -->
+
+
+
         <div class="form-group">
             <label for="home">Home rent</label>
             <input type="number" id="home" class="form-control" formControlName="home"
-                placeholder="Enter amount in Rupees" [ngModel]="expense.home" required />
+                placeholder="Enter amount in rupees" [ngModel]="expense.home" required />
             <div class="help-block text-danger" *ngIf="home.touched">
                 <span *ngIf="home.errors?.required">
                     Home rent amount is REQUIRED!!!
@@ -34,8 +61,8 @@
         </div>
         <div class="form-group">
             <label for="food">FOOD</label>
-            <input type="number" placeholder="Enter amount in Rupees" id="food" class="form-control"
-                [ngModel]="expense.food" formControlName="food" required />
+            <input type="number" id="food" class="form-control" [ngModel]="expense.food"
+                placeholder="Enter amount in rupees" formControlName="food" required />
             <div class="help-block text-danger" *ngIf="food.touched">
                 <span *ngIf="food.errors?.required">
                     Food value is REQUIRED!!!
@@ -51,7 +78,7 @@
         <div class="form-group">
             <label for="cloth">Cloth</label>
             <input type="number" id="cloth" class="form-control" [ngModel]="expense.cloth" formControlName="cloth"
-                placeholder="Enter amount in Rupees" required />
+                placeholder="Enter amount in rupees" required />
             <div class="help-block text-danger" *ngIf="cloth.touched">
                 <span *ngIf="cloth.errors?.required"> cloth is REQUIRED!!! </span>
                 <span *ngIf="cloth.invalid && cloth.touched">
@@ -63,8 +90,8 @@
 
         <div class="form-group">
             <label for="eb_bill">EB-Bill</label>
-            <input type="number" id="eb_bill" class="form-control" [ngModel]="expense.eb_bill" formControlName="eb_bill"
-                placeholder="Enter amount in Rupees" required />
+            <input type="number" id="eb_bill" class="form-control" [ngModel]="expense.eb_bill"
+                placeholder="Enter amount in rupees" formControlName="eb_bill" required />
             <div class="help-block text-danger" *ngIf="eb_bill.touched">
                 <span *ngIf="eb_bill.errors?.required"> Eb-bill is REQUIRED!!! </span>
                 <span *ngIf="eb_bill.invalid && eb_bill.touched">
@@ -77,7 +104,7 @@
         <div class="form-group">
             <label for="education">Education</label>
             <input type="number" id="education" class="form-control" formControlName="education"
-                [ngModel]="expense.education" placeholder="Enter amount in Rupees" />
+                [ngModel]="expense.education" placeholder="Enter amount in rupees" />
             <div class="help-block text-danger" *ngIf="education.touched">
                 <span *ngIf="education.errors?.required">
                     Education amount is REQUIRED!!!
@@ -92,7 +119,7 @@
         <div class="form-group">
             <label for="EMI">EMI</label>
             <input type="number" id="EMI" class="form-control" formControlName="EMI" [ngModel]="expense.EMI"
-                placeholder="Enter amount in Rupees" />
+                placeholder="Enter amount in rupees" />
             <div class="help-block text-danger" *ngIf="EMI.touched">
                 <span *ngIf="EMI.errors?.required">
                     EMI Amount is REQUIRED!!!
@@ -107,7 +134,7 @@
         <div class="form-group">
             <label for="entertainment">Entertainment</label>
             <input type="number" id="entertainment" class="form-control" [ngModel]="expense.entertainment"
-                formControlName="entertainment" placeholder="Enter amount in Rupees" />
+                formControlName="entertainment" placeholder="Enter amount in rupees" />
 
             <div class="help-block text-danger" *ngIf="entertainment.touched">
                 <span *ngIf="entertainment.errors?.required">
@@ -122,7 +149,7 @@
         <div class="form-group">
             <label for="transport">Auto-Transport</label>
             <input type="number" id="transport" class="form-control" formControlName="transport"
-                [ngModel]="expense.transport" placeholder="Enter amount in Rupees" />
+                [ngModel]="expense.transport" placeholder="Enter amount in rupees" />
 
             <div class="help-block text-danger" *ngIf="transport.touched">
                 <span *ngIf="transport.errors?.required">
@@ -137,7 +164,7 @@
         <div class="form-group">
             <label for="health">Health-Checkup</label>
             <input type="number" id="health" class="form-control" formControlName="health" [ngModel]="expense.health"
-                placeholder="Enter amount in Rupees" />
+                placeholder="Enter amount in rupees" />
             <div class="help-block text-danger" *ngIf="health.touched">
                 <span *ngIf="health.errors?.required">
                     Health Check up value is REQUIRED!!!
@@ -149,15 +176,24 @@
             </div>
         </div>
 
-
-        <input type="readonly" class="form-control" formControlName="expenseall">
+        <label for="readonly">Total Amount</label>
+        <input type="readonly" id="readonly" class="form-control" formControlName="expenseall">
 
         <br>
-        <hr />
-        <button class="btn btn-primary" (click)="AddExpense(formgroup.value)">
-            Expense total </button>
-        <a href="dashboard" id="button">Back To Dashboard </a>
+        <button (click)="AddExpense(formgroup.value)">
+            Expense Total </button>
+
 
 
     </form>
-</div>
+    <!-- <div class="animation-area">
+        <ul class="box-area">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div> -->
+</body>

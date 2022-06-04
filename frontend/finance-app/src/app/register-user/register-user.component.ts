@@ -68,7 +68,7 @@ export class RegisterUserComponent  {
 
     },rej =>{
       console.log(rej)
-      this.alert.showError("data cant post","error" + rej);
+      this.alert.showError("data cant post","error" + rej.error.message.reason);
     })
 
 

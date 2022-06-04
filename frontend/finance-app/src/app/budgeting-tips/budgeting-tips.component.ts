@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './budgeting-tips.component.html',
   styleUrls: ['./budgeting-tips.component.css']
 })
-export class BudgetingTipsComponent  {
+export class BudgetingTipsComponent   {
 
   constructor() {  
     console.log("view");

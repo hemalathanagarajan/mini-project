@@ -31,11 +31,13 @@
             </select>
         </div>
     </div>
-    <button type="button" (click)="fetchBudgetExpence(this.formgroup.value)">Submit</button>
+    <button type="button" (click)="fetchBudgetExpence(this.formgroup.value)">
+        <div class=h6>Submit</div>
+    </button>
 
 
 </form>
-<!---->
+<h2>BUDGET Table</h2>
 <div class="row">
     <div class="column">
         <table>
@@ -71,7 +73,9 @@
                 <td>{{budgetDetails[0].month}}</td>
             </tr>
             <tr *ngIf="budgetDetails.length == 0 ">
-                No records found
+
+                <td>No records found</td>
+
             </tr>
 
 
@@ -79,6 +83,8 @@
     </div>
 
     <div class="column">
+        <h2>Expense Table</h2>
+
         <table>
             <caption></caption>
             <tr>
@@ -95,7 +101,9 @@
                 <th>Month</th>
 
             </tr>
+            <tr>
             <tr *ngIf="expenceDetails.length > 0">
+
                 <td>{{expenceDetails[0].home}}</td>
 
                 <td>{{expenceDetails[0].food}}</td>
@@ -110,36 +118,52 @@
                 <td>{{expenceDetails[0].month}}</td>
             </tr>
             <tr *ngIf="expenceDetails.length == 0">
-                No records found
+                <td>No records found</td>
             </tr>
 
 
         </table>
     </div>
-    <h5 *ngIf="expenceDetails.length > 0 && budgetDetails.length > 0">
-        Difference amount for Home is <span>{{calculateDifference(expenceDetails[0].home,budgetDetails[0].home)}}</span>
-        <br>
-        Difference amount for Food <span>{{calculateDifference(expenceDetails[0].food,budgetDetails[0].food)}}</span>
-        <br>
-        Difference amount Cloth <span>{{calculateDifference(expenceDetails[0].cloth,budgetDetails[0].cloth)}}</span>
-        <br>
-        Difference amount EB_BILL
-        <span>{{calculateDifference(expenceDetails[0].eb_bill,budgetDetails[0].eb_bill)}}</span>
+    <div class="column">
+        <h2>Difference Amount Table</h2>
 
-        <br>
-        Difference amount Education
-        <span>{{calculateDifference(expenceDetails[0].education,budgetDetails[0].education)}}</span>
-        <br>
-        Difference amount EMI <span>{{calculateDifference(expenceDetails[0].EMI,budgetDetails[0].EMI)}} </span><br>
-        Difference amount Entertainment<span>
-            {{calculateDifference(expenceDetails[0].entertainment,budgetDetails[0].entertainment)}}</span>
-        <br>
-        Difference amount Transport
-        <span>{{calculateDifference(expenceDetails[0].transport,budgetDetails[0].transport)}}</span> <br>
-        Difference amount Health <span>{{calculateDifference(expenceDetails[0].health,budgetDetails[0].health)}}</span>
-        <br>
-        Difference amount between TotalBUDGET and TotalExpense<span>
-            {{calculateDifference(expenceDetails[0].expenseall,budgetDetails[0].budgetall)}} </span><br>
-    </h5>
+        <table>
+            <caption></caption>
+            <tr>
+                <th>Home</th>
+                <th>Food</th>
+                <th>Cloth</th>
+                <th>EB_bill</th>
+                <th>Education</th>
+                <th>EMI</th>
+                <th>Entertainment</th>
+                <th>Transport</th>
+                <th>Health</th>
+                <th>Total Difference Amount</th>
 
-    <a href="budget-savings">Tips To Save Your MONEY!! -> Click </a>
+            </tr>
+            <tr *ngIf="expenceDetails.length > 0 && budgetDetails.length > 0">
+                <td>{{calculateDifference(expenceDetails[0].home,budgetDetails[0].home)}}</td>
+
+                <td> {{calculateDifference(expenceDetails[0].food,budgetDetails[0].food)}}</td>
+                <td> {{calculateDifference(expenceDetails[0].cloth,budgetDetails[0].cloth)}}</td>
+                <td>{{calculateDifference(expenceDetails[0].eb_bill,budgetDetails[0].eb_bill)}}</td>
+                <td>{{calculateDifference(expenceDetails[0].education,budgetDetails[0].education)}}</td>
+                <td>{{calculateDifference(expenceDetails[0].EMI,budgetDetails[0].EMI)}}</td>
+                <td>{{calculateDifference(expenceDetails[0].entertainment,budgetDetails[0].entertainment)}}</td>
+                <td>{{calculateDifference(expenceDetails[0].transport,budgetDetails[0].transport)}}</td>
+                <td>{{calculateDifference(expenceDetails[0].health,budgetDetails[0].health)}}</td>
+                <td>{{calculateDifference(expenceDetails[0].expenseall,budgetDetails[0].budgetall)}}</td>
+            </tr>
+
+            <tr *ngIf="expenceDetails.length && budgetDetails.length == 0 ">
+
+                <td>No records found</td>
+
+            </tr>
+
+        </table>
+    </div>
+
+
+    <a routerLink="budget-savings">Tips To Save Your MONEY!! -> Click </a>

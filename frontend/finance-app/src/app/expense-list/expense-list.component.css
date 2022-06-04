@@ -1,10 +1,139 @@
- 
-.container{
-    border:2px solid gray;
-    margin-left: 500px;
-    max-width: 100px;
-    margin-top:20%;
+
+body {
+    /* background-image: url('../../images/trail.jpg'); */
+    background-image: url('../../images/time.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: -100px;
+    opacity: 2;
+
 }
+h1 {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+h2{
+    font-size:34px;
+    font-style: italic;
+    margin-left:400px;
+    margin-top:5px;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px grey;
+}  
+form {
+	position:relative;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    margin-left: 280px;
+
+}
+.form-group input {
+    width: 280px;
+}
+
+#month,#readonly{
+    width:300px;
+}
+label{
+    color:white;
+    text-shadow: 3px 3px black;
+    
+    font-size:20px;
+}
+
 button{
-    margin-left:40%;
+    display: flex;
+    margin-top: 15px;
+    color: #44c7f5;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-left:20px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #44c7f5;
+    border-radius: 30px;
+    box-shadow: inset 0 0 0 0 #44c7f5;
+    transition: .3s;
+    height:20%;
+  }
+  button:hover{
+  color: #ffffff;
+  box-shadow: inset 250px 0 0 0 #44c7f5;
 }
+#dashboard{
+    margin-left: 20px;
+    margin-top:40px;
+    font-size:22px;
+    font-style:italic;
+}
+.box-area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.box-area li {
+	position: absolute;
+	display: block;
+	list-style: none;
+	width: 25px;
+	height: 25px;
+	background: rgba(255, 255, 255, 0.2);
+	animation: animate 20s linear infinite;
+	bottom: -150px;
+}
+.box-area li:nth-child(1) {
+	left: 86%;
+	width: 80px;
+	height: 80px;
+	animation-delay: 0s;
+}
+.box-area li:nth-child(2) {
+	left: 12%;
+	width: 30px;
+	height: 30px;
+	animation-delay: 1.5s;
+	animation-duration: 10s;
+}
+.box-area li:nth-child(3) {
+	left: 70%;
+	width: 100px;
+	height: 100px;
+	animation-delay: 5.5s;
+}
+.box-area li:nth-child(4) {
+	left: 42%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 0s;
+	animation-duration: 15s;
+}
+.box-area li:nth-child(5) {
+	left: 65%;
+	width: 40px;
+	height: 40px;
+	animation-delay: 0s;
+}
+.box-area li:nth-child(6) {
+	left: 15%;
+	width: 110px;
+	height: 110px;
+	animation-delay: 3.5s;
+}
+@keyframes animate {
+	0% {
+		transform: translateY(0) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-800px) rotate(360deg);
+		opacity: 0;
+	}
+}
+
+

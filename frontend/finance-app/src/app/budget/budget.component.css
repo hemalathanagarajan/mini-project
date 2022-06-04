@@ -21,11 +21,9 @@ form {
 #month,#location,#readonly{
     width:600px;
 }
-a {
-    color:black;
-    border-radius: 50px;
-    font-size: 24px;
-    text-decoration: none;
+button{
+    display:flex;
 }
+
 
     

@@ -412,5 +412,7 @@ nav .profile-details i{
 }
    img{
      margin-left:60px;
-     margin-top:10px;
+     margin-top:30px;
+     border:2px solid white;
+     box-shadow: 5px 5px 5px grey;
    } 

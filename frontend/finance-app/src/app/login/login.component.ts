@@ -52,18 +52,14 @@ login(Formvalue:any)
     this.api.test_get(Formvalue.email).subscribe((data)=>{
       console.log("data returned from server",data); 
       if(data.docs.length <= 0 ){
-        this.toastr.error("data cant login","error");
+        this.toastr.error("Invalid login","email does not exist");
       }        
    else if(data.docs[0].email == Formvalue.email){
   this.toastr.success("success","Logged in successFully");
 this.router.navigate(['/dashboard']);
 
 }
-
- 
-
 let datas =  {
-
 
   name: data["docs"][0].name,
  username: data["docs"][0].username,
