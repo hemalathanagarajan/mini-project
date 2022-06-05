@@ -137,12 +137,26 @@ h3{
   line-height: 1.5;
 }
 
+p{
+  
+  font-size:18px;
+  color:#36454F;
+  line-height: 2;
+}
 
-
-h1{
+/* h1{
   margin-left:50px;
   color:#000;
   font-family:Arial, Helvetica, sans-serif;
+} */
+h1{
+  
+  color:mediumblue;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 24px;
+  text-shadow: 1px 1px black; 
+  margin-top:20px;
 }
 .video-content {
   display:flex;

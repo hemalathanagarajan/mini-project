@@ -22,8 +22,31 @@ form {
     width:600px;
 }
 button{
-    display:flex;
+    display:inline-block;
+    justify-content: space-between;
+    margin-left: 30px;
 }
+h2{
+    font-size:34px;
+    font-style: italic;
+    margin-left:400px;
+    margin-top:5px;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px grey;
+  }  
+  
+label{
+    color:black;
+    font-size:18px;
+    text-shadow: 1px 1px lightskyblue;
+
+
+} 
+::placeholder{
+    color:grey;
+    font-size:18px;
+} 
 
 
     

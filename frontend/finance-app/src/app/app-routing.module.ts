@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ReviewComponent } from './review/review.component';
+import {ExpenseDetailComponent} from './expense-detail/expense-detail.component';
 
 const routes: Routes = [
   {path: '',component:HomeComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:'blog',component:BlogComponent},
   {path:'reviews',component:ReviewComponent},
   {path:'budget-savings',component:BudgetingTipsComponent},
+  {path:'expense-detail',component:ExpenseDetailComponent},
 
 ];
 

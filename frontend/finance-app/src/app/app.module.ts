@@ -24,6 +24,7 @@ import { HttpCallInterceptorService } from './http-call-interceptor.service';
 import { ReviewComponent } from './review/review.component';
 import { NgxLoadingModule } from 'ngx-loading';
 import { BudgetingTipsComponent } from './budgeting-tips/budgeting-tips.component';
+import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
 
 
 const routes:Routes=[
@@ -47,6 +48,7 @@ const routes:Routes=[
     BlogComponent,
     ReviewComponent,
     BudgetingTipsComponent,
+    ExpenseDetailComponent,
   ],
   imports: [
     BrowserModule,

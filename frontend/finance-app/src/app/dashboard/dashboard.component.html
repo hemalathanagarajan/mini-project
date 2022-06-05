@@ -1,51 +1,55 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <em class='bx bxl-c-plus-plus'></em>
+            <em class='fa fa-money'></em>
             <span class="logo_name">QUICK PLAN</span>
         </div>
         <ul class="nav-links">
             <li>
                 <a href="#" class="active">
-                    <em class='bx bx-grid-alt'></em>
+                    <em class='fa fa-navicon'></em>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="budget">
-                    <em class='bx bx-box'></em>
-                    <span class="links_name">Budget Creation</span>
+                <a routerLink="/budget">
+
+                    <em class='fa fa-bar-chart'></em>
+
+                    <span class="links_name">Budget Form</span>
 
                 </a>
             </li>
             <li>
-                <a href="expense">
-                    <em class='bx bx-coin-stack'></em>
-                    <span class="links_name">Expense </span>
+                <a routerLink="/expense">
+                    <em class='fa fa-bar-chart'></em>
+                    <span class="links_name">Expense Form</span>
                 </a>
             </li>
 
 
             <li>
-                <a href="blog">
-                    <em class='bx bx-coin-stack'></em>
+                <a routerLink="/blog">
+                    <em class='fa fa-building'></em>
                     <span class="links_name">Blog</span>
                 </a>
             </li>
             <li>
-                <a href="reviews">
-                    <em class='bx bx-grid-alt'></em>
+                <a routerLink="/reviews">
+                    <em class=" fa fa-comments"></em>
                     <span class="links_name">Reviews</span>
                 </a>
             </li>
-
-            <li class="log_out">
-                <button (click)="clear()">
-                    <em class='bx bx-log-out'></em>
-                    <span class="links_name">Log out</span>
-
-                </button>
+            <li>
+                <a routerLink="/budget-savings">
+                    <em class=" fa fa-comments"></em>
+                    <span class="links_name">Savings Tips</span>
+                </a>
             </li>
+
+
         </ul>
 
     </div>
@@ -53,14 +57,19 @@
         <nav>
             <div class="sidebar-button">
                 <em class='bx bx-menu sidebarBtn'></em>
+                <em class="fa fa-user"></em>
+
                 <span class="dashboard"> Welcome {{userId.name}}</span>
             </div>
 
             <div class="profile-details">
+                <em class="fa fa-envelope"></em>
+
                 <span class="admin_name">{{userId.email}}</span>
             </div>
             <div class="profile-details">
-                <button (click)="clear()">LOG OUT</button>
+                <em class="fa fa-sign-out"></em>
+                <button (click)="clear()" id="clear">LOG OUT</button>
 
 
             </div>
@@ -83,7 +92,7 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Expense form</div>
-                        <a href="expense">Click to Get into Expense</a>
+                        <a href="expense-detail">Click to Get into Expense</a>
 
 
                         <div class="indicator">
@@ -117,11 +126,13 @@
                     </div>
 
 
-                    <table class="table table">
+                    <table>
                         <caption></caption>
 
                         <thead>
                             <tr>
+                                <th>Month </th>
+
                                 <th>Home</th>
                                 <th>Food</th>
                                 <th>Cloth</th>
@@ -131,12 +142,13 @@
                                 <th>Entertainment</th>
                                 <th>Transport</th>
                                 <th>Health</th>
-                                <th>Budget </th>
-                                <th>Month </th>
+                                <th>Budget Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let budget of userBudget">
+                                <td>{{budget.month}}</td>
+
                                 <td>{{budget.home}}</td>
                                 <td>{{budget.food}}</td>
                                 <td>{{budget.cloth}}</td>
@@ -147,7 +159,6 @@
                                 <td>{{budget.transport}}</td>
                                 <td>{{budget.health}}</td>
                                 <td>{{budget.budgetall}}</td>
-                                <td>{{budget.month}}</td>
 
                             </tr>
 
@@ -155,11 +166,13 @@
                     </table>
                     <div class="title"> Expenses List</div>
 
-                    <table class="table table">
+                    <table>
 
                         <caption></caption>
                         <thead>
                             <tr>
+                                <th>Month </th>
+
                                 <th>Home</th>
                                 <th>Food</th>
                                 <th>Cloth</th>
@@ -169,13 +182,14 @@
                                 <th>Entertainment</th>
                                 <th>Transport</th>
                                 <th>Health</th>
-                                <th>Expense </th>
-                                <th>Month </th>
+                                <th>Expense Total </th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let expense of userExpenseData">
+                                <td>{{expense.month}}</td>
+
                                 <td>{{expense.home}}</td>
                                 <td>{{expense.food}}</td>
 
@@ -187,7 +201,6 @@
                                 <td>{{expense.transport}}</td>
                                 <td>{{expense.health}}</td>
                                 <td>{{expense.expenseall}}</td>
-                                <td>{{expense.month}}</td>
                             </tr>
 
                         </tbody>
