@@ -21,8 +21,19 @@
       margin-left:40%;
   }
   .scrolling-text{
-      font-size:18px;
-      background-color: antiquewhite;
+      margin-top:10px;
+      
+  }
+  h3{
+    color:#102779;
+    font-size:22px;
+
+  }
+  .main img {
+    width:90%;
+    margin-left:50px;
+    height:400px;
+
   }
   
   .container {
