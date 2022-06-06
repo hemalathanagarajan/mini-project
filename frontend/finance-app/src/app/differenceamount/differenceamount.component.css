@@ -181,20 +181,7 @@ color:mediumblue;
     animation: chan-sh 6s ease infinite;
   
   }
-  .info h2{
-    color:white;
-    font-style:italic;
-    font-size:28px;
-  }
-  
-  
-  
-    
-  
-  
-  
-  
-  #container .product-details > p {
+ #container .product-details > p {
   font-family: 'EB Garamond', serif;
     text-align: center;
     font-size: 18px;
@@ -247,6 +234,5 @@ color:mediumblue;
   .info ul li:hover{transform: translateX(50px) scale(1.3);}
   
   .product-image:hover img {transition: all 0.3s ease-out;}
-  .product-image:hover img {transform: scale(1.2, 1.2);}
   
   
