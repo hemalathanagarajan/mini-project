@@ -54,10 +54,13 @@ login(Formvalue:any)
       if(data.docs.length <= 0 ){
         this.toastr.error("Invalid login","email does not exist");
       }        
-   else if(data.docs[0].email == Formvalue.email){
+   else if(data.docs[0].password == Formvalue.password){
   this.toastr.success("success","Logged in successFully");
 this.router.navigate(['/dashboard']);
 
+}
+else{
+  this.toastr.error("invalid user","cant login")
 }
 let datas =  {
 

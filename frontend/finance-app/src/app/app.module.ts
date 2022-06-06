@@ -22,9 +22,10 @@ import { BlogComponent } from './blog/blog.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpCallInterceptorService } from './http-call-interceptor.service';
 import { ReviewComponent } from './review/review.component';
-import { NgxLoadingModule } from 'ngx-loading';
 import { BudgetingTipsComponent } from './budgeting-tips/budgeting-tips.component';
 import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 
 const routes:Routes=[
@@ -58,8 +59,8 @@ const routes:Routes=[
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxLoadingModule.forRoot({}),
     ToastrModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
 
 
 
