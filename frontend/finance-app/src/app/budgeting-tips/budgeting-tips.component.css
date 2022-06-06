@@ -42,3 +42,13 @@ button{
     margin-left:26%;
     margin-top:20px;
 }
+.plan img{
+    margin-left: 27%;
+}
+.plan li{
+    color:#36454F;
+    margin-left:27%;
+    font-size:20px;
+    line-height: 1.2;
+    margin-top:10px;
+}
