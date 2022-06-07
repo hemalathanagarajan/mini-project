@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {ApiService} from '../login.service';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 import { NotificationService } from '../notification.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -16,7 +18,7 @@ export class RegisterUserComponent  {
   object:[]| undefined;
   notifyService: any;
   
-  constructor(private fb: FormBuilder,private api:ApiService,private alert:NotificationService) {
+  constructor(private fb: FormBuilder,private api:ApiService,private alert:NotificationService, private router:Router) {
     this.checkoutform = this.fb.group({
       Name: ['',[Validators.required,Validators.minLength(4)]],
       username: ['',[Validators.required]],
@@ -64,11 +66,13 @@ export class RegisterUserComponent  {
     this.api.storedata(Formvalue).subscribe((res)=>{
       
       console.log("data returned from server",res);
-      this.alert.showSuccess("success","Data posted success Fully")
+      this.alert.showSuccess("Success","Data posted success Fully");
+      this.router.navigate(['/login']);
+      
 
     },rej =>{
       console.log(rej)
-      this.alert.showError("data cant post","error" + rej.error.message.reason);
+      this.alert.showError("Cant able to Signin","Error" + rej.error.message.reason);
     })
 
 
@@ -81,12 +85,12 @@ export class RegisterUserComponent  {
 
  
 showToasterError(){
-    this.alert.showError("Something is wrong", "tutsmake.com")
+    this.alert.showError("Something is wrong", "error")
 }
  
 
 showToasterSuccess(){
-  this.alert.showSuccess("success","Data posted success Fully")
+  this.alert.showSuccess("success","User Signedin Success Fully")
 
 }
   

@@ -30,12 +30,7 @@
             </li>
 
 
-            <li>
-                <a routerLink="/blog">
-                    <em class='fa fa-building'></em>
-                    <span class="links_name">Blog</span>
-                </a>
-            </li>
+
             <li>
                 <a routerLink="/reviews">
                     <em class=" fa fa-comments"></em>
@@ -60,6 +55,7 @@
                 <em class="fa fa-user"></em>
 
                 <span class="dashboard"> Welcome {{userId.name}}</span>
+
             </div>
 
             <div class="profile-details">
@@ -80,7 +76,7 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Budget </div>
-                        <a routerLink="/new-user">Click to Info about Budget</a>
+                        <a routerLink="/new-user">Info about Budget</a>
 
 
                         <div class="indicator">
@@ -92,7 +88,7 @@
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Expense</div>
-                        <a routerLink="/expense-detail">Click to Get info about Expense</a>
+                        <a routerLink="/expense-detail">Info about Expense</a>
 
 
                         <div class="indicator">
@@ -102,6 +98,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Estimated Difference</div>
@@ -113,6 +111,38 @@
                         </div>
                     </div>
                 </div>
+                <div class="right-side">
+                    <img src="../../images/savings.JPG" alt="savings">
+
+                </div>
+                <div class="box">
+                    <div class="right-side new">
+                        <div class="box-topic">Budget List <span>{{userBudget.length}} </span></div>
+
+
+                        <div class="indicator">
+                            <em class='bx bx-up-arrow-alt'></em>
+
+                            <span class="text">No Of Budgets</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Expenses List <span>{{userExpenseData.length}}</span></div>
+
+
+                        <div class="indicator">
+                            <em class='bx bx-up-arrow-alt'></em>
+
+                            <span class="text">No Of Expenses</span>
+                        </div>
+                    </div>
+                </div>
+
+
 
             </div>
 
@@ -205,14 +235,6 @@
 
                         </tbody>
                     </table>
-                    <img src="../../images/new.gif" width="60%" alt=" gif">
-
-
-                    <div style="display: block">
-                        <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
-                            [colors]="chartColors" [options]="chartOptions" [legend]="true"
-                            (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                        </canvas>
+                    <div>
+                        <img src="../../images/new.gif" width="60%" alt=" gif">
                     </div>
-
-                </div>

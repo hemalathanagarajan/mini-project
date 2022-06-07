@@ -40,6 +40,7 @@ body {
   .card h2,
   h1 {
     color: midnightblue;
+    margin-left:24px;
   }
   .card h5,
   p {
@@ -50,6 +51,10 @@ body {
     content: "";
     display: table;
     clear: both;
+  }
+  .table-difference{
+    margin-left:30%;
+    font-size:20px;
   }
   
   .footer {

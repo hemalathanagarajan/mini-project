@@ -27,7 +27,6 @@ obj1: any = {
         password:'',
         mobile:'',
        _id:'',
-       _rev:'',
         
       };
   constructor(private fb:FormBuilder,private api:ApiService,private router:Router,private toastr:ToastrService) { }
@@ -52,7 +51,7 @@ login(Formvalue:any)
     this.api.test_get(Formvalue.email).subscribe((data)=>{
       console.log("data returned from server",data); 
       if(data.docs.length <= 0 ){
-        this.toastr.error("Invalid login","email does not exist");
+        this.toastr.error("Invalid login","Email not exist");
       }        
    else if(data.docs[0].password == Formvalue.password){
   this.toastr.success("success","Logged in successFully");
@@ -60,7 +59,7 @@ this.router.navigate(['/dashboard']);
 
 }
 else{
-  this.toastr.error("invalid user","cant login")
+  this.toastr.error("Try Again ","Invalid Password")
 }
 let datas =  {
 

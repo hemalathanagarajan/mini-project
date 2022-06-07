@@ -10,6 +10,10 @@ table {
   border-collapse: collapse;
   width: 100%;
   border: 1px solid rgb(221, 221, 221);
+  margin-bottom:10px;
+}
+thead{
+  background-color:#f2f2f2;
 }
 
 th, td {
@@ -214,6 +218,9 @@ nav .profile-details em{
 .overview-boxes .box-topic{
   font-size: 20px;
   font-weight: 500;
+}
+.box-topic span{
+  color:green;
 }
 .home-content .box .number{
   display: inline-block;
@@ -432,3 +439,9 @@ nav .profile-details em{
      border:2px solid white;
      box-shadow: 5px 5px 5px grey;
    } 
+   .right-side img{
+     width:130px;
+     height:80px;
+     margin-bottom:20px;
+     margin-right:20px;
+   }

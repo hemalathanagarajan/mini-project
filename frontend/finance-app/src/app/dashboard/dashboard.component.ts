@@ -1,4 +1,4 @@
-import { Component,Input} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {ApiService} from '../login.service';
 import { Router } from '@angular/router';
 
@@ -7,9 +7,14 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent  {
-  
-@Input() idvalue: any;
+export class DashboardComponent implements OnInit {
+  hide: number|undefined;
+  ngOnInit(): void {
+    this.hide=0
+  }
+  button(){
+this.hide=1;
+  }
 alluser: any;
   userBudget: any;
   store: any = []
@@ -51,14 +56,7 @@ public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
         this.alluser = res;
            this.alluser=this.alluser.rows
          this.userBudget = this.alluser.map((el: any)=>el.doc);
-
-        
-           console.log(this.userBudget[0].doc);
-         
-          
-         
-
-      },rej=>{
+},rej=>{
         alert("opps! No records on budget "+rej);
       });
    }
@@ -71,40 +69,6 @@ localStorage.clear();
 this.router.navigate([''])
     
   }
-  chartType = 'line';
-
-  chartDatasets = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'My First dataset' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'My Second dataset' }
-  ];
-
-  chartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-  chartColors = [
-    {
-      backgroundColor: 'rgba(105, 0, 132, .2)',
-      borderColor: 'rgba(200, 99, 132, .7)',
-      borderWidth: 2,
-    },
-    {
-      backgroundColor: 'rgba(0, 137, 132, .2)',
-      borderColor: 'rgba(0, 10, 130, .7)',
-      borderWidth: 2,
-    }
-  ];
-
-  chartOptions: any = {
-    responsive: true
-  };
-
-  chartClicked(event: any) {
-    console.log(event);
-  }
-  chartHovered(event: any) {
-    console.log(event);
-  }
-
-
- 
+  
 
 }
