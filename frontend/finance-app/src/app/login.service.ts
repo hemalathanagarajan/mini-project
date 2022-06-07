@@ -30,7 +30,7 @@ array:any;
     const url=this.endpoint+db;
     return this.http.post(url, doc, this.httpOptions)
   }
-  test_get(id:any)
+  login_Get(id:any)
   {
     return this.http.get<any>('http://localhost:8000/getdata/'+id);
   }

@@ -69,7 +69,7 @@ expense  :any;
      }
 
 
-     getBudget1(Formvalue:any){
+     getBudget(Formvalue:any){
   
       let data={
         selector:{
@@ -92,7 +92,7 @@ expense  :any;
         });
      }
 
-     getExpense1(Formvalue:any) {
+     getExpense(Formvalue:any) {
       let data={
         selector:{
           "type": "expense",
@@ -114,11 +114,11 @@ expense  :any;
     }
 
 
-     async fetchBudgetExpence(Formvalue:any){
-       await this.getBudget1(Formvalue).then(res=>{
+     async fetchRecords(Formvalue:any){
+       await this.getBudget(Formvalue).then(res=>{
         this.budgetDetails = res;
        })
-       await this.getExpense1(Formvalue).then(res=>{
+       await this.getExpense(Formvalue).then(res=>{
         this.expenceDetails = res;
        })
      }

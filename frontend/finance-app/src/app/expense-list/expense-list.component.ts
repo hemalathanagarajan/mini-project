@@ -120,8 +120,7 @@ get month(){
         
         this.formgroup.reset();
       },rej=>{
-      this.alert.showError("expense cant create","error" + rej);
-
+console.log("error",rej);
       });
     }
     userExpenseValue = {
@@ -130,11 +129,11 @@ get month(){
      
      }
      
-     AddExpense(userbudgetValue:any){
+     addExpense(userbudgetValue:any){
      console.log(userbudgetValue);
   this.result = userbudgetValue.home + userbudgetValue.food +userbudgetValue.cloth + userbudgetValue.eb_bill +userbudgetValue.entertainment+ userbudgetValue.education+userbudgetValue.EMI+userbudgetValue.transport+userbudgetValue.health;
      
-this.formgroup.controls['expenseall'].setValue(this.result);
+this.formgroup.controls['expenseall'].setValue(this.result +" "+" in Rupees");
 
 }
 }

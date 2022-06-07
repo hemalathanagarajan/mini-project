@@ -43,7 +43,7 @@ budget: any = {
 
 
 
-  constructor(private fb: FormBuilder,private api:ApiService, private alert:NotificationService) { 
+  constructor(private fb: FormBuilder,private api:ApiService, private toastr:NotificationService) { 
     this.formgroup = this.fb.group({
         home: ['',[Validators.required,rangeValidator(0,Infinity)]],
         food: ['',[Validators.required,rangeValidator(0,Infinity)]],
@@ -126,13 +126,12 @@ onReset():void {
     }
       this.api.add("finance_db",budget).subscribe(res=>{
         console.log(res);
-      this.alert.showSuccess("success","Budget Created Successfully")
+      this.toastr.showSuccess("success","Budget Created Successfully")
         
 
       },
       rej=>{
-      this.alert.showError("data cant post","error"+rej);
-        
+       console.log("error",rej); 
       });
 }
 userbudgetValue = {
@@ -147,7 +146,7 @@ console.log(userbudgetValue);
  
   this.result = userbudgetValue.home + userbudgetValue.food +userbudgetValue.cloth + userbudgetValue.eb_bill +userbudgetValue.entertainment+ userbudgetValue.education+userbudgetValue.EMI+userbudgetValue.transport+userbudgetValue.health;
 
-this.formgroup.controls['budgetall'].setValue(this.result);
+this.formgroup.controls['budgetall'].setValue(this.result+" "+" in Rupees");
 
 }
 

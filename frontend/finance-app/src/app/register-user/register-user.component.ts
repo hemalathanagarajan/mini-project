@@ -58,7 +58,7 @@ export class RegisterUserComponent  {
 
 
 
-  signup(Formvalue:any)
+  signUp(Formvalue:any)
   { 
     
     
@@ -66,13 +66,12 @@ export class RegisterUserComponent  {
     this.api.storedata(Formvalue).subscribe((res)=>{
       
       console.log("data returned from server",res);
-      this.alert.showSuccess("Success","Data posted success Fully");
+      this.alert.showSuccess("Success","Registered success Fully");
       this.router.navigate(['/login']);
       
 
     },rej =>{
       console.log(rej)
-      this.alert.showError("Cant able to Signin","Error" + rej.error.message.reason);
     })
 
 

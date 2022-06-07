@@ -48,7 +48,7 @@ get password() {
 login(Formvalue:any)
   {
     console.log(Formvalue.email);
-    this.api.test_get(Formvalue.email).subscribe((data)=>{
+    this.api.login_Get(Formvalue.email).subscribe((data)=>{
       console.log("data returned from server",data); 
       if(data.docs.length <= 0 ){
         this.toastr.error("Invalid login","Email not exist");
