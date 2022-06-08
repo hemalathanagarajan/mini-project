@@ -19,9 +19,10 @@ export class HttpCallInterceptorService implements HttpInterceptor {
                 if(err.error["message"]){
                     this.toastr.error(err.error.message.reason);
                 }
-                else{
+                else {
                     this.toastr.error(err.error.reason); 
                 }
+               
             })
         )
     }

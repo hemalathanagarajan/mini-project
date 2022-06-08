@@ -146,7 +146,7 @@ console.log(userbudgetValue);
  
   this.result = userbudgetValue.home + userbudgetValue.food +userbudgetValue.cloth + userbudgetValue.eb_bill +userbudgetValue.entertainment+ userbudgetValue.education+userbudgetValue.EMI+userbudgetValue.transport+userbudgetValue.health;
 
-this.formgroup.controls['budgetall'].setValue(this.result+" "+" in Rupees");
+this.formgroup.controls['budgetall'].setValue(this.result);
 
 }
 

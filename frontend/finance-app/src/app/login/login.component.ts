@@ -71,6 +71,8 @@ let datas =  {
     
    }
 localStorage.setItem('obj1', JSON.stringify(datas));
+},_rej=>{
+  this.toastr.error("enter a data");
 })
 
 }

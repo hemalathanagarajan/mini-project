@@ -10,8 +10,8 @@
             <form [formGroup]="checkoutform">
                 <div class="form-group">
                     <label for="Name"> Name</label>
-                    <input id="Name" type="text" class="form-control" formControlName="Name" placeholder=" Enter Name"
-                        required />
+                    <input id="Name" type="text" class="form-control" formControlName="Name" autocomplete="off"
+                        placeholder=" Enter Name" required />
 
                     <div class="help-block text-danger" *ngIf="Name.touched && Name.invalid">
                         <span *ngIf="Name.errors?.required">
@@ -67,7 +67,7 @@
                 <div class="form-group">
                     <label for="mobile">Mobile Number</label>
                     <input type="number" id="mobile" class="form-control" formControlName="mobile"
-                        placeholder="Enter your phone number" required />
+                        placeholder="Enter your phone number" autocomplete="off" required />
 
                     <div class="help-block text-danger" *ngIf="mobile.touched && mobile.invalid">
                         <span *ngIf="mobile.errors?.required">

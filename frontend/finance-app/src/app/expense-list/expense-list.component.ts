@@ -133,7 +133,7 @@ console.log("error",rej);
      console.log(userbudgetValue);
   this.result = userbudgetValue.home + userbudgetValue.food +userbudgetValue.cloth + userbudgetValue.eb_bill +userbudgetValue.entertainment+ userbudgetValue.education+userbudgetValue.EMI+userbudgetValue.transport+userbudgetValue.health;
      
-this.formgroup.controls['expenseall'].setValue(this.result +" "+" in Rupees");
+this.formgroup.controls['expenseall'].setValue(this.result );
 
 }
 }

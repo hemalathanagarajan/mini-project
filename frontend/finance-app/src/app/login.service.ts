@@ -70,6 +70,14 @@ array:any;
 
 
   }
+  delete(id: any,rev:any): Observable<{}>  {
+        console.log(id);
+        console.log(rev);
+      const url= this.endpoint+'finance_db/'+id+'?rev='+rev;
+      return this.http.delete(url,this.httpOptions)
+      }
+      
+       
   
 
   fetchlist( type:string, id:any) {

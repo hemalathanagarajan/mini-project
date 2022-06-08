@@ -173,6 +173,7 @@
                                 <th>Transport</th>
                                 <th>Health</th>
                                 <th>Budget Total</th>
+                                <th>Modify</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -189,6 +190,7 @@
                                 <td>{{budget.transport }}</td>
                                 <td>{{budget.health }}</td>
                                 <td>{{budget.budgetall}}</td>
+                                <td><button class="delete" (click)="delete(userId._id,userId._rev)">Delete</button></td>
 
                             </tr>
 
@@ -213,6 +215,7 @@
                                 <th>Transport</th>
                                 <th>Health</th>
                                 <th>Expense Total </th>
+                                <th>Modify </th>
 
                             </tr>
                         </thead>
@@ -231,6 +234,9 @@
                                 <td>{{expense.transport }}</td>
                                 <td>{{expense.health }}</td>
                                 <td>{{expense.expenseall }}</td>
+                                <td><button class="delete" (click)="delete(userId._id,userId._rev)">Delete</button></td>
+
+
                             </tr>
 
                         </tbody>

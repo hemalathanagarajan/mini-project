@@ -119,7 +119,7 @@
             <div class="form-group">
                 <label for="EMI">EMI</label>
                 <input type="number" id="EMI" class="form-control" formControlName="EMI" [ngModel]="budget.EMI"
-                    placeholder="Enter amount in rupees" />
+                    placeholder="Enter amount in rupees" autocomplete="off" />
                 <div class="help-block text-danger" *ngIf="EMI.touched">
                     <span *ngIf="EMI.errors?.required">
                         EMI Amount is REQUIRED!!!

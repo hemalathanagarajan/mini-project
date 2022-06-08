@@ -69,6 +69,14 @@ localStorage.clear();
 this.router.navigate([''])
     
   }
-  
+ 
+  delete(id:any,rev:any){
+    this.api.delete(id,rev).subscribe(res=>{
+      console.log(res);
+      alert("Deleted sucessfully");
+      window. location. reload();
+
+    })
+  }
 
 }
