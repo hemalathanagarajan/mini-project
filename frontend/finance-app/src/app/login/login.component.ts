@@ -27,6 +27,7 @@ obj1: any = {
         password:'',
         mobile:'',
        _id:'',
+       _rev:'',
         
       };
   constructor(private fb:FormBuilder,private api:ApiService,private router:Router,private toastr:ToastrService) { }
@@ -68,6 +69,7 @@ let datas =  {
  email: data["docs"][0].email,
  password: data["docs"][0].password,
  id:data["docs"][0]._id,
+ rev:data["docs"][0]._rev,
     
    }
 localStorage.setItem('obj1', JSON.stringify(datas));

@@ -190,7 +190,8 @@
                                 <td>{{budget.transport }}</td>
                                 <td>{{budget.health }}</td>
                                 <td>{{budget.budgetall}}</td>
-                                <td><button class="delete" (click)="delete(userId._id,userId._rev)">Delete</button></td>
+                                <td><button class="delete" (click)="delete(budget._id,budget._rev)">Delete</button></td>
+
 
                             </tr>
 
@@ -234,7 +235,8 @@
                                 <td>{{expense.transport }}</td>
                                 <td>{{expense.health }}</td>
                                 <td>{{expense.expenseall }}</td>
-                                <td><button class="delete" (click)="delete(userId._id,userId._rev)">Delete</button></td>
+                                <td><button class="delete" (click)="delete(expense._id,expense._rev)">Delete</button>
+                                </td>
 
 
                             </tr>
@@ -244,3 +246,6 @@
                     <div>
                         <img src="../../images/new.gif" width="60%" alt=" gif">
                     </div>
+                    <google-chart class="chart" [type]="myType" [data]="barData" [options]="options" [width]="800"
+                        [height]="800">
+                    </google-chart>

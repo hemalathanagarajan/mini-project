@@ -24,6 +24,7 @@ import { HttpCallInterceptorService } from './http-call-interceptor.service';
 import { ReviewComponent } from './review/review.component';
 import { BudgetingTipsComponent } from './budgeting-tips/budgeting-tips.component';
 import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 
 
@@ -58,6 +59,7 @@ const routes:Routes=[
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    GoogleChartsModule,
     ToastrModule.forRoot(),
 
 

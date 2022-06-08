@@ -127,7 +127,7 @@
     <div class="column">
         <h2>Difference Amount Table</h2>
 
-        <table>
+        <table class="difference">
             <caption></caption>
             <tr>
                 <th>Home</th>
@@ -164,14 +164,19 @@
 
         </table>
     </div>
+    <h4>Basic chart Percentages for Money Management </h4>
 
+    <google-chart class="chart" [type]="myType" [data]="barData" [width]="800" [height]="800">
+
+    </google-chart>
 
     <div id="container">
         <div class="product-details">
 
             <h1>Saving Money</h1>
 
-            <p class="information">" Do not save what is left after pending , but spend what is left after Saving " -
+            <p class="information">" Do not save what is left after pending , but spend what is left after Saving "
+                -
                 Warren Buffet</p>
             <p>"Being in control of your finances is the greatest stress reliever"</p>
             <button class="btn btn-success" routerLink="/budget-savings">Saving Tips!!</button>

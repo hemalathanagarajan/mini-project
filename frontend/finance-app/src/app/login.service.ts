@@ -67,13 +67,18 @@ array:any;
     console.log(datas);
   
     return this.http.post(url,datas,this.httpOptions);
-
-
   }
+
+  updateDataUser(changedValue: object, id: number, rev: number) {
+    const changeObj = changedValue;
+    const url = `${this.endpoint + 'finance_db/'}/${id}?rev=${rev}`;
+    return this.http.put(url, changeObj, this.httpOptions);
+  }
+
   delete(id: any,rev:any): Observable<{}>  {
         console.log(id);
         console.log(rev);
-      const url= this.endpoint+'finance_db/'+id+'?rev='+rev;
+      const url = this.endpoint+'finance_db/'+id+'?rev='+rev;
       return this.http.delete(url,this.httpOptions)
       }
       

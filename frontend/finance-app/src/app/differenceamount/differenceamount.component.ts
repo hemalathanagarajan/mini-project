@@ -22,6 +22,7 @@ formgroup!: FormGroup;
   store: any = [];
   obj: any;
   Id: any;
+  differenceamount :any =[];
   userData:any;
   alluser: any;
   alluserData: any;
@@ -106,6 +107,7 @@ expense  :any;
             this.alluserExpense1=this.alluserExpense;
            }
            resolve(this.alluserExpense1) 
+
         }
         ,rej=>{
           this.toastr.error("opps! you dont have expense on that month ","fail" + rej);
@@ -121,8 +123,30 @@ expense  :any;
        await this.getExpense1(Formvalue).then(res=>{
         this.expenceDetails = res;
        })
-     }
- 
+     
+      }
+
+
+      title = 'googlechart';  
+     myType:any = 'BarChart';  
+      barData = [  
+        ['Home', 27.1],
+        ['Food', 15.8], 
+        ['EB_bill',12.6], 
+        ['Cloth', 5.8],  
+        ['Education',5.0],  
+        ['EMI', 16.2]  ,
+        ['Entertainment', 5.0]  ,
+        ['Transport', 10.2]  ,
+        ['Health', 15.2]  
+       
+        
+     ];    
+     
+     width = 500;  
+     height = 300; 
+    
+
   }
 
 

@@ -16,10 +16,12 @@ export class DashboardComponent implements OnInit {
 this.hide=1;
   }
 alluser: any;
+
   userBudget: any;
   store: any = []
   obj: any;
   Id: any;
+  
   userData:any;
   userExpense:any;
   userExpenseData:any=[];
@@ -43,6 +45,7 @@ public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
          this.userExpenseData = this.userExpense.map((el: any)=>el.doc);
 
          console.log(this.userExpenseData);
+
         
           
       },rej=>{
@@ -78,5 +81,23 @@ this.router.navigate([''])
 
     })
   }
+  title = 'googlechart';  
+  myType:any = 'BarChart';  
+  barData = [  
+     ['Name1', 5.0],  
+     ['Name2', 36.8],  
+     ['Name3', 42.8],  
+     ['Name4', 18.5],  
+     ['Name5', 16.2]  
+  ];    
+  options = {      
+  };  
+  width = 500;  
+  height = 300; 
+  
+
+  
+
+
 
 }
