@@ -23,7 +23,6 @@ export class EditComponent implements OnInit {
     this.acrouter.queryParams.subscribe(res => {
       console.log(res)
       this._id = res.data
-      // console.log(this._id);
       this.rev = res._rev
       this.login.getbyId(this._id).subscribe(res => {
         this.temp = res

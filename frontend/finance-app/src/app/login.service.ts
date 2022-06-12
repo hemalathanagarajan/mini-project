@@ -43,16 +43,7 @@ array:any;
    return this.http.get(url,this.httpOptions);
 
   }
-  // getbyId(id:any): Observable<{}>{
-    
-  //   const url = this.endpoint+'finance_db/'+ id ;
-  //  return this.http.get(url,this.httpOptions);
-
-  // }
-  // getbyId(db:string, id:number): Observable<{}> {
-  //   const url = this.endpoint + db + id;
-  //   return this.http.get(url, this.httpOptions);
-  // }
+  
   
   storedata(formvalue:any)
   {

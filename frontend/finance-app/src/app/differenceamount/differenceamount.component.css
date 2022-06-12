@@ -13,7 +13,8 @@ form{
 p{
     color:grey;
     font-size:22px;
-    margin-left:18px;
+    margin-left:60px;
+    margin-top:30px;
 }
 h1{
     font-size:34px;
@@ -209,11 +210,7 @@ color:mediumblue;
     color: #7d7d7d;
     
   }
-  p{
-    margin-left:60px;
-    margin-top:30px;
-  }
-
+  
   
   .control{
     position: absolute;

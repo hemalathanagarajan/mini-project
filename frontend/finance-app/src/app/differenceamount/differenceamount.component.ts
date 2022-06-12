@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {ApiService} from '../login.service';
 import { ToastrService } from 'ngx-toastr'; 
- import * as _ from 'lodash'
 @Component({
   selector: 'app-differenceamount',
   templateUrl: './differenceamount.component.html',
