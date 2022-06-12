@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {ApiService} from '../login.service';
 import { ToastrService } from 'ngx-toastr'; 
- 
+ import * as _ from 'lodash'
 @Component({
   selector: 'app-differenceamount',
   templateUrl: './differenceamount.component.html',
@@ -49,6 +49,8 @@ expense  :any;
       differencevalue:['']
      
           });
+      console.log(this.budgetDetails);
+
    
    }
 
@@ -65,9 +67,12 @@ expense  :any;
      calculateDifference(a:any,b:any) {
     
     console.log(a,b)
-      console.log(Math.abs(a-b));
-    return Math.abs(a-b);
+    return (a-b);
      }
+    
+      
+    
+
 
 
      getBudget1(Formvalue:any){
@@ -115,38 +120,56 @@ expense  :any;
       });
     }
 
-
+loadData =false
      async fetchRecords(Formvalue:any){
-       await this.getBudget1(Formvalue).then(res=>{
-        this.budgetDetails = res;
+       await this.getBudget1(Formvalue).then((res:any)=>{
+        this.budgetDetails = res[0];
+       
+         this.getExpense1(Formvalue).then((res:any)=>{
+          this.expenceDetails = res[0];
+
+          this.loadData=true
+          this.barData = [  
+            ['Home',this.budgetDetails['home'] ,this.expenceDetails['home']],
+            ['Food', this.budgetDetails['food'],this.expenceDetails['food']], 
+            ['EB_bill', this.budgetDetails['cloth'],this.expenceDetails['cloth']], 
+            ['Cloth', this.budgetDetails['eb_bill'],this.expenceDetails['eb_bill']],  
+            ['Education',this.budgetDetails['education'],this.expenceDetails['education']],  
+            ['EMI', this.budgetDetails['EMI'],this.expenceDetails['EMI']]  ,
+            ['Entertainment', this.budgetDetails['entertainment'],this.expenceDetails['entertainment']]  ,
+            ['Transport', this.budgetDetails['transport'],this.expenceDetails['transport']]  ,
+            ['Health', this.budgetDetails['health'],this.expenceDetails['health']]  
+           
+            
+         ];
+         })
+
        })
-       await this.getExpense1(Formvalue).then(res=>{
-        this.expenceDetails = res;
-       })
-     
+       
       }
 
 
       title = 'googlechart';  
-     myType:any = 'BarChart';  
-      barData = [  
-        ['Home', 27.1],
-        ['Food', 15.8], 
-        ['EB_bill',12.6], 
-        ['Cloth', 5.8],  
-        ['Education',5.0],  
-        ['EMI', 16.2]  ,
-        ['Entertainment', 5.0]  ,
-        ['Transport', 10.2]  ,
-        ['Health', 15.2]  
-       
-        
-     ];    
+     myType:any = 'ColumnChart';  
+      barData :any;   
      
-     width = 500;  
+     width = 1200;  
      height = 300; 
-    
+      options = {
+      title: 'Graph on Budget and Expense lists',
 
+      hAxis: {
+        title: 'Categories',
+        viewWindow: {
+          min: [7, 30, 0],
+          max: [20, 30, 0]
+        }
+      },
+      vAxis: {
+        title: 'Amount (Rupees)'
+      }
+    };
+    
   }
 
 

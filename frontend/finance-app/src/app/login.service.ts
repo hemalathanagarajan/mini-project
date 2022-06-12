@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Fields } from '@syncfusion/ej2-dropdowns';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,16 @@ array:any;
    return this.http.get(url,this.httpOptions);
 
   }
+  // getbyId(id:any): Observable<{}>{
+    
+  //   const url = this.endpoint+'finance_db/'+ id ;
+  //  return this.http.get(url,this.httpOptions);
+
+  // }
+  // getbyId(db:string, id:number): Observable<{}> {
+  //   const url = this.endpoint + db + id;
+  //   return this.http.get(url, this.httpOptions);
+  // }
   
   storedata(formvalue:any)
   {
@@ -61,7 +72,28 @@ array:any;
     return this.http.post(url, typedData, this.httpOptions);
   }
 
+  getDataByTypeandId(type:string,id:any) {
+    let url = this.endpoint + 'finance_db/_find'
+    let typedData = {
+     selector: {
+      type: "location",
+      "city" : location
+    },
+     fields: Fields
+    };
+    return this.http.post(url, typedData, this.httpOptions);
+  }
   
+  getbyId(id:any) {
+    let url = this.endpoint + 'finance_db/_find'
+    let typedData = {
+      "selector": {
+        "_id": "d9b71f697951442aa22e426ce61ad213"
+     }
+    };
+    return this.http.post(url, typedData, this.httpOptions);
+  }
+ 
   fetchDetails(datas:any){
     const url=this.endpoint+'finance_db/_find';
     console.log(datas);

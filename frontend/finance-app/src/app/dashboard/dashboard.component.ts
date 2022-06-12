@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import {ApiService} from '../login.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +12,10 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   hide: number|undefined;
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    },1000);
     this.hide=0
   }
   button(){
@@ -29,12 +35,14 @@ alluser: any;
 public  userId= JSON.parse(localStorage.getItem('obj1') || '{}');
 
   
-  constructor(private api:ApiService,private router:Router) {
+  constructor(private api:ApiService,private router:Router,private spinner:NgxSpinnerService) {
     
     this.fetchExpenseDetails();
     this.fetchBudgetDetails();
    }
-
+   update(_id:any,_rev:any){
+     this.router.navigate(['edit'],{queryParams:{data:_id,_rev}})
+   }
    fetchExpenseDetails(){
 
       this.api.fetchlist("expense",this.userId.id).subscribe(res =>{

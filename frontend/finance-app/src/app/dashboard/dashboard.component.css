@@ -27,7 +27,12 @@ tr:nth-child(even) {
   border: none;
   margin-left:20px;
 }
-
+ .delete{
+  background-color: red;
+  color:white;
+  border:none;
+  width:70px;
+}
 
 .sidebar{
   position: fixed;

@@ -39,6 +39,7 @@ obj1: any = {
         email: ['',Validators.email],
       password: ['', [ Validators.minLength(8)]],
     });
+   
 }
 get email() { 
   return this.formgroup.get('email')!;

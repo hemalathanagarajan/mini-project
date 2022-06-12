@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgxSpinnerModule } from "ngx-spinner";
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { ReviewComponent } from './review/review.component';
 import { BudgetingTipsComponent } from './budgeting-tips/budgeting-tips.component';
 import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { EditComponent } from './edit/edit.component';
 
 
 
@@ -50,6 +52,7 @@ const routes:Routes=[
     ReviewComponent,
     BudgetingTipsComponent,
     ExpenseDetailComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,12 +63,14 @@ const routes:Routes=[
     HttpClientModule,
     ReactiveFormsModule,
     GoogleChartsModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot(),
 
 
 
     RouterModule.forRoot(routes)
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [ {provide: HTTP_INTERCEPTORS,
         useClass: HttpCallInterceptorService,
         multi: true

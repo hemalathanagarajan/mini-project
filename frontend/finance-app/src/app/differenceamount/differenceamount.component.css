@@ -119,9 +119,17 @@ color:mediumblue;
     font-style:italic;
     font-family:'Times New Roman', Times, serif;
   }
-  h6, span{
-    color:green;
+  .blue{
+    color:blue;
+    font-size:20px;
   }
+  .red{
+    color:red;
+    font-size:20px;
+
+  }
+
+
   h4{
     margin-left:90px;
     font-size:44px;
@@ -148,6 +156,7 @@ color:mediumblue;
     
     
   }
+
   
   
   
@@ -200,6 +209,12 @@ color:mediumblue;
     color: #7d7d7d;
     
   }
+  p{
+    margin-left:60px;
+    margin-top:30px;
+  }
+
+  
   .control{
     position: absolute;
     bottom: 20%;

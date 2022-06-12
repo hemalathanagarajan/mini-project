@@ -59,18 +59,18 @@
 
             </tr>
 
-            <tr *ngIf=" budgetDetails.length > 0">
-                <td>{{budgetDetails[0].home}}</td>
-                <td>{{budgetDetails[0].food}}</td>
-                <td>{{budgetDetails[0].cloth}}</td>
-                <td>{{budgetDetails[0].eb_bill}}</td>
-                <td>{{budgetDetails[0].education}}</td>
-                <td>{{budgetDetails[0].EMI}}</td>
-                <td>{{budgetDetails[0].entertainment}}</td>
-                <td>{{budgetDetails[0].transport}}</td>
-                <td>{{budgetDetails[0].health}}</td>
-                <td>{{budgetDetails[0].budgetall}}</td>
-                <td>{{budgetDetails[0].month}}</td>
+            <tr *ngIf=" budgetDetails">
+                <td>{{budgetDetails.home}}</td>
+                <td>{{budgetDetails.food}}</td>
+                <td>{{budgetDetails.cloth}}</td>
+                <td>{{budgetDetails.eb_bill}}</td>
+                <td>{{budgetDetails.education}}</td>
+                <td>{{budgetDetails.EMI}}</td>
+                <td>{{budgetDetails.entertainment}}</td>
+                <td>{{budgetDetails.transport}}</td>
+                <td>{{budgetDetails.health}}</td>
+                <td>{{budgetDetails.budgetall}}</td>
+                <td>{{budgetDetails.month}}</td>
             </tr>
             <tr *ngIf="budgetDetails.length == 0 ">
 
@@ -102,20 +102,20 @@
 
             </tr>
             <tr>
-            <tr *ngIf="expenceDetails.length > 0">
+            <tr *ngIf="expenceDetails">
 
-                <td>{{expenceDetails[0].home}}</td>
+                <td>{{expenceDetails.home}}</td>
 
-                <td>{{expenceDetails[0].food}}</td>
-                <td>{{expenceDetails[0].cloth}}</td>
-                <td>{{expenceDetails[0].eb_bill}}</td>
-                <td>{{expenceDetails[0].education}}</td>
-                <td>{{expenceDetails[0].EMI}}</td>
-                <td>{{expenceDetails[0].entertainment}}</td>
-                <td>{{expenceDetails[0].transport}}</td>
-                <td>{{expenceDetails[0].health}}</td>
-                <td>{{expenceDetails[0].expenseall}}</td>
-                <td>{{expenceDetails[0].month}}</td>
+                <td>{{expenceDetails.food}}</td>
+                <td>{{expenceDetails.cloth}}</td>
+                <td>{{expenceDetails.eb_bill}}</td>
+                <td>{{expenceDetails.education}}</td>
+                <td>{{expenceDetails.EMI}}</td>
+                <td>{{expenceDetails.entertainment}}</td>
+                <td>{{expenceDetails.transport}}</td>
+                <td>{{expenceDetails.health}}</td>
+                <td>{{expenceDetails.expenseall}}</td>
+                <td>{{expenceDetails.month}}</td>
             </tr>
             <tr *ngIf="expenceDetails.length == 0">
                 <td>No records found</td>
@@ -142,18 +142,33 @@
                 <th>Total Difference Amount</th>
 
             </tr>
-            <tr *ngIf="expenceDetails.length > 0 && budgetDetails.length > 0">
-                <td>{{calculateDifference(expenceDetails[0].home,budgetDetails[0].home)}}</td>
+            <tr *ngIf="expenceDetails && budgetDetails ">
+                <td [style.color]="budgetDetails.home>expenceDetails.home? 'green': 'red'">
 
-                <td> {{calculateDifference(expenceDetails[0].food,budgetDetails[0].food)}}</td>
-                <td> {{calculateDifference(expenceDetails[0].cloth,budgetDetails[0].cloth)}}</td>
-                <td>{{calculateDifference(expenceDetails[0].eb_bill,budgetDetails[0].eb_bill)}}</td>
-                <td>{{calculateDifference(expenceDetails[0].education,budgetDetails[0].education)}}</td>
-                <td>{{calculateDifference(expenceDetails[0].EMI,budgetDetails[0].EMI)}}</td>
-                <td>{{calculateDifference(expenceDetails[0].entertainment,budgetDetails[0].entertainment)}}</td>
-                <td>{{calculateDifference(expenceDetails[0].transport,budgetDetails[0].transport)}}</td>
-                <td>{{calculateDifference(expenceDetails[0].health,budgetDetails[0].health)}}</td>
-                <td>{{calculateDifference(expenceDetails[0].expenseall,budgetDetails[0].budgetall)}}</td>
+                    {{calculateDifference(budgetDetails.home,expenceDetails.home)}}
+                </td>
+
+
+                <td [style.color]="budgetDetails.food>expenceDetails.food? 'green': 'red'">
+
+                    {{calculateDifference(budgetDetails.food,expenceDetails.food)}}
+                </td>
+                <td [style.color]="budgetDetails.cloth>expenceDetails.cloth? 'green': 'red'">
+                    {{calculateDifference(budgetDetails.cloth,expenceDetails.cloth)}}</td>
+                <td [style.color]="budgetDetails.eb_bill>expenceDetails.eb_bill? 'green': 'red'">
+                    {{calculateDifference(budgetDetails.eb_bill,expenceDetails.eb_bill)}}</td>
+                <td [style.color]="budgetDetails.education>expenceDetails.education? 'green': 'red'">
+                    {{calculateDifference(budgetDetails.education,expenceDetails.education)}}</td>
+                <td [style.color]="budgetDetails.EMI>expenceDetails.EMI? 'green': 'red'">
+                    {{calculateDifference(budgetDetails.EMI,expenceDetails.EMI)}}</td>
+                <td [style.color]="budgetDetails.entertainment>expenceDetails.entertainment? 'green': 'red'">
+                    {{calculateDifference(budgetDetails.entertainment,expenceDetails.entertainment)}}</td>
+                <td [style.color]="budgetDetails.transport>expenceDetails.transport? 'green': 'red'">
+                    {{calculateDifference(budgetDetails.transport,expenceDetails.transport)}}</td>
+                <td [style.color]="budgetDetails.health>expenceDetails.health? 'green': 'red'">
+                    {{calculateDifference(budgetDetails.health,expenceDetails.health)}}</td>
+                <td [style.color]="budgetDetails.budgetall>expenceDetails.expenseall? 'green': 'red'">
+                    {{calculateDifference(budgetDetails.budgetall,expenceDetails.expenseall)}}</td>
             </tr>
 
             <tr *ngIf="expenceDetails.length && budgetDetails.length == 0 ">
@@ -164,11 +179,18 @@
 
         </table>
     </div>
-    <h4>Basic chart Percentages for Money Management </h4>
+    <h4>Chart on Budget and Expense List</h4>
+    <p>*IN Chart <span class="blue">BLUE</span> color indicates:Budget List</p>
+    <p>*In Chart <span class="red">RED </span>color indicates :Expense List</p>
 
-    <google-chart class="chart" [type]="myType" [data]="barData" [width]="800" [height]="800">
+    <google-chart *ngIf="loadData" class="chart" [type]="myType" [data]="barData" [options]="options" [width]="1500"
+        [height]="800">
+
 
     </google-chart>
+
+
+
 
     <div id="container">
         <div class="product-details">
