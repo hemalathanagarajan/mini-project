@@ -2,18 +2,23 @@ let express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dbconnection =require('./nanodb');
-let app = express();
+let app1 = express();  // Compliant
+app1.disable("x-powered-by");
+
+let helmet = require("helmet");
+let app2 = express(); // Compliant
+app2.use(helmet.hidePoweredBy());
 const port = 8000;
-app.use(express.static('public'));
+app1.use(express.static('public'));
 
 
 
 
-app.use(cors({
+app1.use(cors({
       origin:'http://localhost:4200'}
 
       ));
-app.use(function(_req, res, next) {
+app1.use(function(_req, res, next) {
     res.header("Access-Control-Allow-Origin', '*'");
     res.header("Access-Control-Allow-Headers","Origin, X-Requested-with,Content-type,Accept");
     next();
@@ -21,12 +26,12 @@ app.use(function(_req, res, next) {
 
     
     
-app.use(bodyParser.json());
+app1.use(bodyParser.json());
 
 
 
 
-app.get('/getdata/:id',(req,res)=>{
+app1.get('/getdata/:id',(req,res)=>{
     console.log("email:",req.params.id);
     const object = {
         selector:{
@@ -44,7 +49,7 @@ app.get('/getdata/:id',(req,res)=>{
 
 })
 
-app.post('/postdata',function (req,res) {
+app1.post('/postdata',function (req,res) {
 
     const objectnew= {
         name:req.body.Name,
@@ -66,7 +71,7 @@ app.post('/postdata',function (req,res) {
 });
 
     
-app.listen(port, (err) => {
+app1.listen(port, (err) => {
     if (err) {
       return console.log('something bad happened', err);
     }
