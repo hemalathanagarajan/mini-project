@@ -124,8 +124,8 @@ loadData =false
        await this.getBudget1(Formvalue).then((res:any)=>{
         this.budgetDetails = res[0];
        
-         this.getExpense1(Formvalue).then((res:any)=>{
-          this.expenceDetails = res[0];
+         this.getExpense1(Formvalue).then((response:any)=>{
+          this.expenceDetails = response[0];
 
           this.loadData=true
           this.barData = [  

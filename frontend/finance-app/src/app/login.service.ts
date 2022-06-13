@@ -63,7 +63,7 @@ array:any;
     return this.http.post(url, typedData, this.httpOptions);
   }
 
-  getDataByTypeandId(type:string,id:any) {
+  getDataByTypeandId(_type:string,_id:any) {
     let url = this.endpoint + 'finance_db/_find'
     let typedData = {
      selector: {
@@ -75,7 +75,7 @@ array:any;
     return this.http.post(url, typedData, this.httpOptions);
   }
   
-  getbyId(id:any) {
+  getbyId(_id:any) {
     let url = this.endpoint + 'finance_db/_find'
     let typedData = {
       "selector": {
