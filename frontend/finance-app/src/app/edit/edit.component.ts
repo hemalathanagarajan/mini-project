@@ -24,8 +24,8 @@ export class EditComponent implements OnInit {
       console.log(res)
       this._id = res.data
       this.rev = res._rev
-      this.login.getbyId(this._id).subscribe(res => {
-        this.temp = res
+      this.login.getbyId(this._id).subscribe(response => {
+        this.temp = response
 
         console.log(this.temp)
         console.log(this.formgroup)
