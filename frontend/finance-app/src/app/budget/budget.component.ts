@@ -36,11 +36,11 @@ budget: any = {
         health: '',
         month:'',
         location:'',
-      
-};
+     
+    };
   temp: any;
   temp1: any;
- 
+
 
 
 
