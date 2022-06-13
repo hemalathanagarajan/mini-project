@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -105,4 +106,28 @@ array:any;
     return this.http.post(url,list,this.httpOptions);
 
   }
+
+
+  
+
+  location(type:string) {
+    const url=this.endpoint+'finance_db/'+'_design/' +'get_location/' + '_view/' + 'location_view?include_docs=true';
+   let key = {"keys" : [type]}
+    
+    return this.http.post(url,key,this.httpOptions);
+
+  }
+
+
+  getalllLocation(type:any,fields: any) {
+    let url = this.endpoint + 'finance_db/_find'
+    let typedData = {
+     selector: {
+      type: type
+    },
+     fields: fields
+    };
+    return this.http.post(url, typedData, this.httpOptions);
+  }
+
  }

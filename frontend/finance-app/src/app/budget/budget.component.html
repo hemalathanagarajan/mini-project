@@ -22,6 +22,13 @@
                     <option value="Dec">Dec</option>
                 </select>
             </div>
+            <div class="formgroup">
+                <label>Select Location</label>
+                <select name="location" id="location" class="form-control" [ngModel]="budget.location"
+                    placeholder="select location" formControlName="location">
+                    <option *ngFor="let location of locations" [value]="location">{{location}}</option>
+                </select>
+            </div>
 
 
 

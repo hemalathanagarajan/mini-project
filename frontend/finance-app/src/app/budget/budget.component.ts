@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder,Validators} from '@angular/forms';
 import {ApiService} from '../login.service';
 import  {rangeValidator}  from './validator';
@@ -9,7 +9,7 @@ import {NotificationService} from '../notification.service';
   templateUrl: './budget.component.html',
   styleUrls: ['./budget.component.css']
 })
-export class BudgetComponent {
+export class BudgetComponent  implements OnInit{
 formgroup: FormGroup;
 result!:number;
 budgetall !:number;
@@ -22,6 +22,7 @@ educationAmount:string | undefined;
 EMIAmount:string | undefined;entertainmentAmount:string | undefined;
 transportAmount:string | undefined;
 healthAmount:string | undefined;
+locations : any = []
 budget: any = {
     
         home: '',
@@ -59,8 +60,29 @@ budget: any = {
         month:[''],
         location:['']
       });
+      this.locationview();
+  }
+  ngOnInit(): void {
+  this.locationview();
   }
   
+  locationview() {
+    this.api.getalllLocation("location",this.fields).subscribe((data:any) => {
+      console.log(data);
+      let value  = data.docs
+    console.log(value);
+    for (let m = 0; m < value.length; m++) {
+      
+      this.locations[m]  =  value[m].city
+    }
+   console.log(this.locations);
+
+
+
+    })
+  }
+
+
   get home() {
     return this.formgroup.get('home')!;
   }
