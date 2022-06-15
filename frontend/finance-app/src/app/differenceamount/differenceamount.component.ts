@@ -74,7 +74,7 @@ expense  :any;
 
 
 
-     getBudget1(Formvalue:any){
+     getBudget(Formvalue:any){
   
       let data={
         selector:{
@@ -97,7 +97,7 @@ expense  :any;
         });
      }
 
-     getExpense1(Formvalue:any) {
+     getExpense(Formvalue:any) {
       let data={
         selector:{
           "type": "expense",
@@ -121,10 +121,10 @@ expense  :any;
 
 loadData =false
      async fetchRecords(Formvalue:any){
-       await this.getBudget1(Formvalue).then((res:any)=>{
+       await this.getBudget(Formvalue).then((res:any)=>{
         this.budgetDetails = res[0];
        
-         this.getExpense1(Formvalue).then((response:any)=>{
+         this.getExpense(Formvalue).then((response:any)=>{
           this.expenceDetails = response[0];
 
           this.loadData=true
@@ -146,17 +146,13 @@ loadData =false
        })
        
       }
-
-
       title = 'googlechart';  
      myType:any = 'ColumnChart';  
       barData :any;   
-     
      width = 1200;  
      height = 300; 
       options = {
       title: 'Graph on Budget and Expense lists',
-
       hAxis: {
         title: 'Categories',
         viewWindow: {

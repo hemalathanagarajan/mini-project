@@ -26,7 +26,6 @@ import { ReviewComponent } from './review/review.component';
 import { BudgetingTipsComponent } from './budgeting-tips/budgeting-tips.component';
 import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { EditComponent } from './edit/edit.component';
 
 
 
@@ -52,7 +51,6 @@ const routes:Routes=[
     ReviewComponent,
     BudgetingTipsComponent,
     ExpenseDetailComponent,
-    EditComponent,
   ],
   imports: [
     BrowserModule,

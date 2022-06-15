@@ -5,18 +5,11 @@ font-family: "montserrat",sans-serif;
 }
 
 .bg-image {
-    /* The image used */
     background-image: url('../../images/support.JPG');
-    
-    /* Add the blur effect */
     filter: blur(8px);
     -webkit-filter: blur(8px);
-    
-    /* Full height */
     height: 100%; 
-    
-    /* Center and scale the image nicely */
-    background-position: center;
+   background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -70,7 +63,6 @@ border: 1px solid #ccc;
 background: none;
 padding: 20px 40px;
 outline: none;
-/* color: #ddd; */
 color:black;
 transition: 0.5s;
 box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
@@ -92,7 +84,6 @@ height: 120px;
 }
 
 .contact-form-btn{
-/* float: center; */
 margin-left:10px;
 border: 0;
 background:black;
@@ -103,7 +94,5 @@ cursor: pointer;
 transition: 0.5s;
 }
 .contact-form-btn:hover{
-/* background:#34495e ; */
 background:black ;
-
 }

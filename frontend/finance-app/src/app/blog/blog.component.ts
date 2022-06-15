@@ -12,9 +12,4 @@ export class BlogComponent  {
   constructor(private fb:FormBuilder) { 
 
 }
-
-  
-  
-
-
 }

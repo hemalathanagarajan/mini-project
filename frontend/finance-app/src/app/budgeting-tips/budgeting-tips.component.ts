@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class BudgetingTipsComponent   {
 
   constructor() {  
-    console.log("view");
+    console.log("");
   }
 
   

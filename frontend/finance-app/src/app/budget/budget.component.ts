@@ -40,11 +40,7 @@ budget: any = {
     };
   temp: any;
   temp1: any;
-
-
-
-
-  constructor(private fb: FormBuilder,private api:ApiService, private toastr:NotificationService) { 
+constructor(private fb: FormBuilder,private api:ApiService, private toastr:NotificationService) { 
     this.formgroup = this.fb.group({
         home: ['',[Validators.required,rangeValidator(0,Infinity)]],
         food: ['',[Validators.required,rangeValidator(0,Infinity)]],
@@ -76,14 +72,9 @@ budget: any = {
       this.locations[m]  =  value[m].city
     }
    console.log(this.locations);
-
-
-
-    })
+  })
   }
-
-
-  get home() {
+get home() {
     return this.formgroup.get('home')!;
   }
 
@@ -119,16 +110,11 @@ get location(){
 }
 onReset():void {
   this.formgroup.reset();
-
-
 }
-
-
   submit(Formvalue:any){
     const  userData = JSON.parse(localStorage.getItem('obj1') || '{}');
     console.log(userData);
-      
-       const budget = {
+     const budget = {
       "home":Formvalue.home,
       "food":Formvalue.food,
       "cloth":Formvalue.cloth,
@@ -143,49 +129,31 @@ onReset():void {
       type:"budget",
       user:userData.id,
       "location" : this.temp1,
-      
-
-    }
+ }
       this.api.add("finance_db",budget).subscribe(res=>{
         console.log(res);
       this.toastr.showSuccess("success","Budget Created Successfully")
-        
-
-      },
+  },
       rej=>{
        console.log("error",rej); 
       });
 }
 userbudgetValue = {
- 
  "details" : this.budget
-
 }
-
-AddBudget(userbudgetValue:any){
-console.log(userbudgetValue);
-
- 
-  this.result = userbudgetValue.home + userbudgetValue.food +userbudgetValue.cloth + userbudgetValue.eb_bill +userbudgetValue.entertainment+ userbudgetValue.education+userbudgetValue.EMI+userbudgetValue.transport+userbudgetValue.health;
-
+// To Add the total budgets given
+addBudget(userbudgetValue:any){
+this.result = userbudgetValue.home + userbudgetValue.food +userbudgetValue.cloth + userbudgetValue.eb_bill +userbudgetValue.entertainment+ userbudgetValue.education+userbudgetValue.EMI+userbudgetValue.transport+userbudgetValue.health;
 this.formgroup.controls['budgetall'].setValue(this.result);
-
 }
-
 
 valueChanged(event:any) {
-
-console.log(event.target.value);
 this.place = event.target.value
 this.api.getLocation(this.place,this.fields).subscribe((data => {
-  console.log(data);
   this.temp=data;
   this.temp1=this.temp.docs[0]._id;
-  console.log(this.temp1);
-
 })
 );
 return this.temp1;
 }
-
 }

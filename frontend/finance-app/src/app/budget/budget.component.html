@@ -29,10 +29,6 @@
                     <option *ngFor="let location of locations" [value]="location">{{location}}</option>
                 </select>
             </div>
-
-
-
-
             <div class="form-group">
                 <label for="home">Home rent</label>
                 <input type="number" id="home" class="form-control" formControlName="home"
@@ -58,11 +54,8 @@
                     <span *ngIf="food.invalid && food.touched">
                         food must not negative values!!!
                     </span>
-
                 </div>
-
             </div>
-
             <div class="form-group">
                 <label for="cloth">Cloth</label>
                 <input type="number" id="cloth" class="form-control" [ngModel]="budget.cloth" formControlName="cloth"
@@ -72,10 +65,8 @@
                     <span *ngIf="cloth.invalid && cloth.touched">
                         cloth must not negative values!!!
                     </span>
-
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="eb_bill">EB-Bill</label>
                 <input type="number" id="eb_bill" class="form-control" [ngModel]="budget.eb_bill"
@@ -85,10 +76,8 @@
                     <span *ngIf="eb_bill.invalid && eb_bill.touched">
                         eb_bill must not negative values!!!
                     </span>
-
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="education">Education</label>
                 <input type="number" id="education" class="form-control" formControlName="education"
@@ -100,10 +89,8 @@
                     <span *ngIf="education.invalid && education.touched">
                         education must not negative values!!!
                     </span>
-
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="EMI">EMI</label>
                 <input type="number" id="EMI" class="form-control" formControlName="EMI" [ngModel]="budget.EMI"
@@ -115,10 +102,8 @@
                     <span *ngIf="EMI.invalid && EMI.touched">
                         EMI must not negative values!!!
                     </span>
-
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="entertainment">Entertainment</label>
                 <input type="number" id="entertainment" class="form-control" [ngModel]="budget.entertainment"
@@ -131,14 +116,12 @@
                     <span *ngIf="entertainment.invalid && entertainment.touched">
                         entertainment must not negative values!!!
                     </span>
-
                 </div>
             </div>
             <div class="form-group">
                 <label for="transport">Auto-Transport</label>
                 <input type="number" id="transport" class="form-control" formControlName="transport"
                     [ngModel]="budget.transport" placeholder="Enter amount in rupees" />
-
                 <div class="help-block text-danger" *ngIf="transport.touched">
                     <span *ngIf="transport.errors?.required">
                         Auto-Transport is REQUIRED!!!
@@ -146,7 +129,6 @@
                     <span *ngIf="transport.invalid && transport.touched">
                         transport must not negative values!!!
                     </span>
-
                 </div>
             </div>
             <div class="form-group">
@@ -160,24 +142,15 @@
                     <span *ngIf="health.invalid && health.touched">
                         health amount must not negative values!!!
                     </span>
-
                 </div>
             </div>
-
             <label for="readonly">Total Amount</label>
             <input type="readonly" id="readonly" class="form-control" formControlName="budgetall">
-
             <br>
-
-            <button class="btn btn-primary" (click)="AddBudget(formgroup.value)">
+            <button class="btn btn-primary" (click)="addBudget(formgroup.value)">
                 Budget total </button>
             <button class=" btn btn-dark" routerLink="/dashboard">Dashboard</button>
             <button class="btn btn-primary" (click)="onReset()" type="button"> Reset</button>
-
-
-
-
         </form>
     </div>
-
 </body>

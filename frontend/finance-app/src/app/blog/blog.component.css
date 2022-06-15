@@ -23,9 +23,7 @@ body {
     padding-left: 20px;
   }
   
-  .fakeimg {
-    /* background-color: #aaa; */
-    
+  .img {
     width: 100%;
     padding: 20px;
   }
